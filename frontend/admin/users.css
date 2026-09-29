@@ -1,0 +1,78 @@
+/* Users directory and the account record sub-module. Same token set and clay
+   recipe as the Overview so the two pages read as one console. */
+.users-detail-page,
+.users-directory-table {
+  --clay-raise: 6px 8px 18px rgba(66, 21, 27, .07), -5px -6px 16px rgba(255, 255, 255, .85);
+  --clay-emboss: inset 2px 3px 4px rgba(255, 255, 255, .85), inset -2px -3px 5px rgba(66, 21, 27, .1);
+  --clay-inset: inset 2px 2px 5px rgba(66, 21, 27, .07), inset -2px -2px 5px rgba(255, 255, 255, .9);
+}
+
+/* Directory ------------------------------------------------------------- */
+.users-table-scroll { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: rgba(66, 21, 27, .22) rgba(66, 21, 27, .05); }
+.users-table-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.users-table-scroll::-webkit-scrollbar-track { border-radius: 8px; background: rgba(66, 21, 27, .05); }
+.users-table-scroll::-webkit-scrollbar-thumb { border-radius: 8px; background: rgba(66, 21, 27, .2); }
+.users-directory-table { min-width: 720px; }
+.users-name-cell { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.users-name-cell strong { display: block; font-size: 12.5px; font-weight: 600; }
+.users-name-cell small { display: block; margin-top: 3px; color: var(--muted); font-size: 10.5px; }
+.users-modules-cell { font-family: var(--font-heading); font-size: 13px; }
+.users-modules-cell span { color: var(--muted); font-family: var(--font-body); font-size: 11px; }
+.users-avatar-sm { display: grid; flex: 0 0 34px; width: 34px; height: 34px; place-items: center; border-radius: 12px; box-shadow: var(--clay-emboss); font-family: var(--font-heading); font-size: 11.5px; font-weight: 600; letter-spacing: -.01em; }
+.users-avatar-sm .sa-icon { width: 16px; height: 16px; }
+
+/* One tint per role so a directory row is identifiable at a glance. */
+.role-super-admin { color: #b8452f; background: rgba(236, 110, 77, .17); }
+.role-teacher { color: #3f6b55; background: rgba(164, 195, 180, .48); }
+.role-parent { color: #6f5572; background: rgba(195, 169, 196, .42); }
+.role-student { color: #3d6178; background: rgba(127, 165, 187, .38); }
+
+/* Record sub-module ----------------------------------------------------- */
+.users-detail-page { display: grid; gap: 18px; min-width: 0; }
+.users-back { justify-self: start; }
+.users-back-icon { transform: rotate(180deg); }
+.users-detail-header { display: flex; align-items: center; gap: 20px; padding: 24px; border: 1px solid var(--sa-line); border-radius: 18px; background: var(--sa-card); box-shadow: var(--clay-raise); }
+.users-avatar { display: grid; flex: 0 0 66px; width: 66px; height: 66px; place-items: center; border-radius: 22px; box-shadow: var(--clay-emboss); font-family: var(--font-heading); font-size: 22px; font-weight: 600; letter-spacing: -.03em; }
+.users-avatar .sa-icon { width: 28px; height: 28px; }
+.users-detail-heading { flex: 1; min-width: 0; }
+.users-eyebrow { margin: 0 0 8px; color: var(--muted); font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.users-detail-heading h2 { margin: 0; font-family: var(--font-heading); font-size: 25px; font-weight: 600; letter-spacing: -.045em; overflow-wrap: anywhere; }
+.users-detail-heading h2:focus { outline: none; }
+.users-detail-context { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 11px; color: var(--muted); font-size: 12px; }
+.users-detail-scope { margin: 9px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+
+.users-detail-page .sa-panel { padding: 22px; border-radius: 18px; box-shadow: var(--clay-raise); }
+.users-detail-page .sa-panel-head { flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 18px; }
+.users-detail-overview { display: grid; gap: 18px; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: start; }
+.users-fields { display: grid; gap: 16px 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; }
+.users-fields-single { grid-template-columns: minmax(0, 1fr); }
+.users-fields > div { padding: 12px 14px; border-radius: 12px; background: rgba(255, 255, 255, .55); box-shadow: var(--clay-inset); }
+.users-fields dt { margin-bottom: 6px; color: var(--muted); font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.users-fields dd { margin: 0; font-size: 12px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+
+.users-progress { display: flex; flex-direction: column; gap: 7px; }
+.users-progress > strong { font-family: var(--font-heading); font-size: 36px; font-weight: 600; letter-spacing: -.05em; line-height: 1; }
+.users-progress strong span { color: var(--muted); font-size: 19px; font-weight: 400; }
+.users-progress > span { color: var(--muted); font-size: 11px; }
+.users-progress-track { display: block; height: 8px; margin-top: 18px; overflow: hidden; border-radius: 8px; background: var(--sa-soft); box-shadow: var(--clay-inset); }
+.users-progress-track i { display: block; height: 100%; min-width: 3px; border-radius: 8px; background: var(--mint); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5); transition: width .45s ease; }
+.users-progress-caption { margin: 12px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+
+.users-detail-page .sa-chip-list { display: flex; flex-wrap: wrap; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.users-detail-page .sa-chip-list li { display: inline-flex; align-items: center; gap: 9px; padding: 9px 9px 9px 14px; border: 1px solid var(--sa-line); border-radius: 30px; background: var(--sa-card); box-shadow: var(--clay-raise); font-size: 11.5px; font-weight: 600; }
+.users-detail-page .sa-chip-list button { display: grid; width: 22px; height: 22px; place-items: center; border: 0; border-radius: 50%; color: var(--muted); background: var(--sa-soft); cursor: pointer; transition: color .16s, background .16s; }
+.users-detail-page .sa-chip-list button:hover { color: white; background: #b8452f; }
+.users-detail-page .sa-chip-list .sa-icon { width: 12px; height: 12px; }
+.users-detail-page button:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
+
+@media (max-width: 1080px) {
+  .users-detail-overview { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .users-detail-header { align-items: flex-start; gap: 14px; padding: 17px; border-radius: 15px; }
+  .users-avatar { flex-basis: 46px; width: 46px; height: 46px; border-radius: 15px; font-size: 16px; }
+  .users-avatar .sa-icon { width: 21px; height: 21px; }
+  .users-detail-heading h2 { font-size: 20px; }
+  .users-detail-page .sa-panel { padding: 17px; border-radius: 15px; }
+  .users-fields { grid-template-columns: minmax(0, 1fr); }
+}

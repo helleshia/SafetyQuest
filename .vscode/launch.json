@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "SafetyQuest mobile",
+      "type": "dart",
+      "request": "launch",
+      "cwd": "mobile",
+      "program": "lib/main.dart"
+    }
+  ]
+}

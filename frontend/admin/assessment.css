@@ -1,0 +1,86 @@
+/* Assessment overview. Reads as a workflow: what is stuck, how learners scored,
+   whether the data is trustworthy, then the raw rows. */
+.assess-page {
+  --clay-raise: 6px 8px 18px rgba(66, 21, 27, .07), -5px -6px 16px rgba(255, 255, 255, .85);
+  --clay-emboss: inset 2px 3px 4px rgba(255, 255, 255, .85), inset -2px -3px 5px rgba(66, 21, 27, .1);
+  --clay-inset: inset 2px 2px 5px rgba(66, 21, 27, .07), inset -2px -2px 5px rgba(255, 255, 255, .9);
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.assess-page .sa-panel { padding: 22px; border-radius: 18px; box-shadow: var(--clay-raise); }
+.assess-page .sa-panel-head { flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 18px; }
+
+/* Says plainly what the page is for, because the numbers alone did not. */
+.assess-intro { display: flex; align-items: flex-start; gap: 16px; padding: 20px 22px; border: 1px solid var(--sa-line); border-radius: 18px; background: var(--sa-card); box-shadow: var(--clay-raise); }
+.assess-intro-icon { display: grid; flex: 0 0 42px; width: 42px; height: 42px; place-items: center; border-radius: 15px; color: var(--coral); background: rgba(236, 110, 77, .14); box-shadow: var(--clay-emboss); }
+.assess-intro-icon .sa-icon { width: 20px; height: 20px; }
+.assess-intro h2 { margin: 0 0 7px; font-family: var(--font-heading); font-size: 17px; font-weight: 600; letter-spacing: -.035em; }
+.assess-intro p { max-width: 86ch; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.assess-intro strong { color: var(--ink); }
+
+.assess-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 16px; border: 1px dashed var(--sa-line); border-radius: 14px; background: rgba(255, 255, 255, .5); }
+.assess-filters > span { color: var(--muted); font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.assess-filters > strong { margin-left: auto; font-family: var(--font-heading); font-size: 13px; font-weight: 600; }
+
+/* Pipeline ------------------------------------------------------------- */
+.assess-headline { margin: 0 0 16px; padding: 13px 16px; border-radius: 12px; background: rgba(164, 195, 180, .2); box-shadow: var(--clay-inset); font-size: 12.5px; line-height: 1.55; }
+.assess-headline.needs-action { background: rgba(228, 184, 91, .22); }
+.assess-headline strong { font-family: var(--font-heading); font-size: 16px; font-weight: 600; }
+.assess-pipeline { display: grid; gap: 11px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.assess-stage { position: relative; padding: 15px 16px; border: 1px solid var(--sa-line); border-radius: 14px; background: var(--sa-card); box-shadow: var(--clay-raise); }
+/* Arrow between the stages, to read the row as a sequence rather than three tiles. */
+.assess-stage + .assess-stage::before { position: absolute; top: 50%; left: -11px; z-index: 1; width: 11px; border-top: 1px dashed rgba(66, 21, 27, .28); content: ""; }
+.assess-stage-step { display: block; margin-bottom: 9px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.assess-stage b { display: block; font-family: var(--font-heading); font-size: 30px; font-weight: 600; letter-spacing: -.055em; line-height: 1; }
+.assess-stage strong { display: block; margin: 8px 0 5px; font-size: 12.5px; font-weight: 600; }
+.assess-stage small { display: block; color: var(--muted); font-size: 10.5px; line-height: 1.5; }
+.assess-stage.tone-wait b { color: #8a6415; }
+.assess-stage.tone-wait { border-color: rgba(228, 184, 91, .55); background: linear-gradient(rgba(228, 184, 91, .12), rgba(228, 184, 91, 0) 70px), var(--sa-card); }
+.assess-stage.tone-draft b { color: #3d6178; }
+.assess-stage.tone-done b { color: #2f6b4f; }
+.assess-stacked { display: flex; height: 10px; margin-top: 14px; overflow: hidden; border-radius: 10px; background: var(--sa-soft); box-shadow: var(--clay-inset); }
+.assess-stacked i { height: 100%; transition: width .45s ease; }
+.assess-stacked .tone-wait { background: var(--yellow); }
+.assess-stacked .tone-draft { background: var(--blue); }
+.assess-stacked .tone-done { background: var(--mint); }
+
+
+/* Pass rate per grade level, then the per-module table -------------------- */
+.assess-grades { display: grid; gap: 11px; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 20px; }
+.assess-grade { padding: 14px 16px; border: 1px solid var(--sa-line); border-radius: 14px; background: var(--sa-card); box-shadow: var(--clay-raise); }
+.assess-grade.is-total { border-color: rgba(236, 110, 77, .45); background: linear-gradient(rgba(236, 110, 77, .07), rgba(236, 110, 77, 0) 70px), var(--sa-card); }
+.assess-grade > span:first-child { display: block; margin-bottom: 8px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.assess-grade b { display: block; margin-bottom: 10px; font-family: var(--font-heading); font-size: 27px; font-weight: 600; letter-spacing: -.055em; line-height: 1; }
+.assess-grade small { display: block; margin-top: 9px; color: var(--muted); font-size: 10.5px; line-height: 1.5; }
+
+.assess-track { display: block; height: 7px; overflow: hidden; border-radius: 7px; background: var(--sa-soft); box-shadow: var(--clay-inset); }
+.assess-track i { display: block; height: 100%; min-width: 3px; border-radius: 7px; background: var(--coral); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45); transition: width .45s ease; }
+
+.assess-module-table { min-width: 620px; }
+.assess-module-table td { padding-top: 12px; padding-bottom: 12px; vertical-align: middle; }
+.assess-module-table th:first-child, .assess-module-table td:first-child { width: 38%; }
+.assess-module-table em { color: var(--muted); font-size: 11px; font-style: italic; }
+.assess-count { font-family: var(--font-heading); font-size: 14px; font-weight: 600; letter-spacing: -.03em; }
+.assess-count small { color: var(--muted); font-family: var(--font-body); font-size: 10.5px; font-weight: 400; letter-spacing: 0; }
+.assess-module-score { display: flex; align-items: center; gap: 11px; }
+.assess-module-score .assess-track { flex: 1; }
+.assess-module-score b { flex-shrink: 0; min-width: 38px; font-family: var(--font-heading); font-size: 13px; font-weight: 600; text-align: right; }
+
+/* Drilldown -------------------------------------------------------------- */
+.assess-table-scroll { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: rgba(66, 21, 27, .22) rgba(66, 21, 27, .05); }
+.assess-table-scroll::-webkit-scrollbar { height: 8px; }
+.assess-table-scroll::-webkit-scrollbar-track { border-radius: 8px; background: rgba(66, 21, 27, .05); }
+.assess-table-scroll::-webkit-scrollbar-thumb { border-radius: 8px; background: rgba(66, 21, 27, .2); }
+
+@media (max-width: 900px) {
+  .assess-grades { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+  .assess-intro { padding: 16px; border-radius: 15px; }
+  .assess-page .sa-panel { padding: 17px; border-radius: 15px; }
+  .assess-pipeline { grid-template-columns: minmax(0, 1fr); }
+  .assess-stage + .assess-stage::before { top: -11px; left: 50%; width: 0; height: 11px; border-top: 0; border-left: 1px dashed rgba(66, 21, 27, .28); }
+  .assess-grades { grid-template-columns: minmax(0, 1fr); }
+  .assess-filters > strong { margin-left: 0; }
+}

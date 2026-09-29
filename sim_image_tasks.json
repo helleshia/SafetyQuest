@@ -1,0 +1,662 @@
+[
+  {
+    "module": "emergency_basics",
+    "step": 1,
+    "kind": "choice",
+    "alert": "SITUATION: Your classmate slipped and hurt their head!",
+    "prompt": "Watch the video. What do you do?",
+    "image_asset": "assets/modules/emergency_basics_sim_1.png",
+    "filename": "emergency_basics_sim_1.png",
+    "situation": "Your classmate slipped and hurt their head! — What do you do?"
+  },
+  {
+    "module": "emergency_basics",
+    "step": 2,
+    "kind": "hotspot",
+    "alert": "SITUATION: You need help, fast!",
+    "prompt": "Watch the video, then tap the TRUSTED ADULT.",
+    "image_asset": "assets/modules/emergency_basics_sim_2.png",
+    "filename": "emergency_basics_sim_2.png",
+    "situation": "You need help, fast! — tap the TRUSTED ADULT."
+  },
+  {
+    "module": "emergency_basics",
+    "step": 3,
+    "kind": "sequence",
+    "alert": "SITUATION: Typhoon season is coming!",
+    "prompt": "Watch, then tap the ready steps in order.",
+    "image_asset": "assets/modules/emergency_basics_sim_3.png",
+    "filename": "emergency_basics_sim_3.png",
+    "situation": "Typhoon season is coming! — tap the ready steps in order."
+  },
+  {
+    "module": "emergency_basics",
+    "step": 4,
+    "kind": "choice",
+    "alert": "SITUATION: The school siren is ringing!",
+    "prompt": "Watch the video. What should you do?",
+    "image_asset": "assets/modules/emergency_basics_sim_4.png",
+    "filename": "emergency_basics_sim_4.png",
+    "situation": "The school siren is ringing! — What should you do?"
+  },
+  {
+    "module": "emergency_basics",
+    "step": 5,
+    "kind": "hotspot",
+    "alert": "SITUATION: Pack your Go Bag!",
+    "prompt": "Watch, then tap the item that MUST go in.",
+    "image_asset": "assets/modules/emergency_basics_sim_5.png",
+    "filename": "emergency_basics_sim_5.png",
+    "situation": "Pack your Go Bag! — tap the item that MUST go in."
+  },
+  {
+    "module": "emergency_basics",
+    "step": 6,
+    "kind": "choice",
+    "alert": "SITUATION: You are calling 911.",
+    "prompt": "Watch the video. What do you tell them?",
+    "image_asset": "assets/modules/emergency_basics_sim_6.png",
+    "filename": "emergency_basics_sim_6.png",
+    "situation": "You are calling 911. — What do you tell them?"
+  },
+  {
+    "module": "earthquake",
+    "step": 1,
+    "kind": "choice",
+    "alert": "SITUATION: Earthquake! The classroom is shaking!",
+    "prompt": "Watch the video. Quick â€” what do you do?",
+    "image_asset": "assets/modules/earthquake_sim_1.png",
+    "filename": "earthquake_sim_1.png",
+    "situation": "Earthquake! The classroom is shaking! — Quick â€” what do you do?"
+  },
+  {
+    "module": "earthquake",
+    "step": 2,
+    "kind": "hotspot",
+    "alert": "SITUATION: It is still shaking!",
+    "prompt": "Watch, then tap the SAFEST cover spot.",
+    "image_asset": "assets/modules/earthquake_sim_2.png",
+    "filename": "earthquake_sim_2.png",
+    "situation": "It is still shaking! — tap the SAFEST cover spot."
+  },
+  {
+    "module": "earthquake",
+    "step": 3,
+    "kind": "hold",
+    "alert": "Things are falling! Stay covered!",
+    "prompt": "Press and HOLD the table leg until the shaking stops.",
+    "image_asset": "assets/modules/earthquake_sim_3.png",
+    "filename": "earthquake_sim_3.png",
+    "situation": "Things are falling! Stay covered! — Press and HOLD the table leg until the shaking stops."
+  },
+  {
+    "module": "earthquake",
+    "step": 4,
+    "kind": "sequence",
+    "alert": "Your teacher asks you to show the class.",
+    "prompt": "Tap the steps in the right order.",
+    "image_asset": "assets/modules/earthquake_sim_4.png",
+    "filename": "earthquake_sim_4.png",
+    "situation": "Your teacher asks you to show the class. — Tap the steps in the right order."
+  },
+  {
+    "module": "earthquake",
+    "step": 5,
+    "kind": "choice",
+    "alert": "The shaking has stopped.",
+    "prompt": "Your teacher says it is time to go out. What do you do?",
+    "image_asset": "assets/modules/earthquake_sim_5.png",
+    "filename": "earthquake_sim_5.png",
+    "situation": "The shaking has stopped. — Your teacher says it is time to go out. What do you do?"
+  },
+  {
+    "module": "earthquake",
+    "step": 6,
+    "kind": "choice",
+    "alert": "Aftershock! The ground shakes again outside.",
+    "prompt": "You are in the open field. Where do you stay?",
+    "image_asset": "assets/modules/earthquake_sim_6.png",
+    "filename": "earthquake_sim_6.png",
+    "situation": "Aftershock! The ground shakes again outside. — You are in the open field. Where do you stay?"
+  },
+  {
+    "module": "fire_safety",
+    "step": 1,
+    "kind": "hotspot",
+    "alert": "SITUATION: Inspect this room!",
+    "prompt": "Watch, then tap the fire hazard to report.",
+    "image_asset": "assets/modules/fire_safety_sim_1.png",
+    "filename": "fire_safety_sim_1.png",
+    "situation": "Inspect this room! — tap the fire hazard to report."
+  },
+  {
+    "module": "fire_safety",
+    "step": 2,
+    "kind": "choice",
+    "alert": "The school fire alarm sounds!",
+    "prompt": "What do you do?",
+    "image_asset": "assets/modules/fire_safety_sim_2.png",
+    "filename": "fire_safety_sim_2.png",
+    "situation": "The school fire alarm sounds! — What do you do?"
+  },
+  {
+    "module": "fire_safety",
+    "step": 3,
+    "kind": "hotspot",
+    "alert": "One hallway is blocked by fire!",
+    "prompt": "Tap the clear exit along the alternative safe route.",
+    "image_asset": "assets/modules/fire_safety_sim_3.png",
+    "filename": "fire_safety_sim_3.png",
+    "situation": "One hallway is blocked by fire! — Tap the clear exit along the alternative safe route."
+  },
+  {
+    "module": "fire_safety",
+    "step": 4,
+    "kind": "choice",
+    "alert": "There is smoke above you as you escape!",
+    "prompt": "How do you move toward the safe exit?",
+    "image_asset": "assets/modules/fire_safety_sim_4.png",
+    "filename": "fire_safety_sim_4.png",
+    "situation": "There is smoke above you as you escape! — How do you move toward the safe exit?"
+  },
+  {
+    "module": "fire_safety",
+    "step": 5,
+    "kind": "sequence",
+    "alert": "Imagine your clothing catches fire!",
+    "prompt": "Tap the actions in order.",
+    "image_asset": "assets/modules/fire_safety_sim_5.png",
+    "filename": "fire_safety_sim_5.png",
+    "situation": "Imagine your clothing catches fire! — Tap the actions in order."
+  },
+  {
+    "module": "fire_safety",
+    "step": 6,
+    "kind": "choice",
+    "alert": "You are outside, but your bag is inside!",
+    "prompt": "What is the safe choice?",
+    "image_asset": "assets/modules/fire_safety_sim_6.png",
+    "filename": "fire_safety_sim_6.png",
+    "situation": "You are outside, but your bag is inside! — What is the safe choice?"
+  },
+  {
+    "module": "flood_safety",
+    "step": 1,
+    "kind": "choice",
+    "alert": "SITUATION: Floodwater is rising outside!",
+    "prompt": "Watch the video. Where do you go right away?",
+    "image_asset": "assets/modules/flood_safety_sim_1.png",
+    "filename": "flood_safety_sim_1.png",
+    "situation": "Floodwater is rising outside! — Where do you go right away?"
+  },
+  {
+    "module": "flood_safety",
+    "step": 2,
+    "kind": "hotspot",
+    "alert": "SITUATION: Pick a safe place!",
+    "prompt": "Tap the SAFE high place in the scene.",
+    "image_asset": "assets/modules/flood_safety_sim_2.png",
+    "filename": "flood_safety_sim_2.png",
+    "situation": "Pick a safe place! — Tap the SAFE high place in the scene."
+  },
+  {
+    "module": "flood_safety",
+    "step": 3,
+    "kind": "choice",
+    "alert": "SITUATION: A flooded road blocks your way!",
+    "prompt": "What is the safest choice?",
+    "image_asset": "assets/modules/flood_safety_sim_3.png",
+    "filename": "flood_safety_sim_3.png",
+    "situation": "A flooded road blocks your way! — What is the safest choice?"
+  },
+  {
+    "module": "flood_safety",
+    "step": 4,
+    "kind": "sequence",
+    "alert": "SITUATION: Authorities say evacuate!",
+    "prompt": "Tap the safe steps in order.",
+    "image_asset": "assets/modules/flood_safety_sim_4.png",
+    "filename": "flood_safety_sim_4.png",
+    "situation": "Authorities say evacuate! — Tap the safe steps in order."
+  },
+  {
+    "module": "flood_safety",
+    "step": 5,
+    "kind": "choice",
+    "alert": "SITUATION: You see a wet outlet and fallen wire!",
+    "prompt": "What do you do?",
+    "image_asset": "assets/modules/flood_safety_sim_5.png",
+    "filename": "flood_safety_sim_5.png",
+    "situation": "You see a wet outlet and fallen wire! — What do you do?"
+  },
+  {
+    "module": "flood_safety",
+    "step": 6,
+    "kind": "choice",
+    "alert": "SITUATION: The rain slowed. Can you go home now?",
+    "prompt": "When is it safe to return?",
+    "image_asset": "assets/modules/flood_safety_sim_6.png",
+    "filename": "flood_safety_sim_6.png",
+    "situation": "The rain slowed. Can you go home now? — When is it safe to return?"
+  },
+  {
+    "module": "typhoon_safety",
+    "step": 1,
+    "kind": "choice",
+    "alert": "SITUATION: Strong typhoon winds begin!",
+    "prompt": "Watch the video. What is the safest action?",
+    "image_asset": "assets/modules/typhoon_safety_sim_1.png",
+    "filename": "typhoon_safety_sim_1.png",
+    "situation": "Strong typhoon winds begin! — What is the safest action?"
+  },
+  {
+    "module": "typhoon_safety",
+    "step": 2,
+    "kind": "hotspot",
+    "alert": "SITUATION: Secure the home!",
+    "prompt": "Tap the WINDOW you should close and lock.",
+    "image_asset": "assets/modules/typhoon_safety_sim_2.png",
+    "filename": "typhoon_safety_sim_2.png",
+    "situation": "Secure the home! — Tap the WINDOW you should close and lock."
+  },
+  {
+    "module": "typhoon_safety",
+    "step": 3,
+    "kind": "choice",
+    "alert": "SITUATION: Floodwater appears near your street!",
+    "prompt": "What should you do about the water?",
+    "image_asset": "assets/modules/typhoon_safety_sim_3.png",
+    "filename": "typhoon_safety_sim_3.png",
+    "situation": "Floodwater appears near your street! — What should you do about the water?"
+  },
+  {
+    "module": "typhoon_safety",
+    "step": 4,
+    "kind": "sequence",
+    "alert": "SITUATION: Prepare before the storm hits!",
+    "prompt": "Tap the prepare steps in order.",
+    "image_asset": "assets/modules/typhoon_safety_sim_4.png",
+    "filename": "typhoon_safety_sim_4.png",
+    "situation": "Prepare before the storm hits! — Tap the prepare steps in order."
+  },
+  {
+    "module": "typhoon_safety",
+    "step": 5,
+    "kind": "choice",
+    "alert": "SITUATION: Officials order evacuation!",
+    "prompt": "What should your family do?",
+    "image_asset": "assets/modules/typhoon_safety_sim_5.png",
+    "filename": "typhoon_safety_sim_5.png",
+    "situation": "Officials order evacuation! — What should your family do?"
+  },
+  {
+    "module": "typhoon_safety",
+    "step": 6,
+    "kind": "choice",
+    "alert": "SITUATION: After the typhoon â€” fallen wires outside!",
+    "prompt": "What do you avoid?",
+    "image_asset": "assets/modules/typhoon_safety_sim_6.png",
+    "filename": "typhoon_safety_sim_6.png",
+    "situation": "After the typhoon â€” fallen wires outside! — What do you avoid?"
+  },
+  {
+    "module": "evacuation_drills",
+    "step": 1,
+    "kind": "choice",
+    "alert": "SITUATION: Earthquake drill â€” the floor shakes!",
+    "prompt": "Watch the video. What do you do first?",
+    "image_asset": "assets/modules/evacuation_drills_sim_1.png",
+    "filename": "evacuation_drills_sim_1.png",
+    "situation": "Earthquake drill â€” the floor shakes! — What do you do first?"
+  },
+  {
+    "module": "evacuation_drills",
+    "step": 2,
+    "kind": "sequence",
+    "alert": "SITUATION: Show Duck, Cover, Hold!",
+    "prompt": "Tap the steps in the right order.",
+    "image_asset": "assets/modules/evacuation_drills_sim_2.png",
+    "filename": "evacuation_drills_sim_2.png",
+    "situation": "Show Duck, Cover, Hold! — Tap the steps in the right order."
+  },
+  {
+    "module": "evacuation_drills",
+    "step": 3,
+    "kind": "choice",
+    "alert": "SITUATION: Fire alarm is ringing!",
+    "prompt": "How do you leave the building?",
+    "image_asset": "assets/modules/evacuation_drills_sim_3.png",
+    "filename": "evacuation_drills_sim_3.png",
+    "situation": "Fire alarm is ringing! — How do you leave the building?"
+  },
+  {
+    "module": "evacuation_drills",
+    "step": 4,
+    "kind": "hotspot",
+    "alert": "SITUATION: Find the assembly area!",
+    "prompt": "Tap the safe ASSEMBLY AREA outside.",
+    "image_asset": "assets/modules/evacuation_drills_sim_4.png",
+    "filename": "evacuation_drills_sim_4.png",
+    "situation": "Find the assembly area! — Tap the safe ASSEMBLY AREA outside."
+  },
+  {
+    "module": "evacuation_drills",
+    "step": 5,
+    "kind": "choice",
+    "alert": "SITUATION: Smoke fills the hallway!",
+    "prompt": "How do you move toward the exit?",
+    "image_asset": "assets/modules/evacuation_drills_sim_5.png",
+    "filename": "evacuation_drills_sim_5.png",
+    "situation": "Smoke fills the hallway! — How do you move toward the exit?"
+  },
+  {
+    "module": "evacuation_drills",
+    "step": 6,
+    "kind": "choice",
+    "alert": "SITUATION: You reached the assembly area!",
+    "prompt": "What do you do next?",
+    "image_asset": "assets/modules/evacuation_drills_sim_6.png",
+    "filename": "evacuation_drills_sim_6.png",
+    "situation": "You reached the assembly area! — What do you do next?"
+  },
+  {
+    "module": "go_bag",
+    "step": 1,
+    "kind": "choice",
+    "alert": "SITUATION: Pack your Go Bag!",
+    "prompt": "Watch the video. Which items belong inside?",
+    "image_asset": "assets/modules/go_bag_sim_1.png",
+    "filename": "go_bag_sim_1.png",
+    "situation": "Pack your Go Bag! — Which items belong inside?"
+  },
+  {
+    "module": "go_bag",
+    "step": 2,
+    "kind": "hotspot",
+    "alert": "SITUATION: What MUST go in the bag?",
+    "prompt": "Tap the ESSENTIAL item for your Go Bag.",
+    "image_asset": "assets/modules/go_bag_sim_2.png",
+    "filename": "go_bag_sim_2.png",
+    "situation": "What MUST go in the bag? — Tap the ESSENTIAL item for your Go Bag."
+  },
+  {
+    "module": "go_bag",
+    "step": 3,
+    "kind": "sequence",
+    "alert": "SITUATION: Remember the Go Bag rule!",
+    "prompt": "Tap the steps in order.",
+    "image_asset": "assets/modules/go_bag_sim_3.png",
+    "filename": "go_bag_sim_3.png",
+    "situation": "Remember the Go Bag rule! — Tap the steps in order."
+  },
+  {
+    "module": "go_bag",
+    "step": 4,
+    "kind": "choice",
+    "alert": "SITUATION: Where should the Go Bag live?",
+    "prompt": "Pick the best storage place.",
+    "image_asset": "assets/modules/go_bag_sim_4.png",
+    "filename": "go_bag_sim_4.png",
+    "situation": "Where should the Go Bag live? — Pick the best storage place."
+  },
+  {
+    "module": "go_bag",
+    "step": 5,
+    "kind": "choice",
+    "alert": "SITUATION: Check day! Batteries and food expired.",
+    "prompt": "What should you do?",
+    "image_asset": "assets/modules/go_bag_sim_5.png",
+    "filename": "go_bag_sim_5.png",
+    "situation": "Check day! Batteries and food expired. — What should you do?"
+  },
+  {
+    "module": "go_bag",
+    "step": 6,
+    "kind": "choice",
+    "alert": "SITUATION: Evacuation alert â€” leave now!",
+    "prompt": "What do you do with the Go Bag?",
+    "image_asset": "assets/modules/go_bag_sim_6.png",
+    "filename": "go_bag_sim_6.png",
+    "situation": "Evacuation alert â€” leave now! — What do you do with the Go Bag?"
+  },
+  {
+    "module": "emergency_comm",
+    "step": 1,
+    "kind": "choice",
+    "alert": "SITUATION: Scary unverified flood message online!",
+    "prompt": "Watch the video. What should you do?",
+    "image_asset": "assets/modules/emergency_comm_sim_1.png",
+    "filename": "emergency_comm_sim_1.png",
+    "situation": "Scary unverified flood message online! — What should you do?"
+  },
+  {
+    "module": "emergency_comm",
+    "step": 2,
+    "kind": "sequence",
+    "alert": "SITUATION: Use the CALM method!",
+    "prompt": "Tap CALM in the right order.",
+    "image_asset": "assets/modules/emergency_comm_sim_2.png",
+    "filename": "emergency_comm_sim_2.png",
+    "situation": "Use the CALM method! — Tap CALM in the right order."
+  },
+  {
+    "module": "emergency_comm",
+    "step": 3,
+    "kind": "choice",
+    "alert": "SITUATION: Real fire nearby â€” call for help!",
+    "prompt": "Who do you call?",
+    "image_asset": "assets/modules/emergency_comm_sim_3.png",
+    "filename": "emergency_comm_sim_3.png",
+    "situation": "Real fire nearby â€” call for help! — Who do you call?"
+  },
+  {
+    "module": "emergency_comm",
+    "step": 4,
+    "kind": "hotspot",
+    "alert": "SITUATION: Tell 911 the right facts!",
+    "prompt": "Tap WHAT you must tell them (location).",
+    "image_asset": "assets/modules/emergency_comm_sim_4.png",
+    "filename": "emergency_comm_sim_4.png",
+    "situation": "Tell 911 the right facts! — Tap WHAT you must tell them (location)."
+  },
+  {
+    "module": "emergency_comm",
+    "step": 5,
+    "kind": "choice",
+    "alert": "SITUATION: Message your family â€” networks are busy!",
+    "prompt": "What is the best message?",
+    "image_asset": "assets/modules/emergency_comm_sim_5.png",
+    "filename": "emergency_comm_sim_5.png",
+    "situation": "Message your family â€” networks are busy! — What is the best message?"
+  },
+  {
+    "module": "emergency_comm",
+    "step": 6,
+    "kind": "choice",
+    "alert": "SITUATION: Phones and internet stop working!",
+    "prompt": "What is a good backup plan?",
+    "image_asset": "assets/modules/emergency_comm_sim_6.png",
+    "filename": "emergency_comm_sim_6.png",
+    "situation": "Phones and internet stop working! — What is a good backup plan?"
+  },
+  {
+    "module": "stranger_danger",
+    "step": 1,
+    "kind": "choice",
+    "alert": "SITUATION: A stranger offers candy to leave with them!",
+    "prompt": "Watch the video. What is the safest action?",
+    "image_asset": "assets/modules/stranger_danger_sim_1.png",
+    "filename": "stranger_danger_sim_1.png",
+    "situation": "A stranger offers candy to leave with them! — What is the safest action?"
+  },
+  {
+    "module": "stranger_danger",
+    "step": 2,
+    "kind": "sequence",
+    "alert": "SITUATION: Practice NO, GO, TELL!",
+    "prompt": "Tap the steps in order.",
+    "image_asset": "assets/modules/stranger_danger_sim_2.png",
+    "filename": "stranger_danger_sim_2.png",
+    "situation": "Practice NO, GO, TELL! — Tap the steps in order."
+  },
+  {
+    "module": "stranger_danger",
+    "step": 3,
+    "kind": "hotspot",
+    "alert": "SITUATION: Who can help you?",
+    "prompt": "Tap a TRUSTED ADULT.",
+    "image_asset": "assets/modules/stranger_danger_sim_3.png",
+    "filename": "stranger_danger_sim_3.png",
+    "situation": "Who can help you? — Tap a TRUSTED ADULT."
+  },
+  {
+    "module": "stranger_danger",
+    "step": 4,
+    "kind": "choice",
+    "alert": "SITUATION: Someone says your parent sent them!",
+    "prompt": "What is the Check First rule?",
+    "image_asset": "assets/modules/stranger_danger_sim_4.png",
+    "filename": "stranger_danger_sim_4.png",
+    "situation": "Someone says your parent sent them! — What is the Check First rule?"
+  },
+  {
+    "module": "stranger_danger",
+    "step": 5,
+    "kind": "choice",
+    "alert": "SITUATION: An adult asks you to keep an unsafe secret!",
+    "prompt": "What should you do?",
+    "image_asset": "assets/modules/stranger_danger_sim_5.png",
+    "filename": "stranger_danger_sim_5.png",
+    "situation": "An adult asks you to keep an unsafe secret! — What should you do?"
+  },
+  {
+    "module": "stranger_danger",
+    "step": 6,
+    "kind": "choice",
+    "alert": "SITUATION: Online chat asks for your address!",
+    "prompt": "What do you share?",
+    "image_asset": "assets/modules/stranger_danger_sim_6.png",
+    "filename": "stranger_danger_sim_6.png",
+    "situation": "Online chat asks for your address! — What do you share?"
+  },
+  {
+    "module": "cyber_safety",
+    "step": 1,
+    "kind": "choice",
+    "alert": "SITUATION: Someone asks for your home address online!",
+    "prompt": "Watch the video. What do you do?",
+    "image_asset": "assets/modules/cyber_safety_sim_1.png",
+    "filename": "cyber_safety_sim_1.png",
+    "situation": "Someone asks for your home address online! — What do you do?"
+  },
+  {
+    "module": "cyber_safety",
+    "step": 2,
+    "kind": "sequence",
+    "alert": "SITUATION: Mean messages arrive!",
+    "prompt": "Tap STOP, SAVE, BLOCK, TELL in order.",
+    "image_asset": "assets/modules/cyber_safety_sim_2.png",
+    "filename": "cyber_safety_sim_2.png",
+    "situation": "Mean messages arrive! — Tap STOP, SAVE, BLOCK, TELL in order."
+  },
+  {
+    "module": "cyber_safety",
+    "step": 3,
+    "kind": "choice",
+    "alert": "SITUATION: Group chat shares an embarrassing photo!",
+    "prompt": "What is the safest response?",
+    "image_asset": "assets/modules/cyber_safety_sim_3.png",
+    "filename": "cyber_safety_sim_3.png",
+    "situation": "Group chat shares an embarrassing photo! — What is the safest response?"
+  },
+  {
+    "module": "cyber_safety",
+    "step": 4,
+    "kind": "hotspot",
+    "alert": "SITUATION: Protect your secrets!",
+    "prompt": "Tap what you must KEEP PRIVATE.",
+    "image_asset": "assets/modules/cyber_safety_sim_4.png",
+    "filename": "cyber_safety_sim_4.png",
+    "situation": "Protect your secrets! — Tap what you must KEEP PRIVATE."
+  },
+  {
+    "module": "cyber_safety",
+    "step": 5,
+    "kind": "choice",
+    "alert": "SITUATION: â€œYou won a phone! Send your password!â€",
+    "prompt": "What do you do?",
+    "image_asset": "assets/modules/cyber_safety_sim_5.png",
+    "filename": "cyber_safety_sim_5.png",
+    "situation": "â€œYou won a phone! Send your password!â€ — What do you do?"
+  },
+  {
+    "module": "cyber_safety",
+    "step": 6,
+    "kind": "choice",
+    "alert": "SITUATION: Before you post a photoâ€¦",
+    "prompt": "What does THINK remind you to check?",
+    "image_asset": "assets/modules/cyber_safety_sim_6.png",
+    "filename": "cyber_safety_sim_6.png",
+    "situation": "Before you post a photoâ€¦ — What does THINK remind you to check?"
+  },
+  {
+    "module": "road_safety",
+    "step": 1,
+    "kind": "choice",
+    "alert": "SITUATION: Pedestrian light turns RED!",
+    "prompt": "Watch the video. What do you do?",
+    "image_asset": "assets/modules/road_safety_sim_1.png",
+    "filename": "road_safety_sim_1.png",
+    "situation": "Pedestrian light turns RED! — What do you do?"
+  },
+  {
+    "module": "road_safety",
+    "step": 2,
+    "kind": "sequence",
+    "alert": "SITUATION: Cross the street safely!",
+    "prompt": "Tap Stop, Look, Listen, Think in order.",
+    "image_asset": "assets/modules/road_safety_sim_2.png",
+    "filename": "road_safety_sim_2.png",
+    "situation": "Cross the street safely! — Tap Stop, Look, Listen, Think in order."
+  },
+  {
+    "module": "road_safety",
+    "step": 3,
+    "kind": "choice",
+    "alert": "SITUATION: A text pops up while you cross!",
+    "prompt": "What should you do?",
+    "image_asset": "assets/modules/road_safety_sim_3.png",
+    "filename": "road_safety_sim_3.png",
+    "situation": "A text pops up while you cross! — What should you do?"
+  },
+  {
+    "module": "road_safety",
+    "step": 4,
+    "kind": "hotspot",
+    "alert": "SITUATION: Where should you cross?",
+    "prompt": "Tap the PEDESTRIAN CROSSING.",
+    "image_asset": "assets/modules/road_safety_sim_4.png",
+    "filename": "road_safety_sim_4.png",
+    "situation": "Where should you cross? — Tap the PEDESTRIAN CROSSING."
+  },
+  {
+    "module": "road_safety",
+    "step": 5,
+    "kind": "choice",
+    "alert": "SITUATION: A large truck is nearby!",
+    "prompt": "Why is standing close dangerous?",
+    "image_asset": "assets/modules/road_safety_sim_5.png",
+    "filename": "road_safety_sim_5.png",
+    "situation": "A large truck is nearby! — Why is standing close dangerous?"
+  },
+  {
+    "module": "road_safety",
+    "step": 6,
+    "kind": "choice",
+    "alert": "SITUATION: Riding in a car / on a bike!",
+    "prompt": "What keeps you safer?",
+    "image_asset": "assets/modules/road_safety_sim_6.png",
+    "filename": "road_safety_sim_6.png",
+    "situation": "Riding in a car / on a bike! — What keeps you safer?"
+  }
+]

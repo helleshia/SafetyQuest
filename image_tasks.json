@@ -1,0 +1,275 @@
+[
+  {
+    "file": "emergency_basics.dart",
+    "page": 1,
+    "image_asset": "assets/modules/emergency_basics_p1.png",
+    "title": "What is an emergency?",
+    "text": "An emergency is a sudden, dangerous moment that needs help fast. Someone gets hurt, a fire starts, or the ground shakes."
+  },
+  {
+    "file": "emergency_basics.dart",
+    "page": 2,
+    "image_asset": "assets/modules/emergency_basics_p2.png",
+    "title": "Hazards and disasters",
+    "text": "A hazard is something that can hurt us, like a typhoon, flood, earthquake, fire or volcano. It becomes a disaster when it harms many people and places."
+  },
+  {
+    "file": "emergency_basics.dart",
+    "page": 3,
+    "image_asset": "assets/modules/emergency_basics_p3.png",
+    "title": "Why the Philippines?",
+    "text": "Our country sits on the Pacific Ring of Fire, where earthquakes and volcanoes happen. About 20 typhoons also visit us every year."
+  },
+  {
+    "file": "emergency_basics.dart",
+    "page": 4,
+    "image_asset": "assets/modules/emergency_basics_p4.png",
+    "title": "Know, Plan, Pack",
+    "text": "KNOW the hazards where you live. PLAN with your family where to meet. PACK a Go Bag with water, food, a flashlight and a whistle."
+  },
+  {
+    "file": "emergency_basics.dart",
+    "page": 5,
+    "image_asset": "assets/modules/emergency_basics_p5.png",
+    "title": "Listen for warnings",
+    "text": "PAGASA warns us about typhoons and heavy rain. PHIVOLCS watches earthquakes and volcanoes. Listen to the radio, sirens, and your school bell."
+  },
+  {
+    "file": "emergency_basics.dart",
+    "page": 6,
+    "image_asset": "assets/modules/emergency_basics_p6.png",
+    "title": "Stay calm, find an adult",
+    "text": "When something scary happens, take a deep breath. Tell a trusted adult right away, like your teacher, parent, or a barangay official."
+  },
+  {
+    "file": "emergency_basics.dart",
+    "page": 7,
+    "image_asset": "assets/modules/emergency_basics_p7.png",
+    "title": "Call 911 for help",
+    "text": "911 is the emergency hotline in the Philippines. Say what happened and where you are. Stay on the phone until they tell you to hang up."
+  },
+  {
+    "file": "earthquake.dart",
+    "page": 1,
+    "image_asset": "assets/modules/earthquake_p1.png",
+    "title": "The ground can shake!",
+    "text": "An earthquake happens when big rocks deep under the ground suddenly move. The Philippines has many earthquakes, so every explorer should be ready."
+  },
+  {
+    "file": "earthquake.dart",
+    "page": 2,
+    "image_asset": "assets/modules/earthquake_p2.png",
+    "title": "Get ready before it happens",
+    "text": "Know the safe spots in your home and school. Keep heavy things on low shelves. Pack a Go Bag with water, a flashlight and a whistle."
+  },
+  {
+    "file": "earthquake.dart",
+    "page": 3,
+    "image_asset": "assets/modules/earthquake_p3.png",
+    "title": "DUCK!",
+    "text": "When the shaking starts, drop down to your hands and knees right away. This keeps you from falling over."
+  },
+  {
+    "file": "earthquake.dart",
+    "page": 4,
+    "image_asset": "assets/modules/earthquake_p4.png",
+    "title": "COVER!",
+    "text": "Crawl under a strong table or desk. Protect your head and neck with your arms."
+  },
+  {
+    "file": "earthquake.dart",
+    "page": 5,
+    "image_asset": "assets/modules/earthquake_p5.png",
+    "title": "HOLD!",
+    "text": "Hold on to a leg of the table. If the table moves, move with it. Stay there until the shaking stops."
+  },
+  {
+    "file": "earthquake.dart",
+    "page": 6,
+    "image_asset": "assets/modules/earthquake_p6.png",
+    "title": "Stay away from danger",
+    "text": "Keep away from windows, glass, shelves and hanging things. They can break or fall."
+  },
+  {
+    "file": "earthquake.dart",
+    "page": 7,
+    "image_asset": "assets/modules/earthquake_p7.png",
+    "title": "After the shaking",
+    "text": "Wait for your teacher. Walk calmly to the open area in a line. Do not push, run, or go back inside. Small shakes called aftershocks may come."
+  },
+  {
+    "file": "fire_safety.dart",
+    "page": 1,
+    "image_asset": "assets/modules/fire_safety_p1.png",
+    "title": "Fire can help or hurt",
+    "text": "Fire helps us cook, but uncontrolled fire can spread quickly. Fire safety means preventing fires, preparing an escape plan, and leaving safely."
+  },
+  {
+    "file": "fire_safety.dart",
+    "page": 2,
+    "image_asset": "assets/modules/fire_safety_p2.png",
+    "title": "Be a fire safety detective",
+    "text": "Candles near paper or curtains, damaged wires, and overloaded outlets can start fires. Stay away and tell a trusted adult. Never play with matches or lighters."
+  },
+  {
+    "file": "fire_safety.dart",
+    "page": 3,
+    "image_asset": "assets/modules/fire_safety_p3.png",
+    "title": "What keeps a fire burning?",
+    "text": "Fire needs heat, fuel, and oxygen. Paper and wood are fuels. Air supplies oxygen. Together these make the fire triangle."
+  },
+  {
+    "file": "fire_safety.dart",
+    "page": 4,
+    "image_asset": "assets/modules/fire_safety_p4.png",
+    "title": "Plan your way out",
+    "text": "Learn your main exit and another way out in case it is blocked. Keep exits clear. Choose an outside meeting place with your family or class, and practice your plan."
+  },
+  {
+    "file": "fire_safety.dart",
+    "page": 5,
+    "image_asset": "assets/modules/fire_safety_p5.png",
+    "title": "Hear the alarm? Leave safely",
+    "text": "Stop your activity and follow your teacher along the safe escape route. Leave bags behind. Walk without pushing. Use stairs, not elevators."
+  },
+  {
+    "file": "fire_safety.dart",
+    "page": 6,
+    "image_asset": "assets/modules/fire_safety_p6.png",
+    "title": "Stay low and go",
+    "text": "Smoke makes it hard to see and breathe. Stay low as you move toward a safe exit. Do not hide or go toward the fire. Use another safe route if your way is blocked."
+  },
+  {
+    "file": "fire_safety.dart",
+    "page": 7,
+    "image_asset": "assets/modules/fire_safety_p7.png",
+    "title": "Stop, Drop, and Roll",
+    "text": "If your CLOTHES catch fire, STOP moving. DROP to the ground and cover your face with your hands. ROLL over the flames until they go out. Then get adult help."
+  },
+  {
+    "file": "fire_safety.dart",
+    "page": 8,
+    "image_asset": "assets/modules/fire_safety_p8.png",
+    "title": "Get out and stay out",
+    "text": "Go to the outside assembly area. Stay with your class so your teacher can count everyone. Never go back for a bag, phone, or pet. Tell an adult if someone is missing."
+  },
+  {
+    "file": "fire_safety.dart",
+    "page": 9,
+    "image_asset": "assets/modules/fire_safety_p9.png",
+    "title": "Let trained helpers handle fire",
+    "text": "From a safe place, alert an adult and call emergency responders. Explain what happened and where. Extinguishers are for trained people with the right equipment and a safe escape route."
+  },
+  {
+    "file": "flood_safety.dart",
+    "page": 1,
+    "image_asset": "assets/modules/flood_safety_p1.png",
+    "title": "Water rises fast!",
+    "text": "Heavy rain can cause floodwaters to rise quickly. Never play in floodwaters\u2014they can be deep, dirty, and carry dangerous currents."
+  },
+  {
+    "file": "flood_safety.dart",
+    "page": 2,
+    "image_asset": "assets/modules/flood_safety_p2.png",
+    "title": "Move to high ground",
+    "text": "If floodwaters start coming into your home or neighborhood, move to a higher floor or elevated safe area immediately."
+  },
+  {
+    "file": "typhoon_safety.dart",
+    "page": 1,
+    "image_asset": "assets/modules/typhoon_safety_p1.png",
+    "title": "Strong winds and heavy rain",
+    "text": "Typhoons bring heavy rain and strong winds that can blow away roofs or tear down trees. Stay inside a safe house!"
+  },
+  {
+    "file": "typhoon_safety.dart",
+    "page": 2,
+    "image_asset": "assets/modules/typhoon_safety_p2.png",
+    "title": "Prepare before the storm hits",
+    "text": "Charge emergency lights, charge phones, lock doors and windows, and bring pets inside before wind gets strong."
+  },
+  {
+    "file": "evacuation_drills.dart",
+    "page": 1,
+    "image_asset": "assets/modules/evacuation_drills_p1.png",
+    "title": "Why we practice drills",
+    "text": "Drills practice our brain and feet so we know exactly what to do when real alarms sound. Stay calm and listen to your teacher."
+  },
+  {
+    "file": "evacuation_drills.dart",
+    "page": 2,
+    "image_asset": "assets/modules/evacuation_drills_p2.png",
+    "title": "Walk in an orderly line",
+    "text": "Follow the designated exit route to the open evacuation area. Protect your head with your arms or bag if needed."
+  },
+  {
+    "file": "go_bag.dart",
+    "page": 1,
+    "image_asset": "assets/modules/go_bag_p1.png",
+    "title": "What is a Go Bag?",
+    "text": "A Go Bag is a ready backpack filled with essential supplies you can grab immediately when an emergency evacuation happens."
+  },
+  {
+    "file": "go_bag.dart",
+    "page": 2,
+    "image_asset": "assets/modules/go_bag_p2.png",
+    "title": "Essential Go Bag items",
+    "text": "Pack clean water, non-perishable food, flashlight, whistle, emergency money, first-aid kit, and family emergency contact cards."
+  },
+  {
+    "file": "emergency_comm.dart",
+    "page": 1,
+    "image_asset": "assets/modules/emergency_comm_p1.png",
+    "title": "Call 911 in real danger",
+    "text": "In the Philippines, 911 is the national emergency number. Call when someone is hurt, there is a fire, or a crime is happening."
+  },
+  {
+    "file": "emergency_comm.dart",
+    "page": 2,
+    "image_asset": "assets/modules/emergency_comm_p2.png",
+    "title": "What to say to the responder",
+    "text": "Stay calm. Tell them: 1. Where you are. 2. What happened. 3. Who needs help. Listen carefully to instructions."
+  },
+  {
+    "file": "stranger_danger.dart",
+    "page": 1,
+    "image_asset": "assets/modules/stranger_danger_p1.png",
+    "title": "Safe distance from strangers",
+    "text": "A stranger is anyone you and your parents do not know well. Always keep a safe distance and never accept rides or gifts without permission."
+  },
+  {
+    "file": "stranger_danger.dart",
+    "page": 2,
+    "image_asset": "assets/modules/stranger_danger_p2.png",
+    "title": "No, Go, Tell!",
+    "text": "If someone makes you feel unsafe: Say NO loudly, GO away fast to a crowded safe spot, and TELL a trusted adult right away."
+  },
+  {
+    "file": "cyber_safety.dart",
+    "page": 1,
+    "image_asset": "assets/modules/cyber_safety_p1.png",
+    "title": "Keep personal details private",
+    "text": "Never share your full name, home address, school, or passwords online. Protect your digital footprint!"
+  },
+  {
+    "file": "cyber_safety.dart",
+    "page": 2,
+    "image_asset": "assets/modules/cyber_safety_p2.png",
+    "title": "Be kind online & report mean words",
+    "text": "Cyberbullying means using words or pictures to hurt others online. Be respectful online. If someone is mean, don\u2019t reply\u2014tell a parent or teacher."
+  },
+  {
+    "file": "road_safety.dart",
+    "page": 1,
+    "image_asset": "assets/modules/road_safety_p1.png",
+    "title": "Cross at pedestrian lanes",
+    "text": "Always use pedestrian crosswalks or footbridges. Stop, look left, look right, and look left again before stepping off the curb."
+  },
+  {
+    "file": "road_safety.dart",
+    "page": 2,
+    "image_asset": "assets/modules/road_safety_p2.png",
+    "title": "Traffic light colors",
+    "text": "RED means STOP. YELLOW means SLOW DOWN / CAUTION. GREEN means GO (if crosswalk is clear). Always wait for pedestrian light signal!"
+  }
+]

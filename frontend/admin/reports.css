@@ -1,0 +1,57 @@
+/* Reports. Same token set and clay recipe as Overview and Users. */
+.reports-filter-bar,
+.reports-group {
+  --clay-raise: 6px 8px 18px rgba(66, 21, 27, .07), -5px -6px 16px rgba(255, 255, 255, .85);
+  --clay-emboss: inset 2px 3px 4px rgba(255, 255, 255, .85), inset -2px -3px 5px rgba(66, 21, 27, .1);
+  --clay-inset: inset 2px 2px 5px rgba(66, 21, 27, .07), inset -2px -2px 5px rgba(255, 255, 255, .9);
+}
+
+/* States what the two filters actually do, so nobody assumes more filtering than happens. */
+.reports-filter-bar { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 15px 18px; border: 1px dashed var(--sa-line); border-radius: 14px; background: rgba(255, 255, 255, .5); }
+.reports-filter-bar p { display: flex; flex-wrap: wrap; align-items: baseline; gap: 9px; margin: 0; color: var(--muted); font-size: 11.5px; line-height: 1.55; }
+.reports-filter-bar span { color: var(--ink); font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+
+.reports-group { display: grid; gap: 12px; }
+.reports-group-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin: 6px 0 0; font-family: var(--font-heading); font-size: 14px; font-weight: 600; letter-spacing: -.03em; }
+.reports-group-title small { color: var(--muted); font-family: var(--font-body); font-size: 11px; font-weight: 400; letter-spacing: 0; }
+.reports-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+
+.reports-card { display: flex; min-width: 0; flex-direction: column; gap: 13px; padding: 19px; border: 1px solid var(--sa-line); border-radius: 16px; background: var(--sa-card); box-shadow: var(--clay-raise); }
+.reports-card.is-restricted { border-color: rgba(228, 184, 91, .5); background: linear-gradient(rgba(228, 184, 91, .08), rgba(228, 184, 91, 0) 90px), var(--sa-card); }
+.reports-card > header { display: flex; align-items: center; gap: 12px; }
+.reports-card > header > div { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; }
+.reports-card h3 { margin: 0; font-family: var(--font-heading); font-size: 14px; font-weight: 600; letter-spacing: -.03em; }
+.reports-card > p { flex: 1; margin: 0; color: var(--muted); font-size: 11.5px; line-height: 1.6; }
+.reports-card-icon { display: grid; flex: 0 0 36px; width: 36px; height: 36px; place-items: center; border-radius: 12px; color: var(--coral); background: rgba(236, 110, 77, .14); box-shadow: var(--clay-emboss); }
+.reports-card.is-restricted .reports-card-icon { color: #8a6415; background: rgba(228, 184, 91, .3); }
+.reports-card-icon .sa-icon { width: 17px; height: 17px; }
+
+.reports-card-facts { display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 11px 13px; border-radius: 12px; background: rgba(255, 255, 255, .6); box-shadow: var(--clay-inset); }
+.reports-card-facts dt { margin-bottom: 5px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.reports-card-facts dd { margin: 0; font-family: var(--font-heading); font-size: 14px; font-weight: 600; letter-spacing: -.03em; }
+.reports-card-facts div:last-child dd { font-family: var(--font-body); font-size: 10.5px; font-weight: 500; line-height: 1.4; }
+.reports-fact-muted { color: var(--muted); }
+
+.reports-columns summary { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 11px; font-weight: 600; list-style: none; cursor: pointer; }
+.reports-columns summary::-webkit-details-marker { display: none; }
+.reports-columns summary .sa-icon { width: 13px; height: 13px; transition: transform .2s; }
+.reports-columns[open] summary .sa-icon { transform: rotate(180deg); }
+.reports-columns summary:hover { color: var(--ink); }
+.reports-columns ul { display: flex; flex-wrap: wrap; gap: 6px; margin: 11px 0 0; padding: 0; list-style: none; }
+.reports-columns li { padding: 5px 10px; border-radius: 20px; color: var(--muted); background: var(--sa-soft); font-size: 10.5px; font-weight: 500; }
+
+.reports-card > button { align-self: stretch; justify-content: center; margin-top: auto; }
+.reports-card > button:disabled { border: 1px solid var(--sa-line); color: var(--muted); background: var(--sa-soft); box-shadow: none; cursor: not-allowed; }
+
+.reports-safeguards { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
+.reports-safeguards li { display: flex; align-items: flex-start; gap: 12px; padding: 13px 15px; border-radius: 13px; background: rgba(255, 255, 255, .55); box-shadow: var(--clay-inset); }
+.reports-safeguards li > span { display: grid; flex: 0 0 24px; width: 24px; height: 24px; place-items: center; border-radius: 8px; color: #2f6b4f; background: rgba(164, 195, 180, .45); box-shadow: var(--clay-emboss); }
+.reports-safeguards li > span .sa-icon { width: 13px; height: 13px; }
+.reports-safeguards strong { display: block; font-size: 12px; font-weight: 600; }
+.reports-safeguards small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; line-height: 1.55; }
+
+@media (max-width: 760px) {
+  .reports-filter-bar { grid-template-columns: minmax(0, 1fr); }
+  .reports-safeguards { grid-template-columns: minmax(0, 1fr); }
+  .reports-card-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

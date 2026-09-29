@@ -1,0 +1,10 @@
+{
+  "description": "Engages grade 4–6 students with interactive safety lessons and simulations while enabling teachers to track progress and customize curriculum effectively.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

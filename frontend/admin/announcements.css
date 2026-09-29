@@ -1,0 +1,66 @@
+/* Announcements. One tint per audience so who received a message is readable at a glance. */
+.ann-page {
+  --clay-raise: 6px 8px 18px rgba(66, 21, 27, .07), -5px -6px 16px rgba(255, 255, 255, .85);
+  --clay-emboss: inset 2px 3px 4px rgba(255, 255, 255, .85), inset -2px -3px 5px rgba(66, 21, 27, .1);
+  --clay-inset: inset 2px 2px 5px rgba(66, 21, 27, .07), inset -2px -2px 5px rgba(255, 255, 255, .9);
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.ann-page .sa-panel { padding: 22px; border-radius: 18px; box-shadow: var(--clay-raise); }
+.ann-page .sa-panel-head { flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 18px; }
+
+.ann-intro { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 20px 22px; border: 1px solid var(--sa-line); border-radius: 18px; background: var(--sa-card); box-shadow: var(--clay-raise); }
+.ann-intro h2 { margin: 0 0 7px; font-family: var(--font-heading); font-size: 17px; font-weight: 600; letter-spacing: -.035em; }
+.ann-intro p { max-width: 80ch; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+
+/* Audience tints, shared by the filter dots, the cards and the compose picker. */
+.tint-coral > .ann-icon, .ann-icon.tint-coral { color: #b8452f; background: rgba(236, 110, 77, .17); }
+.tint-mint > .ann-icon, .ann-icon.tint-mint { color: #2f6b4f; background: rgba(164, 195, 180, .48); }
+.tint-lilac > .ann-icon, .ann-icon.tint-lilac { color: #6f5572; background: rgba(195, 169, 196, .42); }
+.tint-blue > .ann-icon, .ann-icon.tint-blue { color: #3d6178; background: rgba(127, 165, 187, .38); }
+.tint-yellow > .ann-icon, .ann-icon.tint-yellow { color: #8a6415; background: rgba(228, 184, 91, .35); }
+.ann-dot { width: 9px; height: 9px; border-radius: 50%; }
+.ann-dot.tint-coral { background: var(--coral); }
+.ann-dot.tint-mint { background: var(--mint); }
+.ann-dot.tint-lilac { background: var(--lilac); }
+.ann-dot.tint-blue { background: var(--blue); }
+.ann-dot.tint-yellow { background: var(--yellow); }
+
+.ann-filters { display: flex; flex-wrap: wrap; gap: 5px; padding: 5px; border: 1px solid var(--sa-line); border-radius: 13px; background: rgba(255, 255, 255, .5); box-shadow: var(--clay-inset); }
+.ann-filters button { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border: 0; border-radius: 9px; color: var(--muted); background: transparent; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; transition: color .16s, background .16s; }
+.ann-filters button:hover { color: var(--ink); }
+.ann-filters button[aria-current] { color: white; background: var(--ink); }
+.ann-filters small { padding: 1px 7px; border-radius: 20px; background: var(--sa-soft); font-size: 10px; }
+.ann-filters button[aria-current] small { background: rgba(255, 255, 255, .2); }
+
+.ann-list { display: grid; gap: 11px; margin: 0; padding: 0; list-style: none; }
+.ann-list > li { display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; border: 1px solid var(--sa-line); border-radius: 15px; background: var(--sa-card); box-shadow: var(--clay-raise); }
+.ann-icon { display: grid; flex: 0 0 38px; width: 38px; height: 38px; place-items: center; border-radius: 13px; box-shadow: var(--clay-emboss); }
+.ann-icon .sa-icon { width: 18px; height: 18px; }
+.ann-body { flex: 1; min-width: 0; }
+.ann-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.ann-head strong { flex: 1; min-width: 0; font-size: 13px; font-weight: 600; }
+.ann-head small { color: var(--muted); font-size: 10.5px; }
+.ann-audience { padding: 4px 10px; border-radius: 20px; color: var(--ink); background: var(--sa-soft); font-size: 10.5px; font-weight: 600; white-space: nowrap; }
+.ann-list p { margin: 9px 0 12px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.ann-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding-top: 12px; border-top: 1px solid var(--sa-line); }
+.ann-foot > span { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 11px; }
+.ann-foot .sa-icon { width: 14px; height: 14px; }
+.ann-child-flag { color: #3d6178 !important; font-weight: 600; }
+.ann-foot button { margin-left: auto; }
+
+/* Compose ---------------------------------------------------------------- */
+.ann-form .ann-step { margin: 0; color: var(--muted); font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.ann-who { display: grid; gap: 14px; padding: 16px; border: 1px solid var(--sa-line); border-radius: 14px; background: rgba(255, 255, 255, .55); }
+.ann-estimate { display: flex; align-items: center; gap: 12px; margin: 0; padding: 12px 14px; border-radius: 12px; background: rgba(164, 195, 180, .22); box-shadow: var(--clay-inset); font-size: 12px; }
+.ann-estimate strong { font-family: var(--font-heading); font-size: 19px; font-weight: 600; letter-spacing: -.04em; }
+.ann-estimate small { display: block; margin-top: 3px; color: var(--muted); font-size: 10.5px; line-height: 1.5; }
+.ann-estimate .ann-icon { flex-basis: 34px; width: 34px; height: 34px; border-radius: 12px; }
+.ann-estimate .ann-icon .sa-icon { width: 16px; height: 16px; }
+
+@media (max-width: 680px) {
+  .ann-intro { padding: 17px; border-radius: 15px; }
+  .ann-page .sa-panel { padding: 17px; border-radius: 15px; }
+  .ann-foot button { margin-left: 0; }
+}

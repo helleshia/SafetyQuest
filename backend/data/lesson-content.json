@@ -1,0 +1,2452 @@
+{
+  "lessons": [
+    {
+      "key": "emergency-basics",
+      "title": "Understanding Emergencies",
+      "badge": "Ready Explorer",
+      "quiz": [
+        {
+          "prompt": "Which one is an emergency?",
+          "kind": "choice",
+          "choices": [
+            "It is lunch time",
+            "A classmate fell and is bleeding",
+            "You have homework",
+            "A light rain shower"
+          ],
+          "answer": 1,
+          "expected": "A classmate fell and is bleeding",
+          "explain": "Someone getting hurt is an emergency. It needs help from an adult right away."
+        },
+        {
+          "prompt": "Which one is a HAZARD?",
+          "kind": "choice",
+          "choices": [
+            "A rainbow",
+            "A birthday party",
+            "A typhoon",
+            "A shady tree"
+          ],
+          "answer": 2,
+          "expected": "A typhoon",
+          "explain": "A typhoon is a hazard. It can cause floods and damage."
+        },
+        {
+          "prompt": "Who warns us about typhoons in the Philippines?",
+          "kind": "choice",
+          "choices": [
+            "A cartoon channel",
+            "PAGASA",
+            "A video game",
+            "The bakery"
+          ],
+          "answer": 1,
+          "expected": "PAGASA",
+          "explain": "PAGASA tracks the weather and gives typhoon warnings. PHIVOLCS watches earthquakes and volcanoes."
+        },
+        {
+          "prompt": "Something scary happens. What do you do first?",
+          "kind": "choice",
+          "choices": [
+            "Stay calm and tell an adult",
+            "Hide and say nothing",
+            "Post it online",
+            "Run home alone"
+          ],
+          "answer": 0,
+          "expected": "Stay calm and tell an adult",
+          "explain": "Stay calm and tell a trusted adult. They can get help fast."
+        },
+        {
+          "prompt": "What is the emergency hotline in the Philippines?",
+          "kind": "choice",
+          "choices": [
+            "911",
+            "143",
+            "000",
+            "888"
+          ],
+          "answer": 0,
+          "expected": "911",
+          "explain": "911 connects you to police, fire and ambulance help."
+        },
+        {
+          "prompt": "What does KNOW, PLAN, PACK mean?",
+          "kind": "choice",
+          "choices": [
+            "Know games, plan parties, pack toys",
+            "Know hazards, plan a meeting place, pack a Go Bag",
+            "Know cartoons, plan snacks, pack candy",
+            "Know nothing and wait for help"
+          ],
+          "answer": 1,
+          "expected": "Know hazards, plan a meeting place, pack a Go Bag",
+          "explain": "Know the hazards nearby, plan where your family will meet, and pack a Go Bag before danger comes."
+        },
+        {
+          "prompt": "Who watches earthquakes and volcanoes in the Philippines?",
+          "kind": "choice",
+          "choices": [
+            "PHIVOLCS",
+            "The market",
+            "Only the principal",
+            "A carnival"
+          ],
+          "answer": 0,
+          "expected": "PHIVOLCS",
+          "explain": "PHIVOLCS monitors earthquakes and volcanoes. PAGASA covers weather and typhoons."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "What do you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Tell the teacher right away",
+            "Take a photo",
+            "Walk away",
+            "Laugh"
+          ],
+          "answer": 0,
+          "expected": "Tell the teacher right away",
+          "explain": "Getting a trusted adult fast is the best way to help."
+        },
+        {
+          "prompt": "Tap the trusted adult who can help you.",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "Your teacher",
+          "explain": "Teachers, parents and barangay officials are trusted adults who can help."
+        },
+        {
+          "prompt": "Watch, then tap the ready steps in order.",
+          "kind": "safetySequence",
+          "choices": [
+            "Know",
+            "Plan",
+            "Pack"
+          ],
+          "expected": "Know → Plan → Pack",
+          "explain": "Know the hazards, Plan with your family, then Pack your Go Bag."
+        },
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Stop and listen to your teacher",
+            "Keep playing",
+            "Run home alone",
+            "Hide in the CR"
+          ],
+          "answer": 0,
+          "expected": "Stop and listen to your teacher",
+          "explain": "A siren is a warning. Stop, listen, and follow your teacher."
+        },
+        {
+          "prompt": "Tap the Go Bag item that helps when the lights go out.",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "Flashlight",
+          "explain": "A flashlight helps when the power goes out. Add water, food and a whistle too."
+        },
+        {
+          "prompt": "What do you tell them?",
+          "kind": "sceneDecision",
+          "choices": [
+            "What happened and where you are",
+            "Your favorite song",
+            "Nothing, then hang up",
+            "A funny joke"
+          ],
+          "answer": 0,
+          "expected": "What happened and where you are",
+          "explain": "Tell them what happened and where you are, then listen and stay on the line."
+        }
+      ]
+    },
+    {
+      "key": "earthquake",
+      "title": "Earthquake Safety",
+      "badge": "Steady Hero",
+      "quiz": [
+        {
+          "prompt": "The ground starts shaking. What is the FIRST thing you do?",
+          "kind": "choice",
+          "choices": [
+            "Run outside",
+            "Duck, Cover, Hold",
+            "Take a video",
+            "Look out the window"
+          ],
+          "answer": 1,
+          "expected": "Duck, Cover, Hold",
+          "explain": "Duck, Cover, and Hold right where you are. Running while the ground shakes can make you fall."
+        },
+        {
+          "prompt": "Where is the safest place to cover?",
+          "kind": "choice",
+          "choices": [
+            "By the window",
+            "Beside a tall shelf",
+            "Under a strong table",
+            "In the doorway"
+          ],
+          "answer": 2,
+          "expected": "Under a strong table",
+          "explain": "A strong table protects you from falling things. Windows and shelves can break or tip over."
+        },
+        {
+          "prompt": "What do you protect with your arms?",
+          "kind": "choice",
+          "choices": [
+            "Your legs",
+            "Your head and neck",
+            "Your bag",
+            "Your shoes"
+          ],
+          "answer": 1,
+          "expected": "Your head and neck",
+          "explain": "Your head and neck are the most important to keep safe."
+        },
+        {
+          "prompt": "The shaking has stopped. What now?",
+          "kind": "choice",
+          "choices": [
+            "Follow your teacher calmly",
+            "Take the elevator",
+            "Go back for your toys",
+            "Push to get out first"
+          ],
+          "answer": 0,
+          "expected": "Follow your teacher calmly",
+          "explain": "Walk calmly with your class to the open area. Pushing and running cause accidents."
+        },
+        {
+          "prompt": "What should be inside your Go Bag?",
+          "kind": "choice",
+          "choices": [
+            "Video games",
+            "Water, flashlight, whistle",
+            "Only candy",
+            "Stuffed toys"
+          ],
+          "answer": 1,
+          "expected": "Water, flashlight, whistle",
+          "explain": "A Go Bag holds things that help you stay safe: water, food, a flashlight, a whistle and first aid."
+        },
+        {
+          "prompt": "Should you use the elevator after an earthquake?",
+          "kind": "choice",
+          "choices": [
+            "No — use the stairs calmly",
+            "Yes, it is the fastest way",
+            "Only if your friend goes first",
+            "Yes, so you can take a selfie"
+          ],
+          "answer": 0,
+          "expected": "No — use the stairs calmly",
+          "explain": "Elevators can get stuck or fail after an earthquake. Walk the stairs with your class."
+        },
+        {
+          "prompt": "What are aftershocks?",
+          "kind": "choice",
+          "choices": [
+            "Loud music after class",
+            "Smaller shakes that may come later",
+            "A sudden rainstorm",
+            "Party balloons popping"
+          ],
+          "answer": 1,
+          "expected": "Smaller shakes that may come later",
+          "explain": "Aftershocks are smaller shakes that can follow a big earthquake. Stay ready and follow your teacher."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Watch the video. Quick — what do you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Run to the door",
+            "Duck, Cover, Hold",
+            "Go to the window",
+            "Scream and stand"
+          ],
+          "answer": 1,
+          "expected": "Duck, Cover, Hold",
+          "explain": "Duck, Cover, and Hold right away. Every second counts."
+        },
+        {
+          "prompt": "Tap the strong table to cover under.",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "Strong table",
+          "explain": "Under a strong table is safest. Windows and shelves can break or fall on you."
+        },
+        {
+          "prompt": "Press and HOLD the table leg until the shaking stops.",
+          "kind": "hold",
+          "choices": [],
+          "expected": "Hold for 5 seconds",
+          "explain": "Holding on keeps you under cover, even if the table moves."
+        },
+        {
+          "prompt": "Tap the steps in the right order.",
+          "kind": "safetySequence",
+          "choices": [
+            "Duck",
+            "Cover",
+            "Hold"
+          ],
+          "expected": "Duck → Cover → Hold",
+          "explain": "Duck, then Cover, then Hold. Say it, then do it!"
+        },
+        {
+          "prompt": "Your teacher says it is time to go out. What do you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Walk calmly in a line",
+            "Run and push",
+            "Grab your toys first",
+            "Use the elevator"
+          ],
+          "answer": 0,
+          "expected": "Walk calmly in a line",
+          "explain": "Walk in a line and follow your teacher. Leave your things behind."
+        },
+        {
+          "prompt": "You are in the open field. Where do you stay?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Open space, crouch down",
+            "Back inside the building",
+            "Near the electric post",
+            "Under a big tree"
+          ],
+          "answer": 0,
+          "expected": "Open space, crouch down",
+          "explain": "Stay in the open, away from buildings, posts and trees, and crouch until it stops."
+        }
+      ]
+    },
+    {
+      "key": "fire-safety",
+      "title": "Fire Safety",
+      "badge": "Fire Safety Champion",
+      "quiz": [
+        {
+          "prompt": "Find every fire hazard in the scene.",
+          "kind": "findHazards",
+          "choices": [],
+          "expected": "Candle, Paper",
+          "explain": "A candle near paper can start a fire. Stay away and tell an adult."
+        },
+        {
+          "prompt": "Which is a fire hazard at home or school?",
+          "kind": "choice",
+          "choices": [
+            "A clear exit",
+            "An escape plan on the wall",
+            "An overloaded electrical outlet"
+          ],
+          "answer": 2,
+          "expected": "An overloaded electrical outlet",
+          "explain": "Overloaded outlets can cause fires. Report them to an adult."
+        },
+        {
+          "prompt": "The fire alarm rings. What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Pack your bag first",
+            "Follow your teacher to the exit",
+            "Look for the fire yourself"
+          ],
+          "answer": 1,
+          "expected": "Follow your teacher to the exit",
+          "explain": "Leave right away with your teacher. Leave bags behind."
+        },
+        {
+          "prompt": "When do you Stop, Drop, and Roll?",
+          "kind": "safetySequence",
+          "choices": [
+            "Stop moving",
+            "Drop to the ground and cover your face",
+            "Roll until the flames are out",
+            "Get help from an adult"
+          ],
+          "expected": "Stop moving → Drop to the ground and cover your face → Roll until the flames are out → Get help from an adult",
+          "explain": "Stop, Drop, and Roll is only for burning clothing."
+        },
+        {
+          "prompt": "There is smoke while you leave. What helps?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Stay low and go to the exit",
+            "Hide in the bathroom",
+            "Stand tall and walk through smoke"
+          ],
+          "answer": 0,
+          "expected": "Stay low and go to the exit",
+          "explain": "Stay low under the smoke and keep moving to the exit."
+        },
+        {
+          "prompt": "You are outside. Your phone is still inside. What do you do?",
+          "kind": "choice",
+          "choices": [
+            "Stay at the meeting place with your class",
+            "Run back inside quickly",
+            "Send a friend inside to get it"
+          ],
+          "answer": 0,
+          "expected": "Stay at the meeting place with your class",
+          "explain": "Get out and stay out. Belongings can be replaced."
+        },
+        {
+          "prompt": "Why learn a second escape route?",
+          "kind": "choice",
+          "choices": [
+            "So you can look for the fire",
+            "The main exit might be blocked",
+            "So you can skip fire drills"
+          ],
+          "answer": 1,
+          "expected": "The main exit might be blocked",
+          "explain": "Another safe way out helps if the main exit is blocked."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Find every hazard in the scene.",
+          "kind": "findHazards",
+          "choices": [],
+          "expected": "Candle, Paper",
+          "explain": "Candle beside paper can start a fire. Tell an adult."
+        },
+        {
+          "prompt": "The fire alarm is sounding. What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Pack your bag first",
+            "Follow your teacher to the exit",
+            "Look for the fire to put it out"
+          ],
+          "answer": 1,
+          "expected": "Follow your teacher to the exit",
+          "explain": "Leave with your teacher. Do not pack or fight the fire."
+        },
+        {
+          "prompt": "One path is on fire. Tap the safe exit.",
+          "kind": "tapSafeArea",
+          "choices": [],
+          "expected": "Safe exit",
+          "explain": "Use the clear green door. Never go toward the fire or the blocked path."
+        },
+        {
+          "prompt": "You see a small fire. What is safest for you?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Tell an adult and leave if needed",
+            "Try to put it out yourself",
+            "Hide nearby and watch"
+          ],
+          "answer": 0,
+          "expected": "Tell an adult and leave if needed",
+          "explain": "Your job is to get help and stay safe. Trained adults handle extinguishers. Simulation lang ito."
+        },
+        {
+          "prompt": "Clothes caught fire. Tap the next correct step.",
+          "kind": "safetySequence",
+          "choices": [
+            "Stop moving",
+            "Drop and cover your face",
+            "Roll until flames are out",
+            "Get help from an adult"
+          ],
+          "expected": "Stop moving → Drop and cover your face → Roll until flames are out → Get help from an adult",
+          "explain": "Stop → Drop → Roll → adult help. Do not run."
+        },
+        {
+          "prompt": "You are at the meeting place. Your bag is still inside.",
+          "kind": "chooseAction",
+          "choices": [
+            "Run back for the bag",
+            "Ask a friend to go inside",
+            "Stay with your class at the meeting place"
+          ],
+          "answer": 2,
+          "expected": "Stay with your class at the meeting place",
+          "explain": "Stay with your class. Tell a teacher if someone is missing."
+        }
+      ]
+    },
+    {
+      "key": "flood-safety",
+      "title": "Flood Safety",
+      "badge": "Flood Guardian",
+      "quiz": [
+        {
+          "prompt": "What should you do when floodwaters start to rise?",
+          "kind": "choice",
+          "choices": [
+            "Go swimming outside",
+            "Move to higher ground immediately",
+            "Stay on the floor and play"
+          ],
+          "answer": 1,
+          "expected": "Move to higher ground immediately",
+          "explain": "Moving to higher ground keeps you safe from rising water."
+        },
+        {
+          "prompt": "What is an important rule about floodwater?",
+          "kind": "choice",
+          "choices": [
+            "Do not play or swim in it",
+            "It is safe to drink",
+            "It is fine to wade in it barefoot"
+          ],
+          "answer": 0,
+          "expected": "Do not play or swim in it",
+          "explain": "Floodwater can hide dangerous debris, chemicals, and electrical hazards."
+        },
+        {
+          "prompt": "If authorities tell you to evacuate, what should you do?",
+          "kind": "choice",
+          "choices": [
+            "Stay inside and watch TV",
+            "Wait until the water is inside the house",
+            "Evacuate immediately to a safe place"
+          ],
+          "answer": 2,
+          "expected": "Evacuate immediately to a safe place",
+          "explain": "Evacuation orders should be followed promptly before roads become dangerous."
+        },
+        {
+          "prompt": "Who gives flood and heavy-rain warnings in the Philippines?",
+          "kind": "choice",
+          "choices": [
+            "PAGASA",
+            "A game streamer",
+            "The sari-sari store"
+          ],
+          "answer": 0,
+          "expected": "PAGASA",
+          "explain": "PAGASA issues weather and flood-related warnings. Listen and act early."
+        },
+        {
+          "prompt": "What belongs in a flood emergency kit?",
+          "kind": "choice",
+          "choices": [
+            "Flashlight, water, first-aid supplies",
+            "Only soft toys",
+            "Melting ice cream"
+          ],
+          "answer": 0,
+          "expected": "Flashlight, water, first-aid supplies",
+          "explain": "Pack light, useful supplies: light, clean water, and first aid."
+        },
+        {
+          "prompt": "Why stay away from wet electrical equipment?",
+          "kind": "choice",
+          "choices": [
+            "Water and electricity can be deadly together",
+            "It looks messy",
+            "It drains your phone battery"
+          ],
+          "answer": 0,
+          "expected": "Water and electricity can be deadly together",
+          "explain": "Never touch outlets, appliances, or fallen wires while standing in water."
+        },
+        {
+          "prompt": "When is it safe to return home after a flood?",
+          "kind": "choice",
+          "choices": [
+            "After official clearance is given",
+            "As soon as the rain slows",
+            "When you want photos of the damage"
+          ],
+          "answer": 0,
+          "expected": "After official clearance is given",
+          "explain": "Wait for authorities. Flooded food and water may also be unsafe."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Watch the video. Where do you go right away?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Move up to higher ground",
+            "Go swim in the flood",
+            "Stay on the floor and play",
+            "Open the door to look outside"
+          ],
+          "answer": 0,
+          "expected": "Move up to higher ground",
+          "explain": "Higher ground keeps you above rising water. Simulation lang ito."
+        },
+        {
+          "prompt": "Water is rising. Tap the safest place to go.",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "High ground",
+          "explain": "High ground or an upper floor is safest when water rises."
+        },
+        {
+          "prompt": "What is the safest choice?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Turn around — find another safe route",
+            "Walk through the floodwater",
+            "Drive fast through the deep water",
+            "Stop to take photos"
+          ],
+          "answer": 0,
+          "expected": "Turn around — find another safe route",
+          "explain": "Turn Around, Don't Drown! You cannot see what is under floodwater."
+        },
+        {
+          "prompt": "Tap the safe steps in order.",
+          "kind": "safetySequence",
+          "choices": [
+            "Listen to the warning",
+            "Grab your emergency kit",
+            "Leave with your family",
+            "Go to higher safe ground"
+          ],
+          "expected": "Listen to the warning → Grab your emergency kit → Leave with your family → Go to higher safe ground",
+          "explain": "Listen, pack light essentials, leave with family, move to higher ground."
+        },
+        {
+          "prompt": "What do you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Stay away and tell an adult",
+            "Touch it to unplug",
+            "Splash water on it",
+            "Stand in water for a selfie"
+          ],
+          "answer": 0,
+          "expected": "Stay away and tell an adult",
+          "explain": "Water and electricity are deadly together. Never touch wet wires or outlets."
+        },
+        {
+          "prompt": "When is it safe to return?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Only after official clearance",
+            "Right when the rain slows",
+            "When you want damage photos",
+            "When you want floodwater to drink"
+          ],
+          "answer": 0,
+          "expected": "Only after official clearance",
+          "explain": "Wait for official clearance. Flooded food and water may still be unsafe."
+        }
+      ]
+    },
+    {
+      "key": "typhoon-safety",
+      "title": "Typhoon Safety",
+      "badge": "Storm Defender",
+      "quiz": [
+        {
+          "prompt": "Where is the safest place to stay during a typhoon?",
+          "kind": "choice",
+          "choices": [
+            "Inside a sturdy shelter away from windows",
+            "Under a big tree outside",
+            "Riding your bicycle on the street"
+          ],
+          "answer": 0,
+          "expected": "Inside a sturdy shelter away from windows",
+          "explain": "Staying indoors protects you from flying debris and strong winds."
+        },
+        {
+          "prompt": "What should you do if there is floodwater?",
+          "kind": "choice",
+          "choices": [
+            "Stay away from it",
+            "Swim and play in the water",
+            "Walk through to check how deep it is"
+          ],
+          "answer": 0,
+          "expected": "Stay away from it",
+          "explain": "Floodwater can contain hidden dangers, sharp objects, and electrical hazards."
+        },
+        {
+          "prompt": "What should you pack before a typhoon arrives?",
+          "kind": "choice",
+          "choices": [
+            "Water, food, flashlight, and batteries",
+            "Kites to fly in the wind",
+            "Only heavy toys"
+          ],
+          "answer": 0,
+          "expected": "Water, food, flashlight, and batteries",
+          "explain": "An emergency kit helps your family stay ready if power or stores fail."
+        },
+        {
+          "prompt": "How do you help secure the home before a storm?",
+          "kind": "choice",
+          "choices": [
+            "Bring loose items in and close windows",
+            "Open all doors wide",
+            "Leave plants and tools outside"
+          ],
+          "answer": 0,
+          "expected": "Bring loose items in and close windows",
+          "explain": "Loose objects can become flying hazards. Close and secure windows and doors."
+        },
+        {
+          "prompt": "If authorities order evacuation during a typhoon, what do you do?",
+          "kind": "choice",
+          "choices": [
+            "Leave promptly with your family",
+            "Wait until water enters the house",
+            "Stay to film the storm"
+          ],
+          "answer": 0,
+          "expected": "Leave promptly with your family",
+          "explain": "Follow evacuation orders early. Do not wait for floodwater to rise."
+        },
+        {
+          "prompt": "Should you go outside just to watch the typhoon?",
+          "kind": "choice",
+          "choices": [
+            "No — stay indoors with adults",
+            "Yes, if the wind looks exciting",
+            "Yes, under a tall tree"
+          ],
+          "answer": 0,
+          "expected": "No — stay indoors with adults",
+          "explain": "Strong winds and debris make outdoor watching unsafe."
+        },
+        {
+          "prompt": "After a typhoon, what should you avoid?",
+          "kind": "choice",
+          "choices": [
+            "Fallen wires, broken glass, and damaged buildings",
+            "Listening to official news",
+            "Staying with your family"
+          ],
+          "answer": 0,
+          "expected": "Fallen wires, broken glass, and damaged buildings",
+          "explain": "Wait for clearance. Never touch fallen electrical wires."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Watch the video. What is the safest action?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Stay indoors away from windows",
+            "Go outside to fly a kite",
+            "Stand under a tall tree",
+            "Ride your bike on the street"
+          ],
+          "answer": 0,
+          "expected": "Stay indoors away from windows",
+          "explain": "Indoors, away from glass, protects you from flying debris. Simulation lang ito."
+        },
+        {
+          "prompt": "Tap what you close and lock to secure the home.",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "Window shutters",
+          "explain": "Close and secure windows and doors. Bring loose outdoor items inside."
+        },
+        {
+          "prompt": "What should you do about the water?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Stay away from floodwater",
+            "Swim and play in it",
+            "Wade through to check depth",
+            "Touch wet appliances"
+          ],
+          "answer": 0,
+          "expected": "Stay away from floodwater",
+          "explain": "Floodwater can hide sharp objects and live wires. Stay away."
+        },
+        {
+          "prompt": "Tap the prepare steps in order.",
+          "kind": "safetySequence",
+          "choices": [
+            "Pack water, food, flashlight",
+            "Charge phones and power banks",
+            "Secure windows and doors",
+            "Stay indoors with adults"
+          ],
+          "expected": "Pack water, food, flashlight → Charge phones and power banks → Secure windows and doors → Stay indoors with adults",
+          "explain": "Pack, charge, secure the home, then stay inside with trusted adults."
+        },
+        {
+          "prompt": "What should your family do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Leave promptly to a safer place",
+            "Wait until water enters the house",
+            "Stay to film the storm",
+            "Hide and ignore the order"
+          ],
+          "answer": 0,
+          "expected": "Leave promptly to a safer place",
+          "explain": "Follow evacuation orders early. Do not wait for floodwater to rise."
+        },
+        {
+          "prompt": "What do you avoid?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Fallen wires, glass, and damaged buildings",
+            "Listening to official news",
+            "Staying with your family",
+            "Waiting for clearance"
+          ],
+          "answer": 0,
+          "expected": "Fallen wires, glass, and damaged buildings",
+          "explain": "Wait for clearance. Never touch fallen electrical wires."
+        }
+      ]
+    },
+    {
+      "key": "evacuation-drills",
+      "title": "Earthquake & Fire Evacuation Drills",
+      "badge": "Drill Master",
+      "quiz": [
+        {
+          "prompt": "What should you do first during an earthquake?",
+          "kind": "choice",
+          "choices": [
+            "Drop, Cover, and Hold On",
+            "Run outside immediately",
+            "Pack your bags"
+          ],
+          "answer": 0,
+          "expected": "Drop, Cover, and Hold On",
+          "explain": "During an earthquake, your immediate priority is to protect yourself from falling objects."
+        },
+        {
+          "prompt": "If you leave your bag in the classroom during a fire alarm, what should you do?",
+          "kind": "choice",
+          "choices": [
+            "Leave it and continue evacuating",
+            "Go back quickly to get it",
+            "Cry and refuse to leave"
+          ],
+          "answer": 0,
+          "expected": "Leave it and continue evacuating",
+          "explain": "Your safety is the priority. Personal belongings can be replaced."
+        },
+        {
+          "prompt": "What is the purpose of an evacuation drill?",
+          "kind": "choice",
+          "choices": [
+            "Practice staying safe and moving calmly",
+            "Race classmates to the door",
+            "Skip class for fun"
+          ],
+          "answer": 0,
+          "expected": "Practice staying safe and moving calmly",
+          "explain": "Drills teach everyone to follow instructions calmly before a real emergency."
+        },
+        {
+          "prompt": "During a fire or earthquake drill, should you use the elevator?",
+          "kind": "choice",
+          "choices": [
+            "No — use the stairs carefully",
+            "Yes, elevators are faster",
+            "Only with a friend"
+          ],
+          "answer": 0,
+          "expected": "No — use the stairs carefully",
+          "explain": "Elevators can fail in emergencies. Follow the assigned stair route."
+        },
+        {
+          "prompt": "Where do you go after leaving the building?",
+          "kind": "choice",
+          "choices": [
+            "The designated assembly area",
+            "Anywhere you like outside",
+            "Back inside for your phone"
+          ],
+          "answer": 0,
+          "expected": "The designated assembly area",
+          "explain": "The assembly area is the safe meeting place where teachers check who is present."
+        },
+        {
+          "prompt": "If there is smoke while evacuating, what helps?",
+          "kind": "choice",
+          "choices": [
+            "Stay low and keep moving to the exit",
+            "Stand tall in the smoke",
+            "Hide in a closet"
+          ],
+          "answer": 0,
+          "expected": "Stay low and keep moving to the exit",
+          "explain": "Cleaner air is lower. Never hide — keep following your teacher out."
+        },
+        {
+          "prompt": "At the assembly area, why stay with your class?",
+          "kind": "choice",
+          "choices": [
+            "So your teacher can do a headcount",
+            "So you can leave early alone",
+            "So you can take group selfies"
+          ],
+          "answer": 0,
+          "expected": "So your teacher can do a headcount",
+          "explain": "Accountability keeps everyone safe. Report missing classmates to an adult."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Watch the video. What do you do first?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Drop, Cover, and Hold On",
+            "Run toward the door",
+            "Pack your bag",
+            "Film the shaking"
+          ],
+          "answer": 0,
+          "expected": "Drop, Cover, and Hold On",
+          "explain": "Protect yourself from falling objects first. Simulation lang ito."
+        },
+        {
+          "prompt": "Tap the steps in the right order.",
+          "kind": "safetySequence",
+          "choices": [
+            "Drop",
+            "Cover",
+            "Hold On"
+          ],
+          "expected": "Drop → Cover → Hold On",
+          "explain": "Drop, then Cover your head and neck, then Hold On until shaking stops."
+        },
+        {
+          "prompt": "How do you leave the building?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Walk calmly with your teacher",
+            "Push past others to exit faster",
+            "Go back for your bag",
+            "Take the elevator"
+          ],
+          "answer": 0,
+          "expected": "Walk calmly with your teacher",
+          "explain": "Walk calmly. Never use elevators. Leave belongings behind."
+        },
+        {
+          "prompt": "You left the building. Tap where your class gathers.",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "Assembly area",
+          "explain": "Go straight to the open assembly area away from the building."
+        },
+        {
+          "prompt": "How do you move toward the exit?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Stay low and keep moving out",
+            "Stand tall in the smoke",
+            "Hide in a closet",
+            "Go back for your phone"
+          ],
+          "answer": 0,
+          "expected": "Stay low and keep moving out",
+          "explain": "Stay low under the smoke and keep following your teacher out."
+        },
+        {
+          "prompt": "What do you do next?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Stay with your class for headcount",
+            "Leave alone to go home",
+            "Sneak back inside the building",
+            "Run around the playground"
+          ],
+          "answer": 0,
+          "expected": "Stay with your class for headcount",
+          "explain": "Stay with your class so your teacher can check everyone is safe."
+        }
+      ]
+    },
+    {
+      "key": "go-bag",
+      "title": "Emergency Go Bag",
+      "badge": "Go Bag Hero",
+      "quiz": [
+        {
+          "prompt": "Which items belong in an emergency Go-Bag?",
+          "kind": "choice",
+          "choices": [
+            "Water, flashlight, whistle, first aid",
+            "Heavy video game console",
+            "Ice cream and chocolate bars"
+          ],
+          "answer": 0,
+          "expected": "Water, flashlight, whistle, first aid",
+          "explain": "Essential survival items keep you safe and hydrated during emergencies."
+        },
+        {
+          "prompt": "Where should a go-bag ideally be kept?",
+          "kind": "choice",
+          "choices": [
+            "In an accessible location near the door",
+            "Hidden in the attic",
+            "Outside in the garden"
+          ],
+          "answer": 0,
+          "expected": "In an accessible location near the door",
+          "explain": "A go-bag should be easy to locate and access when needed quickly."
+        },
+        {
+          "prompt": "Why should a go-bag be checked regularly?",
+          "kind": "choice",
+          "choices": [
+            "To replace expired food and dead batteries",
+            "To make it heavier",
+            "To add more toys"
+          ],
+          "answer": 0,
+          "expected": "To replace expired food and dead batteries",
+          "explain": "Emergency supplies must remain usable and appropriate for your current needs."
+        },
+        {
+          "prompt": "What is the Go Bag rule to remember?",
+          "kind": "choice",
+          "choices": [
+            "PACK IT → CHECK IT → STORE IT → TAKE IT",
+            "Hide it and forget it",
+            "Fill it with party supplies"
+          ],
+          "answer": 0,
+          "expected": "PACK IT → CHECK IT → STORE IT → TAKE IT",
+          "explain": "Pack useful items, check them often, store the bag where you can grab it, then take it when you evacuate."
+        },
+        {
+          "prompt": "Why keep the Go Bag light?",
+          "kind": "choice",
+          "choices": [
+            "So you can carry it and move quickly",
+            "So it looks impressive",
+            "So there is room for more toys"
+          ],
+          "answer": 0,
+          "expected": "So you can carry it and move quickly",
+          "explain": "Pack for safety and basic needs only. Heavy bags slow you down."
+        },
+        {
+          "prompt": "Besides a flashlight, what helps with communication?",
+          "kind": "choice",
+          "choices": [
+            "A power bank and written contact numbers",
+            "A music speaker",
+            "A large television"
+          ],
+          "answer": 0,
+          "expected": "A power bank and written contact numbers",
+          "explain": "Phones can die. Paper contact numbers and a charged power bank help you reach family."
+        },
+        {
+          "prompt": "When told to evacuate, what should you do with the Go Bag?",
+          "kind": "choice",
+          "choices": [
+            "Take it and leave safely right away",
+            "Search the house for extra gadgets first",
+            "Leave it and come back later alone"
+          ],
+          "answer": 0,
+          "expected": "Take it and leave safely right away",
+          "explain": "Take your ready bag and go. Do not delay evacuation for extra belongings."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Watch the video. Which items belong inside?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Water, flashlight, whistle, first aid",
+            "Heavy game console",
+            "Ice cream",
+            "Only stuffed toys"
+          ],
+          "answer": 0,
+          "expected": "Water, flashlight, whistle, first aid",
+          "explain": "Pack light survival items: water, light, whistle, and first aid. Simulation lang ito."
+        },
+        {
+          "prompt": "Every Go Bag needs clean drinking water. Tap it!",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "Water",
+          "explain": "Safe drinking water is one of the most important supplies."
+        },
+        {
+          "prompt": "Tap the steps in order.",
+          "kind": "safetySequence",
+          "choices": [
+            "Pack it",
+            "Check it",
+            "Store it near the door",
+            "Take it when you evacuate"
+          ],
+          "expected": "Pack it → Check it → Store it near the door → Take it when you evacuate",
+          "explain": "PACK IT → CHECK IT → STORE IT → TAKE IT."
+        },
+        {
+          "prompt": "Pick the best storage place.",
+          "kind": "sceneDecision",
+          "choices": [
+            "Near the door, easy to grab",
+            "Hidden in the attic",
+            "Outside in the garden",
+            "Buried under the bed clutter"
+          ],
+          "answer": 0,
+          "expected": "Near the door, easy to grab",
+          "explain": "A perfect bag is useless if nobody can find it quickly."
+        },
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Replace expired food and dead batteries",
+            "Add heavy toys to make it heavier",
+            "Throw the whole bag away",
+            "Ignore it forever"
+          ],
+          "answer": 0,
+          "expected": "Replace expired food and dead batteries",
+          "explain": "Check regularly so supplies stay usable when you need them."
+        },
+        {
+          "prompt": "What do you do with the Go Bag?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Take it and leave safely right away",
+            "Search the house for extra gadgets first",
+            "Leave it and grab toys instead",
+            "Stay put and wait"
+          ],
+          "answer": 0,
+          "expected": "Take it and leave safely right away",
+          "explain": "Take your ready bag and go. Do not delay for extra belongings."
+        }
+      ]
+    },
+    {
+      "key": "emergency-comm",
+      "title": "Emergency Communication",
+      "badge": "Lifeline Communicator",
+      "quiz": [
+        {
+          "prompt": "What is the best way to message your family during a disaster?",
+          "kind": "choice",
+          "choices": [
+            "A short text saying you are safe",
+            "A very long voice message",
+            "Sending many photos"
+          ],
+          "answer": 0,
+          "expected": "A short text saying you are safe",
+          "explain": "Short texts are best because they use less battery and do not clog the network."
+        },
+        {
+          "prompt": "What should you do before forwarding an emergency message?",
+          "kind": "choice",
+          "choices": [
+            "Check if it comes from a reliable source",
+            "Send it immediately to everyone",
+            "Add more scary words"
+          ],
+          "answer": 0,
+          "expected": "Check if it comes from a reliable source",
+          "explain": "False messages can cause panic. Always verify first!"
+        },
+        {
+          "prompt": "What is the Philippine national emergency hotline number?",
+          "kind": "choice",
+          "choices": [
+            "911",
+            "123",
+            "8888"
+          ],
+          "answer": 0,
+          "expected": "911",
+          "explain": "911 connects you to emergency responders like police, fire, and ambulance."
+        },
+        {
+          "prompt": "What does the CALM method remind you to do?",
+          "kind": "choice",
+          "choices": [
+            "Check the source, Assess, Listen, Message clearly",
+            "Cry, Argue, Leave, Mute everyone",
+            "Chat, Attack, Laugh, Meme"
+          ],
+          "answer": 0,
+          "expected": "Check the source, Assess, Listen, Message clearly",
+          "explain": "CALM helps you stay steady: verify, assess, follow officials, and speak clearly."
+        },
+        {
+          "prompt": "When calling 911, what should you tell them?",
+          "kind": "choice",
+          "choices": [
+            "Your name, what happened, and where you are",
+            "A joke to see if they answer",
+            "Nothing — hang up right away"
+          ],
+          "answer": 0,
+          "expected": "Your name, what happened, and where you are",
+          "explain": "Clear facts help responders reach you. Never call hotlines for fun."
+        },
+        {
+          "prompt": "If phones stop working, what is a good backup?",
+          "kind": "choice",
+          "choices": [
+            "A family meeting place and a battery radio",
+            "Wandering alone to look for news",
+            "Shouting rumors in the street"
+          ],
+          "answer": 0,
+          "expected": "A family meeting place and a battery radio",
+          "explain": "Agree on a meeting place and listen to trusted broadcasts when networks fail."
+        },
+        {
+          "prompt": "Before sharing an alarming post online, you should…",
+          "kind": "choice",
+          "choices": [
+            "Stop, check if it is true, then think",
+            "Share it as fast as possible",
+            "Add fake details to make it scarier"
+          ],
+          "answer": 0,
+          "expected": "Stop, check if it is true, then think",
+          "explain": "Fake news causes panic. Verify before you share."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Watch the video. What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Check official announcements first",
+            "Share it with everyone now",
+            "Add scarier words then post",
+            "Panic and run alone"
+          ],
+          "answer": 0,
+          "expected": "Check official announcements first",
+          "explain": "Stop and verify. Fake news causes panic. Simulation lang ito."
+        },
+        {
+          "prompt": "Tap CALM in the right order.",
+          "kind": "safetySequence",
+          "choices": [
+            "Check the source",
+            "Assess the situation",
+            "Listen to officials",
+            "Message clearly"
+          ],
+          "expected": "Check the source → Assess the situation → Listen to officials → Message clearly",
+          "explain": "C-A-L-M: Check, Assess, Listen, Message clearly."
+        },
+        {
+          "prompt": "Who do you call?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Call 911",
+            "Post it on social media first",
+            "Call a hotline as a joke",
+            "Say nothing to anyone"
+          ],
+          "answer": 0,
+          "expected": "Call 911",
+          "explain": "Call 911 for real emergencies. Never call hotlines for fun."
+        },
+        {
+          "prompt": "When you call 911, tell them where you are. Tap it!",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "Where you are",
+          "explain": "Say your name, what happened, and where you are. Stay on the line."
+        },
+        {
+          "prompt": "What is the best message?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Short text: “I am safe at school.?",
+            "A very long voice story",
+            "Many photo uploads",
+            "A long live video"
+          ],
+          "answer": 0,
+          "expected": "Short text: “I am safe at school.?",
+          "explain": "Short texts use less battery and do not clog the network."
+        },
+        {
+          "prompt": "What is a good backup plan?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Family meeting place + battery radio",
+            "Wander alone looking for rumors",
+            "Shout scary news in the street",
+            "Do nothing and hide alone"
+          ],
+          "answer": 0,
+          "expected": "Family meeting place + battery radio",
+          "explain": "Agree on a meeting place and listen to trusted broadcasts."
+        }
+      ]
+    },
+    {
+      "key": "stranger-danger",
+      "title": "Stranger Danger",
+      "badge": "Smart Explorer",
+      "quiz": [
+        {
+          "prompt": "What should you do if an unfamiliar person asks you to go somewhere with them?",
+          "kind": "choice",
+          "choices": [
+            "Say NO, run away, and tell a trusted adult",
+            "Go with them if they seem nice",
+            "Keep it a secret"
+          ],
+          "answer": 0,
+          "expected": "Say NO, run away, and tell a trusted adult",
+          "explain": "Never go anywhere with an unfamiliar person without checking with a trusted adult first."
+        },
+        {
+          "prompt": "Which of the following information should you keep private online?",
+          "kind": "choice",
+          "choices": [
+            "Your home address and passwords",
+            "Your favorite color",
+            "Your favorite animal"
+          ],
+          "answer": 0,
+          "expected": "Your home address and passwords",
+          "explain": "You should never share personal information like your address or passwords online."
+        },
+        {
+          "prompt": "What does NO, GO, TELL mean?",
+          "kind": "choice",
+          "choices": [
+            "Say no, move to safety, tell a trusted adult",
+            "Stay quiet and hope it stops",
+            "Accept gifts and keep secrets"
+          ],
+          "answer": 0,
+          "expected": "Say no, move to safety, tell a trusted adult",
+          "explain": "Your safety matters more than being polite. Keep telling until someone helps."
+        },
+        {
+          "prompt": "Someone offers unexpected candy to leave with them. What do you do?",
+          "kind": "choice",
+          "choices": [
+            "Say “No, thank you? and tell an adult",
+            "Take the candy and go",
+            "Hide the candy and say nothing"
+          ],
+          "answer": 0,
+          "expected": "Say “No, thank you? and tell an adult",
+          "explain": "Unexpected gifts used to lure you away are a warning sign. Check First with a trusted adult."
+        },
+        {
+          "prompt": "Who is a trusted adult?",
+          "kind": "choice",
+          "choices": [
+            "A parent, teacher, or police officer who keeps you safe",
+            "Anyone who plays the same game online",
+            "A stranger with a nice car"
+          ],
+          "answer": 0,
+          "expected": "A parent, teacher, or police officer who keeps you safe",
+          "explain": "Trusted adults care about your safety. Know more than one person you can ask for help."
+        },
+        {
+          "prompt": "An adult asks you to keep an unsafe secret from your parents. What should you do?",
+          "kind": "choice",
+          "choices": [
+            "Tell a trusted adult right away",
+            "Keep the secret forever",
+            "Laugh and ignore it"
+          ],
+          "answer": 0,
+          "expected": "Tell a trusted adult right away",
+          "explain": "Birthday surprises are okay. Unsafe secrets are not — tell someone who can help."
+        },
+        {
+          "prompt": "Someone says your parent sent them to pick you up. What is the Check First rule?",
+          "kind": "choice",
+          "choices": [
+            "Verify with your parent or guardian first",
+            "Go immediately so you are not late",
+            "Post it online for likes"
+          ],
+          "answer": 0,
+          "expected": "Verify with your parent or guardian first",
+          "explain": "Always Check First before going anywhere or accepting help from someone you do not know."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Watch the video. What is the safest action?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Say NO, move away, tell an adult",
+            "Take the candy and go",
+            "Keep it a secret",
+            "Get in the car because they seem nice"
+          ],
+          "answer": 0,
+          "expected": "Say NO, move away, tell an adult",
+          "explain": "Use NO–GO–TELL. Simulation lang ito — practice for real life."
+        },
+        {
+          "prompt": "Tap the steps in order.",
+          "kind": "safetySequence",
+          "choices": [
+            "Say NO",
+            "GO to a safe place",
+            "TELL a trusted adult"
+          ],
+          "expected": "Say NO → GO to a safe place → TELL a trusted adult",
+          "explain": "Say no, move to safety, and keep telling until someone helps."
+        },
+        {
+          "prompt": "Tap a trusted adult who can help you.",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "Police officer",
+          "explain": "Trusted adults include parents, teachers, and police officers."
+        },
+        {
+          "prompt": "What is the Check First rule?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Verify with your parent first",
+            "Go with them right away",
+            "Post it online",
+            "Keep it secret from your family"
+          ],
+          "answer": 0,
+          "expected": "Verify with your parent first",
+          "explain": "Always Check First with your parent or guardian before leaving."
+        },
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Tell a trusted adult right away",
+            "Keep the secret forever",
+            "Laugh and ignore it",
+            "Accept gifts to stay quiet"
+          ],
+          "answer": 0,
+          "expected": "Tell a trusted adult right away",
+          "explain": "Birthday surprises are okay. Unsafe secrets are not — tell someone."
+        },
+        {
+          "prompt": "What do you share?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Nothing private — tell an adult",
+            "Your home address",
+            "Your password",
+            "Your live location"
+          ],
+          "answer": 0,
+          "expected": "Nothing private — tell an adult",
+          "explain": "People online are strangers too. Never share address or passwords."
+        }
+      ]
+    },
+    {
+      "key": "cyber-safety",
+      "title": "Cyberbullying & Online Safety",
+      "badge": "Cyber Sentinel",
+      "quiz": [
+        {
+          "prompt": "What should you do if someone sends mean messages online?",
+          "kind": "choice",
+          "choices": [
+            "Do not reply, save proof, and tell an adult",
+            "Send mean messages back",
+            "Keep it a secret"
+          ],
+          "answer": 0,
+          "expected": "Do not reply, save proof, and tell an adult",
+          "explain": "Telling a trusted adult helps stop cyberbullying safely."
+        },
+        {
+          "prompt": "Which information should generally be kept private?",
+          "kind": "choice",
+          "choices": [
+            "Your password",
+            "Your favorite sport",
+            "Your favorite color"
+          ],
+          "answer": 0,
+          "expected": "Your password",
+          "explain": "Passwords and home addresses should be kept private and protected."
+        },
+        {
+          "prompt": "You get a message saying \"You won a phone! Send your password now!\" What do you do?",
+          "kind": "choice",
+          "choices": [
+            "Do not provide it, report it, and tell an adult",
+            "Send your password quickly",
+            "Share the message with everyone"
+          ],
+          "answer": 0,
+          "expected": "Do not provide it, report it, and tell an adult",
+          "explain": "Unexpected prizes asking for personal information are often scams."
+        },
+        {
+          "prompt": "What does STOP, SAVE, BLOCK, TELL mean?",
+          "kind": "choice",
+          "choices": [
+            "Pause, keep proof, block the person, tell an adult",
+            "Argue online until you win",
+            "Delete everything and stay silent"
+          ],
+          "answer": 0,
+          "expected": "Pause, keep proof, block the person, tell an adult",
+          "explain": "This strategy helps you stay safe and get help without making the bullying worse."
+        },
+        {
+          "prompt": "Before you post a message or photo, use THINK. What does it check?",
+          "kind": "choice",
+          "choices": [
+            "True, Helpful, Important, Necessary, Kind",
+            "Trendy, Hilarious, Instant, Noisy, Cool",
+            "That nobody will ever see it"
+          ],
+          "answer": 0,
+          "expected": "True, Helpful, Important, Necessary, Kind",
+          "explain": "If a post might hurt someone, do not share it. Online words are hard to remove."
+        },
+        {
+          "prompt": "You see a classmate being bullied online. What should a responsible bystander do?",
+          "kind": "choice",
+          "choices": [
+            "Support them, report it, and ask an adult for help",
+            "Join in and laugh",
+            "Watch quietly and do nothing"
+          ],
+          "answer": 0,
+          "expected": "Support them, report it, and ask an adult for help",
+          "explain": "Do not join the harm. Private support plus adult help can stop cyberbullying."
+        },
+        {
+          "prompt": "Someone online asks for your home address. What do you do?",
+          "kind": "choice",
+          "choices": [
+            "Do not share it — tell a trusted adult",
+            "Send your exact address",
+            "Share your live location for fun"
+          ],
+          "answer": 0,
+          "expected": "Do not share it — tell a trusted adult",
+          "explain": "Location and address are private. Never share them with online strangers."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Watch the video. What do you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Refuse, block, and tell a parent",
+            "Type your exact address",
+            "Share live location for fun",
+            "Send your password too"
+          ],
+          "answer": 0,
+          "expected": "Refuse, block, and tell a parent",
+          "explain": "Private info stays private. Simulation lang ito."
+        },
+        {
+          "prompt": "Tap STOP, SAVE, BLOCK, TELL in order.",
+          "kind": "safetySequence",
+          "choices": [
+            "Stop — do not reply",
+            "Save proof",
+            "Block the person",
+            "Tell a trusted adult"
+          ],
+          "expected": "Stop — do not reply → Save proof → Block the person → Tell a trusted adult",
+          "explain": "Do not reply mean. Save proof, block, and get adult help."
+        },
+        {
+          "prompt": "What is the safest response?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Do not share — report and tell an adult",
+            "Laugh and forward it",
+            "Add mean comments",
+            "Watch and do nothing forever"
+          ],
+          "answer": 0,
+          "expected": "Do not share — report and tell an adult",
+          "explain": "Be a responsible bystander. Do not spread harmful content."
+        },
+        {
+          "prompt": "Tap what keeps your password and secrets locked away.",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "Padlock",
+          "explain": "Passwords and home addresses stay private — not colors or sports."
+        },
+        {
+          "prompt": "What do you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Do not send it — report and tell an adult",
+            "Send your password quickly",
+            "Click every prize link",
+            "Share the scam with younger kids as real"
+          ],
+          "answer": 0,
+          "expected": "Do not send it — report and tell an adult",
+          "explain": "Unexpected prizes that ask for passwords are scams."
+        },
+        {
+          "prompt": "What does THINK remind you to check?",
+          "kind": "sceneDecision",
+          "choices": [
+            "True, Helpful, Important, Necessary, Kind",
+            "Only if it gets many likes",
+            "That nobody will ever see it",
+            "Post first, think later"
+          ],
+          "answer": 0,
+          "expected": "True, Helpful, Important, Necessary, Kind",
+          "explain": "If a post might hurt someone, do not share it."
+        }
+      ]
+    },
+    {
+      "key": "road-safety",
+      "title": "Road & Traffic Safety",
+      "badge": "Road Master",
+      "quiz": [
+        {
+          "prompt": "What should you do before crossing a road?",
+          "kind": "choice",
+          "choices": [
+            "Stop, look, listen, and think",
+            "Run quickly",
+            "Look at your phone"
+          ],
+          "answer": 0,
+          "expected": "Stop, look, listen, and think",
+          "explain": "Stopping and checking the road helps you identify approaching vehicles and other hazards."
+        },
+        {
+          "prompt": "What does a red traffic light mean?",
+          "kind": "choice",
+          "choices": [
+            "Stop completely",
+            "Go if no one is looking",
+            "Speed up"
+          ],
+          "answer": 0,
+          "expected": "Stop completely",
+          "explain": "Red generally means STOP. Do not proceed when the signal prohibits movement."
+        },
+        {
+          "prompt": "Why is standing close to a large truck dangerous?",
+          "kind": "choice",
+          "choices": [
+            "The driver might not see you (blind spot)",
+            "The truck is loud",
+            "It makes the road wider"
+          ],
+          "answer": 0,
+          "expected": "The driver might not see you (blind spot)",
+          "explain": "Large vehicles have blind spots where the driver cannot see pedestrians or cyclists."
+        },
+        {
+          "prompt": "Where should you cross the street?",
+          "kind": "choice",
+          "choices": [
+            "At a pedestrian crossing",
+            "Anywhere between moving cars",
+            "While texting in the middle of the road"
+          ],
+          "answer": 0,
+          "expected": "At a pedestrian crossing",
+          "explain": "Use crossings and hold an adult’s hand on busy streets."
+        },
+        {
+          "prompt": "When riding in a car, what should you always do?",
+          "kind": "choice",
+          "choices": [
+            "Wear your seat belt and sit properly",
+            "Open the door while moving",
+            "Stand up to look outside"
+          ],
+          "answer": 0,
+          "expected": "Wear your seat belt and sit properly",
+          "explain": "Seat belts protect you on every trip, even short ones."
+        },
+        {
+          "prompt": "Before riding a bicycle, what should you wear?",
+          "kind": "choice",
+          "choices": [
+            "A properly fitted helmet",
+            "Loud headphones only",
+            "Nothing — just hold your phone"
+          ],
+          "answer": 0,
+          "expected": "A properly fitted helmet",
+          "explain": "Check brakes and tires, wear a helmet, and follow traffic rules."
+        },
+        {
+          "prompt": "What should you do with your phone while crossing?",
+          "kind": "choice",
+          "choices": [
+            "Put it away and stay alert",
+            "Keep chatting so you do not notice cars",
+            "Film yourself crossing"
+          ],
+          "answer": 0,
+          "expected": "Put it away and stay alert",
+          "explain": "Distractions are dangerous. Never assume a driver sees you."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Watch the video. What do you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Stop on the curb and wait",
+            "Run across anyway",
+            "Cross while texting",
+            "Close your eyes and go"
+          ],
+          "answer": 0,
+          "expected": "Stop on the curb and wait",
+          "explain": "Red means stop. Wait for a safe signal. Simulation lang ito."
+        },
+        {
+          "prompt": "Tap Stop, Look, Listen, Think in order.",
+          "kind": "safetySequence",
+          "choices": [
+            "Stop",
+            "Look both ways",
+            "Listen for cars",
+            "Think — is it safe?"
+          ],
+          "expected": "Stop → Look both ways → Listen for cars → Think — is it safe?",
+          "explain": "Stop, Look, Listen, Think before you cross."
+        },
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Put the phone away and watch for cars",
+            "Read the message while walking",
+            "Film yourself crossing",
+            "Put on loud music"
+          ],
+          "answer": 0,
+          "expected": "Put the phone away and watch for cars",
+          "explain": "Distractions hide cars. Eyes and ears stay on the road."
+        },
+        {
+          "prompt": "Where should you cross the street? Tap it.",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "Crosswalk",
+          "explain": "Use pedestrian crossings. Hold an adult's hand on busy streets."
+        },
+        {
+          "prompt": "Why is standing close dangerous?",
+          "kind": "sceneDecision",
+          "choices": [
+            "The driver may not see you (blind spot)",
+            "Only because the truck is loud",
+            "It makes the road wider",
+            "It looks cool to stand there"
+          ],
+          "answer": 0,
+          "expected": "The driver may not see you (blind spot)",
+          "explain": "If you cannot see the driver, they probably cannot see you."
+        },
+        {
+          "prompt": "What keeps you safer?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Seat belt in cars; helmet on bikes",
+            "Open the door while moving",
+            "Stand up in the car",
+            "Loud headphones while biking"
+          ],
+          "answer": 0,
+          "expected": "Seat belt in cars; helmet on bikes",
+          "explain": "Seat belts every trip. Helmets every ride. Follow traffic rules."
+        }
+      ]
+    },
+    {
+      "key": "first-aid",
+      "title": "Basic First Aid",
+      "badge": "First Aid Champion",
+      "quiz": [
+        {
+          "prompt": "What should you do before helping an injured person?",
+          "kind": "choice",
+          "choices": [
+            "Check whether the scene is safe",
+            "Immediately move the person",
+            "Give the person water"
+          ],
+          "answer": 0,
+          "expected": "Check whether the scene is safe",
+          "explain": "Scene safety should be checked before approaching. Your safety is part of first aid."
+        },
+        {
+          "prompt": "What are the three basic emergency actions in this module?",
+          "kind": "choice",
+          "choices": [
+            "Check, Call, Care",
+            "Run, Hide, Wait",
+            "Look, Walk, Leave"
+          ],
+          "answer": 0,
+          "expected": "Check, Call, Care",
+          "explain": "Check the scene and person, call for appropriate assistance, and provide appropriate care."
+        },
+        {
+          "prompt": "A person has severe bleeding. What is an important first-aid action?",
+          "kind": "choice",
+          "choices": [
+            "Apply appropriate direct pressure",
+            "Ignore the bleeding",
+            "Give the person food"
+          ],
+          "answer": 0,
+          "expected": "Apply appropriate direct pressure",
+          "explain": "Direct pressure helps control external bleeding while emergency assistance is obtained."
+        },
+        {
+          "prompt": "What should be used to cool a thermal burn?",
+          "kind": "choice",
+          "choices": [
+            "Clean, cool running water",
+            "Butter",
+            "Toothpaste"
+          ],
+          "answer": 0,
+          "expected": "Clean, cool running water",
+          "explain": "Clean, cool running water is recommended. Do not use butter, toothpaste, or oil."
+        },
+        {
+          "prompt": "A person is unresponsive and not breathing normally. What should happen?",
+          "kind": "choice",
+          "choices": [
+            "Activate emergency assistance and provide CPR/AED care if trained",
+            "Give them food",
+            "Ask them to walk around"
+          ],
+          "answer": 0,
+          "expected": "Activate emergency assistance and provide CPR/AED care if trained",
+          "explain": "An unresponsive person who is not breathing normally or is only gasping needs immediate emergency action."
+        },
+        {
+          "prompt": "True or False: A learner should enter a dangerous area to rescue someone immediately.",
+          "kind": "choice",
+          "choices": [
+            "False — check the scene first",
+            "True — rush in right away",
+            "Only if friends say so"
+          ],
+          "answer": 0,
+          "expected": "False — check the scene first",
+          "explain": "Do not place yourself in danger. Check the scene first and obtain appropriate assistance."
+        },
+        {
+          "prompt": "What is the most important overall principle when providing first aid?",
+          "kind": "choice",
+          "choices": [
+            "Help safely and within your level of training",
+            "Do everything possible, even without training",
+            "Wait until someone else notices"
+          ],
+          "answer": 0,
+          "expected": "Help safely and within your level of training",
+          "explain": "Good first aid means responding safely, getting help, and giving care appropriate to your training."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Tap the emergency actions in order.",
+          "kind": "safetySequence",
+          "choices": [
+            "Check",
+            "Call",
+            "Care"
+          ],
+          "expected": "Check → Call → Care",
+          "explain": "CHECK the scene and person, CALL for help, then CARE within your training."
+        },
+        {
+          "prompt": "What should you do first?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Check that the area is safe, get help, and provide first aid if trained",
+            "Run away because there is blood",
+            "Pour an unknown substance on the wound",
+            "Tell them to keep working"
+          ],
+          "answer": 0,
+          "expected": "Check that the area is safe, get help, and provide first aid if trained",
+          "explain": "Make sure the situation is safe, get appropriate help, then care according to training."
+        },
+        {
+          "prompt": "What is the safest cooling step?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Cool with clean, cool running water",
+            "Spread butter on the burn",
+            "Put toothpaste on it",
+            "Rub cooking oil on it"
+          ],
+          "answer": 0,
+          "expected": "Cool with clean, cool running water",
+          "explain": "Cool with clean, cool running water. Never use butter, toothpaste, or oil."
+        },
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Get immediate emergency assistance — this may be severe choking",
+            "Wait and see if they laugh it off",
+            "Offer a big drink of water first",
+            "Practice back blows on a classmate for fun"
+          ],
+          "answer": 0,
+          "expected": "Get immediate emergency assistance — this may be severe choking",
+          "explain": "Someone who cannot speak, cry, or cough effectively needs immediate action and emergency help."
+        },
+        {
+          "prompt": "What is the safest response?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Check safety, get adult/emergency help, and monitor breathing",
+            "Give food or drink right away",
+            "Make them stand up immediately",
+            "Leave them alone"
+          ],
+          "answer": 0,
+          "expected": "Check safety, get adult/emergency help, and monitor breathing",
+          "explain": "Check safety and responsiveness, get help, check breathing, and do not give food or drink to an unconscious person."
+        },
+        {
+          "prompt": "What should you generally avoid?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Unnecessary movement or straightening the injured part",
+            "Calling for professional help",
+            "Keeping the person still and monitoring",
+            "Keeping the area safe"
+          ],
+          "answer": 0,
+          "expected": "Unnecessary movement or straightening the injured part",
+          "explain": "Keep the person still, do not straighten the injured part, and get professional help."
+        }
+      ]
+    },
+    {
+      "key": "bullying",
+      "title": "Bullying Awareness",
+      "badge": "Bullying Awareness Champion",
+      "quiz": [
+        {
+          "prompt": "Which statement best describes bullying?",
+          "kind": "choice",
+          "choices": [
+            "Harmful behavior that may involve repetition, a power imbalance, or difficulty defending oneself",
+            "Every disagreement between two learners",
+            "Any joke between friends"
+          ],
+          "answer": 0,
+          "expected": "Harmful behavior that may involve repetition, a power imbalance, or difficulty defending oneself",
+          "explain": "Bullying commonly involves harmful repeated behavior or a power imbalance. Serious one-time incidents should also be reported."
+        },
+        {
+          "prompt": "Which is an example of cyberbullying?",
+          "kind": "choice",
+          "choices": [
+            "Repeatedly posting humiliating comments about a classmate online",
+            "Forgetting to bring a notebook",
+            "Asking a teacher a question"
+          ],
+          "answer": 0,
+          "expected": "Repeatedly posting humiliating comments about a classmate online",
+          "explain": "Cyberbullying is harmful behavior carried out through digital technology or online platforms."
+        },
+        {
+          "prompt": "True or False: A learner should physically fight back when bullied.",
+          "kind": "choice",
+          "choices": [
+            "False — prioritize safety and seek help",
+            "True — always fight back",
+            "Only if no adults are nearby"
+          ],
+          "answer": 0,
+          "expected": "False — prioritize safety and seek help",
+          "explain": "Physical retaliation can increase danger. Prioritize safety and seek help from trusted adults."
+        },
+        {
+          "prompt": "You witness a classmate being repeatedly excluded. What should you do?",
+          "kind": "choice",
+          "choices": [
+            "Avoid participating and seek help from a trusted adult",
+            "Join the group so you will not be excluded",
+            "Spread the story to other classmates"
+          ],
+          "answer": 0,
+          "expected": "Avoid participating and seek help from a trusted adult",
+          "explain": "A safe bystander response is to avoid encouraging the behavior and seek appropriate assistance."
+        },
+        {
+          "prompt": "Which is an appropriate action when experiencing cyberbullying?",
+          "kind": "choice",
+          "choices": [
+            "Save relevant evidence and seek help",
+            "Threaten the sender",
+            "Post the sender's private information"
+          ],
+          "answer": 0,
+          "expected": "Save relevant evidence and seek help",
+          "explain": "Keeping evidence and seeking help helps adults address the situation without escalating the conflict."
+        },
+        {
+          "prompt": "What is an upstander?",
+          "kind": "choice",
+          "choices": [
+            "Someone who safely takes constructive action when witnessing harmful behavior",
+            "Someone who encourages bullying",
+            "Someone who ignores every problem"
+          ],
+          "answer": 0,
+          "expected": "Someone who safely takes constructive action when witnessing harmful behavior",
+          "explain": "An upstander takes a safe action such as supporting someone or seeking adult help."
+        },
+        {
+          "prompt": "Which situation requires immediate adult attention?",
+          "kind": "choice",
+          "choices": [
+            "A learner receives a serious threat of violence",
+            "Two friends disagree about which game to play",
+            "A learner forgets homework"
+          ],
+          "answer": 0,
+          "expected": "A learner receives a serious threat of violence",
+          "explain": "Serious threats of violence should be reported immediately to a trusted adult."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Safely support the learner and tell a trusted adult",
+            "Laugh so they will not target you",
+            "Join the group",
+            "Threaten the group"
+          ],
+          "answer": 0,
+          "expected": "Safely support the learner and tell a trusted adult",
+          "explain": "Avoid encouraging the behavior, support the learner when appropriate, and seek adult help."
+        },
+        {
+          "prompt": "What is the safest response?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Save evidence, use reporting/blocking tools, and tell a trusted adult",
+            "Send more insulting messages",
+            "Threaten the person",
+            "Share the messages publicly to embarrass them"
+          ],
+          "answer": 0,
+          "expected": "Save evidence, use reporting/blocking tools, and tell a trusted adult",
+          "explain": "Escalating online may make things worse. Preserve evidence and seek appropriate help."
+        },
+        {
+          "prompt": "Tap STOP → THINK → ACT in order.",
+          "kind": "safetySequence",
+          "choices": [
+            "STOP — identify what is happening",
+            "THINK — choose the safest response",
+            "ACT — tell an adult / support safely"
+          ],
+          "expected": "STOP — identify what is happening → THINK — choose the safest response → ACT — tell an adult / support safely",
+          "explain": "STOP, THINK, then ACT: move to safety, support when safe, and tell a trusted adult."
+        },
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Do not join the exclusion — seek help from a trusted adult",
+            "Help spread the rumor",
+            "Join so you stay popular",
+            "Ignore serious harm forever"
+          ],
+          "answer": 0,
+          "expected": "Do not join the exclusion — seek help from a trusted adult",
+          "explain": "Do not join exclusion or rumors. Avoid spreading harm and tell a trusted adult."
+        },
+        {
+          "prompt": "Tap the trusted adult in the scene.",
+          "kind": "findObject",
+          "choices": [],
+          "expected": "Trusted adult",
+          "explain": "Tell a parent, guardian, teacher, counselor, or another responsible adult."
+        },
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Tell a trusted adult immediately — seek emergency help if needed",
+            "Keep it secret",
+            "Treat it as just a joke",
+            "Threaten them back"
+          ],
+          "answer": 0,
+          "expected": "Tell a trusted adult immediately — seek emergency help if needed",
+          "explain": "Serious threats require immediate adult attention and appropriate safety procedures."
+        }
+      ]
+    },
+    {
+      "key": "water-safety",
+      "title": "Water Safety",
+      "badge": "Water Safety Champion",
+      "quiz": [
+        {
+          "prompt": "Which is the safest general rule for children around water?",
+          "kind": "choice",
+          "choices": [
+            "Swim only when appropriate supervision is available",
+            "Swim alone if you are a strong swimmer",
+            "Enter whenever the water looks calm"
+          ],
+          "answer": 0,
+          "expected": "Swim only when appropriate supervision is available",
+          "explain": "Appropriate supervision is an important part of preventing water-related emergencies."
+        },
+        {
+          "prompt": "True or False: Dive into water even when the depth is unknown.",
+          "kind": "choice",
+          "choices": [
+            "False — never dive into unknown or shallow water",
+            "True — diving is always fine",
+            "Only if friends dive first"
+          ],
+          "answer": 0,
+          "expected": "False — never dive into unknown or shallow water",
+          "explain": "Diving into unknown or shallow water can cause serious injuries."
+        },
+        {
+          "prompt": "Which can be a hazard in open water?",
+          "kind": "choice",
+          "choices": [
+            "Strong currents, depth changes, and hidden objects",
+            "Only books on the shore",
+            "Only loud music"
+          ],
+          "answer": 0,
+          "expected": "Strong currents, depth changes, and hidden objects",
+          "explain": "Open water can contain many hazards that may not be visible from the surface."
+        },
+        {
+          "prompt": "You see someone struggling in deep water. What should you generally do?",
+          "kind": "choice",
+          "choices": [
+            "Alert a lifeguard or adult and use reach-or-throw when safe",
+            "Jump in immediately",
+            "Ignore the situation"
+          ],
+          "answer": 0,
+          "expected": "Alert a lifeguard or adult and use reach-or-throw when safe",
+          "explain": "An untrained rescuer can become a victim. Get trained help and use reach-or-throw when safe."
+        },
+        {
+          "prompt": "Which item is designed as flotation safety equipment?",
+          "kind": "choice",
+          "choices": [
+            "A properly fitted life jacket",
+            "An inflatable ball",
+            "A plastic toy"
+          ],
+          "answer": 0,
+          "expected": "A properly fitted life jacket",
+          "explain": "A properly fitted life jacket is designed as safety equipment. Toys are not substitutes."
+        },
+        {
+          "prompt": "A lifeguard tells everyone to leave the water. What should you do?",
+          "kind": "choice",
+          "choices": [
+            "Leave the water and follow the lifeguard's instructions",
+            "Stay because you are not scared",
+            "Keep swimming with friends"
+          ],
+          "answer": 0,
+          "expected": "Leave the water and follow the lifeguard's instructions",
+          "explain": "Lifeguards monitor conditions. Their directions should be followed promptly."
+        },
+        {
+          "prompt": "Which behavior is unsafe around a swimming pool?",
+          "kind": "choice",
+          "choices": [
+            "Running",
+            "Walking",
+            "Listening to the lifeguard"
+          ],
+          "answer": 0,
+          "expected": "Running",
+          "explain": "Running around a pool increases the risk of slipping, falling, and injury."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Tap every unsafe behavior or hazard you can find.",
+          "kind": "findHazards",
+          "choices": [],
+          "expected": "Running near the pool, Distracted adult / weak supervision, Wet pool deck",
+          "explain": "Running, weak supervision, and diving risks are pool hazards. Alert an adult or lifeguard."
+        },
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Do not enter the river",
+            "Swim because friends are going",
+            "Enter if the water looks exciting",
+            "Ask another child to test it first"
+          ],
+          "answer": 0,
+          "expected": "Do not enter the river",
+          "explain": "Heavy rain can change levels and currents. Floodwater and fast rivers are not safe swimming places."
+        },
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Leave the water immediately",
+            "Stay because you feel fine",
+            "Keep swimming with friends",
+            "Ignore the warning"
+          ],
+          "answer": 0,
+          "expected": "Leave the water immediately",
+          "explain": "If a lifeguard or adult tells you to leave, leave immediately."
+        },
+        {
+          "prompt": "What is the safest response?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Alert an adult/lifeguard and use reach-or-throw when safe",
+            "Jump into the water immediately",
+            "Run away and tell no one",
+            "Ask another child to jump in"
+          ],
+          "answer": 0,
+          "expected": "Alert an adult/lifeguard and use reach-or-throw when safe",
+          "explain": "REACH or THROW, DON'T GO. Get adult or emergency help. Do not put yourself in danger."
+        },
+        {
+          "prompt": "Which is designed as safety equipment?",
+          "kind": "sceneDecision",
+          "choices": [
+            "A properly fitted life jacket",
+            "An inflatable pool ring toy",
+            "An inflatable ball",
+            "A plastic beach toy"
+          ],
+          "answer": 0,
+          "expected": "A properly fitted life jacket",
+          "explain": "A properly fitted life jacket is safety equipment. Inflatable toys are not substitutes."
+        },
+        {
+          "prompt": "What is the safest action?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Signal for help and follow safety instructions",
+            "Keep swimming to prove you are strong",
+            "Move farther from shore",
+            "Hold your breath and dive underwater"
+          ],
+          "answer": 0,
+          "expected": "Signal for help and follow safety instructions",
+          "explain": "Recognizing difficulty early and seeking help can prevent a more serious emergency."
+        }
+      ]
+    },
+    {
+      "key": "household-electricity",
+      "title": "Poison, Household & Electricity Safety",
+      "badge": "Home Safety Hero",
+      "quiz": [
+        {
+          "prompt": "You find a bottle with a liquid you do not recognize. What should you do?",
+          "kind": "choice",
+          "choices": [
+            "Move away and tell a trusted adult",
+            "Smell it to find out what it is",
+            "Taste a small amount"
+          ],
+          "answer": 0,
+          "expected": "Move away and tell a trusted adult",
+          "explain": "Unknown substances should never be tasted, smelled closely, or handled unnecessarily."
+        },
+        {
+          "prompt": "Which statement about medicine is safest?",
+          "kind": "choice",
+          "choices": [
+            "Use medicine only as directed by an appropriate adult or healthcare professional",
+            "Medicine is always safe because it comes in a bottle",
+            "Children can share prescription medicine with friends"
+          ],
+          "answer": 0,
+          "expected": "Use medicine only as directed by an appropriate adult or healthcare professional",
+          "explain": "Medicine must be used appropriately and should not be shared or taken without proper direction."
+        },
+        {
+          "prompt": "Why should cleaning products not be mixed?",
+          "kind": "choice",
+          "choices": [
+            "They may produce dangerous reactions or substances",
+            "They may only change color",
+            "They may become expensive"
+          ],
+          "answer": 0,
+          "expected": "They may produce dangerous reactions or substances",
+          "explain": "Some chemical combinations can create dangerous reactions or harmful gases."
+        },
+        {
+          "prompt": "You notice an electrical cord with exposed wires. What should you do?",
+          "kind": "choice",
+          "choices": [
+            "Stay away and tell an adult",
+            "Touch the wires carefully",
+            "Cover them yourself with tape"
+          ],
+          "answer": 0,
+          "expected": "Stay away and tell an adult",
+          "explain": "Damaged electrical equipment can cause shock or fire. Do not attempt to repair it yourself."
+        },
+        {
+          "prompt": "True or False: It is safe to use an electrical appliance with wet hands if you are careful.",
+          "kind": "choice",
+          "choices": [
+            "False — wet hands increase shock risk",
+            "True — being careful is enough",
+            "Only for small chargers"
+          ],
+          "answer": 0,
+          "expected": "False — wet hands increase shock risk",
+          "explain": "Wet hands can increase the risk of electric shock."
+        },
+        {
+          "prompt": "You see a young child holding a button battery. What should you do?",
+          "kind": "choice",
+          "choices": [
+            "Tell a trusted adult immediately and keep the battery away",
+            "Let the child play with it",
+            "Put it in your mouth to show it is not food"
+          ],
+          "answer": 0,
+          "expected": "Tell a trusted adult immediately and keep the battery away",
+          "explain": "Button or coin batteries can be extremely dangerous if swallowed."
+        },
+        {
+          "prompt": "A friend is receiving an electric shock. What should you NOT do?",
+          "kind": "choice",
+          "choices": [
+            "Grab the person immediately with your bare hands",
+            "Alert an adult",
+            "Seek emergency assistance when appropriate"
+          ],
+          "answer": 0,
+          "expected": "Grab the person immediately with your bare hands",
+          "explain": "Touching someone still connected to electricity can put you in danger too."
+        }
+      ],
+      "steps": [
+        {
+          "prompt": "Tap every hazard you can find. Safe objects do not count.",
+          "kind": "findHazards",
+          "choices": [],
+          "expected": "Knife near counter edge, Unattended candle, Damaged electrical cord, Cleaning products, Wet floor, Hot kettle",
+          "explain": "Knives near edges, unattended candles, damaged cords, cleaners, wet floors, and hot kettles are hazards. Move away and tell an adult."
+        },
+        {
+          "prompt": "What is the safest action?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Move away and tell a trusted adult",
+            "Touch it to inspect it",
+            "Taste a drop",
+            "Ignore it"
+          ],
+          "answer": 0,
+          "expected": "Move away and tell a trusted adult",
+          "explain": "STOP — MOVE AWAY — TELL A TRUSTED ADULT."
+        },
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Do not touch it. Tell an adult.",
+            "Try to fix the wires yourself",
+            "Keep using it carefully",
+            "Rinse the cord with water"
+          ],
+          "answer": 0,
+          "expected": "Do not touch it. Tell an adult.",
+          "explain": "Damaged cords can cause shock or fire. Stay away and tell an adult."
+        },
+        {
+          "prompt": "What should you do?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Stay away and tell an adult",
+            "Pick it up with wet hands",
+            "Reach into water to grab it",
+            "Plug it in to test it"
+          ],
+          "answer": 0,
+          "expected": "Stay away and tell an adult",
+          "explain": "Water and electricity do not mix. If an appliance falls into water, do not reach in — tell an adult."
+        },
+        {
+          "prompt": "Tap the safety steps in order.",
+          "kind": "safetySequence",
+          "choices": [
+            "STOP",
+            "MOVE AWAY",
+            "TELL A TRUSTED ADULT"
+          ],
+          "expected": "STOP → MOVE AWAY → TELL A TRUSTED ADULT",
+          "explain": "STOP — MOVE AWAY — TELL A TRUSTED ADULT. Do not experiment or fix it alone."
+        },
+        {
+          "prompt": "What should happen first?",
+          "kind": "sceneDecision",
+          "choices": [
+            "Tell a trusted adult immediately and contact professional help",
+            "Make the person vomit right away",
+            "Give another chemical to neutralize it",
+            "Leave the person alone"
+          ],
+          "answer": 0,
+          "expected": "Tell a trusted adult immediately and contact professional help",
+          "explain": "Suspected poisoning needs prompt adult help and professional guidance. Do not induce vomiting unless a qualified professional instructs you."
+        }
+      ]
+    }
+  ]
+}
