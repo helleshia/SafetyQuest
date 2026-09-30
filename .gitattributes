@@ -149,3 +149,4 @@
 # Next.js web assets: normal git blobs (not LFS), keep binary (-text).
 frontend/assets/** !filter !diff !merge -text
 frontend/imports/** !filter !diff !merge -text
+app/** !filter !diff !merge -text
