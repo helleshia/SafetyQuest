@@ -15,6 +15,13 @@ function allowedOrigins(request: Request) {
   return [`${protocol}://${host}`];
 }
 
+/** Where links in emails should point: APP_PUBLIC_URL if set, else the address the
+    sender has the site open on, so a deployed site never mails out a LAN address. */
+export function siteOrigin(request: Request) {
+  const site = process.env.APP_PUBLIC_URL?.trim() || allowedOrigins(request)[0] || "http://localhost:8443";
+  return site.replace(/\/$/, "");
+}
+
 export async function body(request: Request) {
   if (!request.headers.get("content-type")?.includes("application/json")) throw new ApiError(415, "JSON request required.");
   const origin = request.headers.get("origin");

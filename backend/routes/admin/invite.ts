@@ -1,7 +1,7 @@
 import { randomBytes, randomUUID } from "node:crypto";
 import { z } from "zod";
 import { ApiError, hash, requireAdmin } from "../../lib/auth";
-import { body, endpoint, json } from "../../lib/http";
+import { body, endpoint, json, siteOrigin } from "../../lib/http";
 import { ensureIndex } from "../../lib/indexes";
 import { inviteAdminEmail, mailConfigured, sendMail } from "../../lib/mail";
 import type { Workspace } from "../../lib/db";
@@ -70,8 +70,7 @@ export const POST = endpoint(async request => {
     expiresAt: new Date(Date.now() + MINUTES * 60_000),
   });
 
-  const site = (process.env.APP_PUBLIC_URL ?? process.env.API_BASE_URL ?? "").replace(/\/$/, "");
-  const link = `${site || "http://localhost:8443"}/?invite=${token}`;
+  const link = `${siteOrigin(request)}/?invite=${token}`;
   try {
     await sendMail({ to: email, ...inviteAdminEmail(data.name, link, MINUTES) });
   } catch {
