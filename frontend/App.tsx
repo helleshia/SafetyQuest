@@ -6,6 +6,7 @@ import AdminApp from "./admin/AdminApp";
 import TeacherApp from "./teacher/TeacherApp";
 import ParentApp from "./parent/ParentApp";
 import BrandLogo from "./shared/BrandLogo";
+import appArt from "./assets/app-screens.png";
 import CookieConsent from "./CookieConsent";
 import LoadingStatus from "./shared/LoadingStatus";
 import { getDemoSession, setDemoSession, type DemoRole } from "./shared/demo";
@@ -13,6 +14,14 @@ import { IDLE_MINUTES, useIdleTimeout } from "./shared/useIdleTimeout";
 
 const NAV = [["#home", "Home"], ["#about", "About"], ["#features", "Features"], ["#how", "How it works"]];
 const TOPICS = [["01", "Earthquake", "coral"], ["02", "Fire safety", "orange"], ["03", "Flood safety", "blue"], ["04", "First aid", "yellow"], ["05", "Online safety", "lilac"], ["06", "Storm ready", "mint"]];
+// Built from mobile/ and attached to the latest GitHub release; too big to ship with the site.
+const APK_URL = "https://github.com/reycadealba07192303-ai/safetyquest/releases/latest/download/SafetyQuest.apk";
+const INSTALL_STEPS = [
+  ["Download the app", "On your Android phone, tap Download for Android. The file is large, so use Wi-Fi if you can."],
+  ["Open the file", "When the download finishes, tap the notification, or open Files and look in Downloads for SafetyQuest.apk."],
+  ["Allow the install", "If your phone blocks it, tap Settings and turn on Allow from this source for your browser. If Play Protect warns you, tap Install anyway: the app comes from your school, not the Play Store."],
+  ["Install and sign in", "Tap Install, then Open. Sign in with the student ID your teacher gave you."],
+];
 const inviteToken = () => new URLSearchParams(window.location.search).get("invite");
 
 function Arrow() { return <svg className="icon" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h11M9.5 4.5 14 9l-4.5 4.5" /></svg>; }
@@ -21,12 +30,10 @@ function CloseIcon() { return <svg className="icon" viewBox="0 0 18 18" aria-hid
 function MarkIcon() { return <svg className="mark-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" /></svg>; }
 
 function AppPreview() {
-  return <div className="app-preview" aria-label="SafetyQuest mobile app preview">
-    <div className="app-status"><span>9:41</span><span>● ● ●</span></div>
-    <div className="app-greeting"><small>GOOD MORNING, MAYA</small><strong>Ready for<br /><em>today's quest?</em></strong></div>
-    <div className="app-orbit"><span className="orbit-dot dot-one" /><span className="orbit-dot dot-two" /><span className="orbit-dot dot-three" /><div className="orbit-core">SQ</div></div>
-    <div className="app-quest"><span>CONTINUE LEARNING</span><strong>Earthquake safety</strong><div><i /><small>72% complete</small><b>{"->"}</b></div></div>
-  </div>;
+  const source = typeof appArt === "string" ? appArt : appArt.src;
+  return <figure className="app-preview" aria-label="SafetyQuest mobile app preview">
+    <img src={source} alt="SafetyQuest mobile app screens: login, class standings, a lesson, home and terms" />
+  </figure>;
 }
 
 function DashboardPreview() {
@@ -36,8 +43,27 @@ function DashboardPreview() {
   </div>;
 }
 
+function DownloadGuide({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+  return <div className="download-guide-backdrop" onMouseDown={event => { if (event.target === event.currentTarget) onClose(); }}>
+    <div className="download-guide" role="dialog" aria-modal="true" aria-labelledby="download-guide-title">
+      <button type="button" className="download-guide-close" onClick={onClose} aria-label="Close"><CloseIcon /></button>
+      <div className="eyebrow"><span /> Android install</div>
+      <h3 id="download-guide-title">How to download <em>SafetyQuest.</em></h3>
+      <ol>{INSTALL_STEPS.map(([title, text], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol>
+      <p className="download-guide-note">Updating? Download and install again. Your progress is saved to your account, so nothing is lost.</p>
+      <a href={APK_URL} className="download-button" download="SafetyQuest.apk">Download for Android <Arrow /></a>
+    </div>
+  </div>;
+}
+
 export default function App() {
   const [menu, setMenu] = useState(false);
+  const [guide, setGuide] = useState(false);
   const [authMode, setAuthMode] = useState<"signin" | "signup" | "forgot" | null>(null);
   const [session, setSession] = useState<DemoRole | null>(null);
   const [checking, setChecking] = useState(true);
@@ -99,10 +125,11 @@ export default function App() {
 
       <section className="topics section-pad"><div className="section-top"><div><div className="eyebrow"><span /> Explore the curriculum</div><h2>Find your <em>next quest.</em></h2></div><p>One platform, many ways to be ready.</p></div><div className="topic-grid">{TOPICS.map(([number, name, color]) => <a className={`topic-card ${color}`} href="#download" key={number}><span>{number}</span><strong>{name}</strong><i><Arrow /></i></a>)}</div></section>
 
-      <section id="download" className="download section-pad"><div className="download-copy"><div className="eyebrow"><span /> Take it with you</div><h2>Ready when<br /><em>you are.</em></h2><p>Keep your quests close. Learn in small moments, practice at your own pace, and make preparedness part of everyday life.</p><div className="store-row"><a href="#home" className="store-button store-button-now"><b>↓</b><small>Android app<strong>Download now</strong></small></a></div></div><AppPreview /></section>
+      <section id="download" className="download section-pad"><div className="download-copy"><div className="eyebrow"><span /> For students &amp; families</div><h2>Get the app.<em>Learn safety on the go.</em></h2><p>Short lessons, quick drills and your quest progress, right on your phone. Teachers and admins stay on the web; this install is for learners.</p><div className="download-actions"><a href={APK_URL} className="download-button" download="SafetyQuest.apk">Download for Android <Arrow /></a><button type="button" className="text-link" onClick={() => setGuide(true)}>How to download <Arrow /></button></div></div><AppPreview /></section>
     </main>
 
     <footer><div className="footer-top"><a href="#home" className="brand"><BrandLogo /><span>SafetyQuest</span></a><div className="footer-links">{NAV.map(([href, label]) => <a key={href} href={href}>{label}</a>)}</div><a href="#download" className="button button-coral">Get the app <Arrow /></a></div><div className="footer-bottom"><span>Learn today. Be ready when it matters.</span><span>© 2026 SafetyQuest</span></div><div className="footer-word">SafetyQuest</div></footer></>}
+    {guide && <DownloadGuide onClose={() => setGuide(false)} />}
     <CookieConsent />
   </div>;
 }

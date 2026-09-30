@@ -36,11 +36,16 @@ export const POST = endpoint(async request => {
     attempts: 0,
   });
 
-  // Return as soon as the pending registration exists. Email can lag; the verify
-  // screen has Resend if the first message is slow or missing.
-  void sendRegistrationCode(data.email, code).catch(async error => {
+  // Wait for the send: on Vercel the function is frozen once the response goes out,
+  // so an unawaited send may never leave. If it fails, drop the pending registration
+  // so the person sees the real error and can register again with the same email.
+  try {
+    await sendRegistrationCode(data.email, code);
+  } catch (error) {
     console.error("Registration email failed:", error instanceof Error ? error.message : "unknown");
-  });
+    await registrations.deleteOne({ _id: id });
+    throw error;
+  }
 
   return json({
     status: "Verification required",

@@ -87,7 +87,5 @@ export default function CheckIn({ parentName, linked, onConfirm, onSignOut }: { 
         <p className="parent-gate-aside-note">You can follow your child's progress here, but you cannot change grades, unlock modules, or edit school-assigned activities. Those stay with the teacher.</p>
       </aside>
     </main>
-
-    <p className="parent-gate-foot">Interface preview. Every access check shown here must be repeated on the server before real participant data is used.</p>
   </div>;
 }

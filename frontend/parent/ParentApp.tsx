@@ -178,7 +178,6 @@ function ParentShell({ onSignOut }: { onSignOut: () => void }) {
             {page === "Announcements" && <ParentAnnouncements />}
             {page === "Profile" && <ParentProfile />}
           </div>
-          <p className="sa-disclaimer">Interface preview with fictional student names and sample learning records. Student ID refers to the existing SafetyQuest token, not a school-issued ID. Checking in identifies a child you are already linked to; it never creates a guardian link. Live access checks and student-name handling must be implemented on the backend before real participant data is used.</p>
         </main>
       </div>
 

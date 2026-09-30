@@ -221,7 +221,6 @@
 .parent-gate-points li { display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; line-height: 1.6; }
 .parent-gate-points .sa-icon { width: 15px; flex: 0 0 auto; margin-top: 2px; color: #2f6b4f; }
 .parent-gate-aside-note { margin: 0; color: var(--muted); font-size: 11.5px; line-height: 1.7; }
-.parent-gate-foot { margin: 0; color: var(--muted); font-size: 11px; text-align: center; }
 .parent-gate .sa-onboard { max-width: 620px; max-height: 100%; margin: auto; overflow-y: auto; }
 
 /* Console additions ------------------------------------------------------ */
