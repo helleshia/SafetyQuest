@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { ApiError, limitAttempts, passwordHash, verifyPassword } from "../../lib/auth";
 import { database, type Workspace } from "../../lib/db";
-import { body, endpoint, json } from "../../lib/http";
+import { body, endpoint, json, publicSite } from "../../lib/http";
 import { findMobileStudent, findSetupStudent, mobileRegistrationSchema, studentIdSchema, type ParentContact } from "../../lib/mobile-contract";
 import { mobileToken, requireStudent, type MobileAccount, type MobileSession } from "../../lib/mobile-auth";
 import { notifyParent } from "../../lib/mobile-notify";
@@ -56,7 +56,7 @@ export const register = endpoint(async request => {
 
 async function accountNotification(userId: string, name: string, studentId: string, contact: ParentContact) {
   const { db } = await database();
-  const site = process.env.APP_ORIGIN?.split(",")[0]?.trim();
+  const site = publicSite() || process.env.APP_ORIGIN?.split(",")[0]?.trim();
   try {
     await notifyParent(contact, "Your child created a SafetyQuest account", `Your child has created a SafetyQuest student account and named you as their parent or guardian.\n\nStudent name: ${name}\nStudent ID: ${studentId}\n\nTo follow their lesson progress, sign in to the SafetyQuest website${site ? ` (${site})` : ""} with this email address. If you do not have an account yet, register as a Parent using this same email. Your child will appear there once your account is approved.\n\nNo password is included in this message. Contact the school if you do not recognize this account.`);
     await db.collection<MobileAccount>("mobile_accounts").updateOne({ _id: userId }, { $set: { notification: "accepted" } });

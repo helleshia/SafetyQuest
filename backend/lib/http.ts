@@ -15,11 +15,17 @@ function allowedOrigins(request: Request) {
   return [`${protocol}://${host}`];
 }
 
-/** Where links in emails should point: APP_PUBLIC_URL if set, else the address the
-    sender has the site open on, so a deployed site never mails out a LAN address. */
+/** The public site for links in emails: APP_PUBLIC_URL, else the Vercel production
+    domain Vercel sets on every deployment. Empty when neither is known. */
+export function publicSite() {
+  const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  return (process.env.APP_PUBLIC_URL?.trim() || (vercel ? `https://${vercel}` : "")).replace(/\/$/, "");
+}
+
+/** Where links in emails should point. The public site wins over the address the
+    sender has open, so an invite sent from a LAN dev server still opens anywhere. */
 export function siteOrigin(request: Request) {
-  const site = process.env.APP_PUBLIC_URL?.trim() || allowedOrigins(request)[0] || "http://localhost:8443";
-  return site.replace(/\/$/, "");
+  return publicSite() || (allowedOrigins(request)[0] ?? "http://localhost:8443").replace(/\/$/, "");
 }
 
 export async function body(request: Request) {
