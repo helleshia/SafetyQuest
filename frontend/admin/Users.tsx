@@ -5,6 +5,7 @@ import { useData } from "../shared/store";
 import { Empty, Field, Modal, Note, Pager, Panel, Pill, Search, Select, Toolbar } from "../shared/ui";
 import UserDetails from "./UserDetails";
 import UserEditor from "./UserEditor";
+import ResetPassword from "./ResetPassword";
 import AcademicActionMenu from "./AcademicActionMenu";
 import { studentDeleteReason } from "./academicValidation";
 import "./users.css";
@@ -25,6 +26,7 @@ export default function Users() {
   const [assigning, setAssigning] = useState<User | null>(null);
   const [editing, setEditing] = useState<User | null>(null);
   const [deleting, setDeleting] = useState<User | null>(null);
+  const [resetting, setResetting] = useState<User | null>(null);
   const currentDetail = users.find(user => user.id === detail?.id);
   const deleteReason = !deleting ? "" : deleting.id === store.accountId ? "You cannot delete your own administrator account."
     : deleting.role === "Super Admin" && deleting.status === "Active" && users.filter(user => user.role === "Super Admin" && user.status === "Active").length <= 1 ? "The last active administrator cannot be deleted."
@@ -33,6 +35,7 @@ export default function Users() {
     : deleting.role === "Student" ? studentDeleteReason(deleting.id, store.assessments, links, store.assignments, deleting.name) : "";
   const dialogs = <>
     {(invite || editing) && <UserEditor role={editing?.role ?? tab} user={editing ?? undefined} onClose={() => { setInvite(false); setEditing(null); }} />}
+    {resetting && <ResetPassword user={resetting} onClose={() => setResetting(null)} say={say} />}
     {deleting && <Modal title="Delete account?" note={deleting.studentName || deleting.name} onClose={() => setDeleting(null)}>
       <Note>{deleteReason || "This permanently deletes the account and its sign-in credentials. This cannot be undone. Audit history is retained."}</Note>
       <div className="sa-action-row"><button type="button" className="sa-ghost" onClick={() => setDeleting(null)}>Cancel</button><button type="button" className="sa-danger-button" disabled={!!deleteReason} onClick={() => {
@@ -125,7 +128,7 @@ export default function Users() {
             <td>{tab === "Teacher" ? `${sectionsOf(user.id).length} section${sectionsOf(user.id).length === 1 ? "" : "s"}` : tab === "Parent" ? `${links.filter(link => link.parentId === user.id && link.status === "Active").length} active` : user.mfaEnrolled ? "Enrolled" : "Not enrolled"}</td>
             <td className="sa-dim">{user.lastLogin ? new Date(user.lastLogin).toLocaleString() : "Never"}</td>
           </>}
-          <td className="sa-row-arrow" onClick={event => event.stopPropagation()} onKeyDown={event => event.stopPropagation()}><AcademicActionMenu label={user.studentName || user.name} actions={[{ label: "View account", icon: "person", onSelect: () => setDetail(user) }, { label: "Edit account", icon: "edit", onSelect: () => setEditing(user) }, { label: "Delete account", icon: "trash", danger: true, onSelect: () => setDeleting(user) }]} /></td>
+          <td className="sa-row-arrow" onClick={event => event.stopPropagation()} onKeyDown={event => event.stopPropagation()}><AcademicActionMenu label={user.studentName || user.name} actions={[{ label: "View account", icon: "person", onSelect: () => setDetail(user) }, { label: "Edit account", icon: "edit", onSelect: () => setEditing(user) }, ...(user.role === "Super Admin" ? [] : [{ label: "Reset password", icon: "audit" as const, onSelect: () => setResetting(user) }]), { label: "Delete account", icon: "trash", danger: true, onSelect: () => setDeleting(user) }]} /></td>
         </tr>)}</tbody>
       </table></div>}
       <Pager page={page} pages={pages} total={rows.length} onPage={setPage} />
