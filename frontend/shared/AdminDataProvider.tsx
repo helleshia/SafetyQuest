@@ -24,6 +24,25 @@ export default function AdminDataProvider({ children, onSignOut }: { children: R
     finally { setBusy(false); }
   }
   useEffect(() => { void refresh(); }, []);
+  // Logins, invites and submissions move the revision while this page is open. Pick the
+  // new records up quietly (every 20 seconds and when the tab returns) so the next save
+  // starts from them. Never while a save or an unsaved change is in flight.
+  useEffect(() => {
+    let running = false;
+    async function poll() {
+      if (running || scheduled.current || pending.current.length || events.current.length || document.hidden) return;
+      running = true;
+      try {
+        const latest = await api<AdminSnapshot>("/api/admin/state");
+        if (!scheduled.current && !pending.current.length && !events.current.length && latest.revision !== current.current?.revision) accept(latest);
+      } catch { /* A missed check is retried on the next one. */ }
+      finally { running = false; }
+    }
+    const timer = window.setInterval(() => { void poll(); }, 20_000);
+    const onVisible = () => { if (!document.hidden) void poll(); };
+    document.addEventListener("visibilitychange", onVisible);
+    return () => { window.clearInterval(timer); document.removeEventListener("visibilitychange", onVisible); };
+  }, []);
   useEffect(() => {
     if (!busy) return;
     const prevent = (event: BeforeUnloadEvent) => { event.preventDefault(); };
@@ -53,7 +72,11 @@ export default function AdminDataProvider({ children, onSignOut }: { children: R
         // Reload authoritative state before allowing another change. This also handles
         // a lost response after a successful commit without duplicating the operation.
         try { accept(await api<AdminSnapshot>("/api/admin/state")); } catch { /* Keep the error and block editing until reload succeeds. */ }
-      } finally { message.current = ""; scheduled.current = false; setBusy(false); }
+      } finally {
+        message.current = ""; scheduled.current = false; setBusy(false);
+        // A change made while this save was running is saved next, not left waiting.
+        if (pending.current.length || events.current.length) scheduleSave();
+      }
     });
   }
   function update<K extends keyof AdminState>(key: K, change: (value: AdminState[K]) => AdminState[K]) {
