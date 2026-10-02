@@ -33,12 +33,12 @@ export const attemptDetailSchema = z.object({
 });
 
 export const userSchema = z.object({
-  id, name: z.string().trim().min(1).max(100), studentName: text.optional(),
+  id, name: z.string().trim().min(1).max(100), studentName: nullableString(text),
   email: z.union([z.email(), z.literal("")]), role: z.enum(["Super Admin", "Teacher", "Parent", "Student"]),
   status: z.enum(["Active", "Pending", "Suspended"]), section: text, completed: count,
-  score: z.number().min(0).max(100), consent: z.boolean(), assent: z.boolean(), activated: z.boolean().optional(),
-  enrolled: text.optional(), lastActive: text.optional(), createdAt: text.optional(), lastLogin: text.optional(),
-  emailVerified: z.boolean().optional(), mfaEnrolled: z.boolean().optional(),
+  score: z.number().min(0).max(100), consent: z.boolean(), assent: z.boolean(), activated: optionalBoolean,
+  enrolled: nullableString(text), lastActive: nullableString(text), createdAt: nullableString(text), lastLogin: nullableString(text),
+  emailVerified: optionalBoolean, mfaEnrolled: optionalBoolean,
 });
 export const settingsSchema = z.object({ term: text, termStart: text, termEnd: text, practicalPass: z.number().min(0).max(100), languages: text, simulationsPerWeek: count, noticeVersion: text, provisioning: z.enum(["Invitation only", "Open registration with approval"]), reactionWeighting: z.boolean() });
 const rows = <T extends z.ZodType>(schema: T) => z.array(schema).max(10000);
@@ -47,7 +47,7 @@ export const stateSchema = z.object({
   academicTerms: rows(z.object({ id, academicYearId: id, name: text, status: z.enum(["Active", "Planned"]), starts: text, ends: text })),
   grades: rows(z.object({ id, academicYearId: id, level: z.string().regex(/^(?:[1-9]|1[0-2])$/) })),
   users: rows(userSchema),
-  sections: rows(z.object({ id, name: z.string().trim().min(1).max(80), grade: text, teacherId: text, code: text, enrollment: z.boolean(), archived: optionalBoolean, termId: text.optional(), lessonsOpen: optionalBoolean, practicalOpen: optionalBoolean, passingScore: z.number().min(0).max(100).optional() })),
+  sections: rows(z.object({ id, name: z.string().trim().min(1).max(80), grade: text, teacherId: text, code: text, enrollment: z.boolean(), archived: optionalBoolean, termId: nullableString(text), lessonsOpen: optionalBoolean, practicalOpen: optionalBoolean, passingScore: nullableNumber(z.number().min(0).max(100)) })),
   modules: rows(z.object({ id: count, name: text, domain: text, status: z.enum(["Draft", "In review", "Changes requested", "Approved", "Published", "Archived"]), version: count, lessonPages: count, questions: count, scenarios: count, key: z.string().trim().min(1).max(80).optional() })),
   links: rows(z.object({ id, parentId: id, studentId: id, status: z.enum(["Active", "Pending", "Revoked"]), verifiedBy: text })),
   announcements: rows(z.object({ id, title: z.string().trim().min(1).max(200), message: z.string().min(1).max(10000), audience: text, date: text })),
@@ -99,7 +99,7 @@ export function validateState(state: AdminState, previous: AdminState, accountId
     const old = previous.users.find(u => u.id === user.id);
     if (old && old.role !== user.role) fail("Changing an existing account role is not supported.");
     for (const field of ["completed", "score", "consent", "assent", "activated", "emailVerified", "mfaEnrolled", "lastLogin", "createdAt"] as const) {
-      if (old && user[field] !== old[field]) fail(`The ${field} field cannot be changed through administration.`);
+      if (old && (user[field] ?? undefined) !== (old[field] ?? undefined)) fail(`The ${field} field cannot be changed through administration.`);
       if (!old && ["completed", "score", "consent", "assent", "activated", "emailVerified", "mfaEnrolled", "lastLogin"].includes(field) && user[field]) fail(`New records cannot include ${field}.`);
     }
   }

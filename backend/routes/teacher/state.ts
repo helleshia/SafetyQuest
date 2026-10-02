@@ -88,7 +88,7 @@ export const GET = endpoint(async () => {
 const incoming = z.object({
   revision: z.number().int().nonnegative(),
   state: z.object({
-    sections: z.array(z.object({ id: z.string(), lessonsOpen: nullableFlag, practicalOpen: nullableFlag, passingScore: z.number().min(0).max(100).optional() })).max(200),
+    sections: z.array(z.object({ id: z.string(), lessonsOpen: nullableFlag, practicalOpen: nullableFlag, passingScore: nullableNumber(z.number().min(0).max(100)) })).max(200),
     announcements: z.array(z.object({ id: z.string(), title: z.string().trim().min(1).max(200), message: z.string().min(1).max(10000), audience: z.string().max(200), date: z.string().max(60) })).max(1000),
     assignments: z.array(z.object({
       id: z.string(), moduleId: z.number().int().positive(), sectionId: z.string(), version: z.number().int().nonnegative(),
@@ -128,13 +128,14 @@ export const PUT = endpoint(async request => {
         ...section,
         lessonsOpen: section.lessonsOpen ?? undefined,
         practicalOpen: section.practicalOpen ?? undefined,
+        passingScore: section.passingScore ?? undefined,
       };
     }
     return {
       ...section,
       lessonsOpen: change.lessonsOpen ?? section.lessonsOpen ?? undefined,
       practicalOpen: change.practicalOpen ?? section.practicalOpen ?? undefined,
-      passingScore: change.passingScore ?? section.passingScore,
+      passingScore: change.passingScore ?? section.passingScore ?? undefined,
     };
   });
 

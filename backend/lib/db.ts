@@ -12,6 +12,8 @@ export async function database() {
       maxPoolSize: 20,
       minPoolSize: 1,
       maxIdleTimeMS: 60_000,
+      // Without this an `undefined` field is stored as null, which the state schemas then reject.
+      ignoreUndefined: true,
     });
     cache.mongoPromise = client.connect().catch(error => { cache.mongoPromise = undefined; throw error; });
   }
