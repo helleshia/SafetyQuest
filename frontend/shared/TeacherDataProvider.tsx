@@ -4,6 +4,7 @@ import { api } from "./api";
 import type { AdminState } from "../../shared/admin-schema";
 import type { LessonBank } from "../../shared/lesson-content";
 import LoadingStatus from "./LoadingStatus";
+import { saveRebased } from "./saveRebased";
 
 type Snapshot = AdminState & {
   revision: number;
@@ -19,7 +20,7 @@ type Snapshot = AdminState & {
 export default function TeacherDataProvider({ children, onSignOut }: { children: ReactNode; onSignOut: () => void }) {
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null);
   const current = useRef<Snapshot | null>(null);
-  const pending = useRef<AdminState | null>(null);
+  const pending = useRef<((state: AdminState) => AdminState)[]>([]);
   const events = useRef<{ action: string; detail: string }[]>([]);
   const scheduled = useRef(false);
   const message = useRef("");
@@ -57,7 +58,7 @@ export default function TeacherDataProvider({ children, onSignOut }: { children:
   useEffect(() => {
     let running = false;
     async function poll() {
-      if (running || scheduled.current || pending.current || document.hidden) return;
+      if (running || scheduled.current || pending.current.length || document.hidden) return;
       running = true;
       try {
         const latest = await api<Snapshot>("/api/teacher/state");
@@ -65,7 +66,7 @@ export default function TeacherDataProvider({ children, onSignOut }: { children:
         // without the revision moving.
         const changed = latest.revision !== current.current?.revision
           || JSON.stringify(latest.progress ?? []) !== JSON.stringify(current.current?.progress ?? []);
-        if (!scheduled.current && !pending.current && changed) accept(latest);
+        if (!scheduled.current && !pending.current.length && changed) accept(latest);
       } catch { /* A missed check is retried on the next one. */ }
       finally { running = false; }
     }
@@ -88,13 +89,17 @@ export default function TeacherDataProvider({ children, onSignOut }: { children:
     queueMicrotask(async () => {
       const base = current.current;
       if (!base) { scheduled.current = false; setBusy(false); return; }
-      const state = pending.current ?? base;
+      const changes = pending.current;
       const activity = events.current;
-      pending.current = null; events.current = [];
+      pending.current = []; events.current = [];
+      // The same changes are applied to whichever copy of the records is the latest.
+      const stateFrom = (from: Snapshot) => changes.reduce((state, change) => change(state), { ...(from as AdminState) });
       try {
-        // Only the fields a teacher may change are sent; the server ignores the rest.
-        accept(await api<Snapshot>("/api/teacher/state", "PUT", {
-          revision: base.revision,
+        accept(await saveRebased(base, () => api<Snapshot>("/api/teacher/state"), from => {
+          const state = stateFrom(from);
+          // Only the fields a teacher may change are sent; the server ignores the rest.
+          return api<Snapshot>("/api/teacher/state", "PUT", {
+          revision: from.revision,
           events: activity,
           state: {
             sections: state.sections.map(({ id, lessonsOpen, practicalOpen, passingScore }) => ({
@@ -114,6 +119,7 @@ export default function TeacherDataProvider({ children, onSignOut }: { children:
             })),
             users: state.users.filter(user => user.role === "Student").map(({ id, completed, score }) => ({ id, completed, score })),
           },
+          });
         }));
         notify(message.current || "Changes saved.");
       } catch (problem) {
@@ -125,10 +131,9 @@ export default function TeacherDataProvider({ children, onSignOut }: { children:
 
   function update<K extends keyof AdminState>(key: K, change: (value: AdminState[K]) => AdminState[K]) {
     if (!current.current) return;
-    if (!pending.current) pending.current = { ...(current.current as AdminState) };
-    pending.current[key] = change(pending.current[key]);
+    pending.current.push(state => ({ ...state, [key]: change(state[key]) }));
     // Show the change straight away; the save reconciles with the server.
-    setSnapshot(previous => (previous ? { ...previous, [key]: pending.current![key] } : previous));
+    setSnapshot(previous => (previous ? { ...previous, [key]: change(previous[key]) } : previous));
     scheduleSave();
   }
 

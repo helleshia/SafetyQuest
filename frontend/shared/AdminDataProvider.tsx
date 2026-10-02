@@ -3,11 +3,12 @@ import { DataContext, type Store } from "./store";
 import { api } from "./api";
 import { type AdminSnapshot, type AdminState, emptyAdminState } from "../../shared/admin-schema";
 import LoadingStatus from "./LoadingStatus";
+import { saveRebased } from "./saveRebased";
 
 export default function AdminDataProvider({ children, onSignOut }: { children: ReactNode; onSignOut: () => void }) {
   const [snapshot, setSnapshot] = useState<AdminSnapshot | null>(null);
   const current = useRef<AdminSnapshot | null>(null);
-  const pending = useRef<AdminState | null>(null);
+  const pending = useRef<((state: AdminState) => AdminState)[]>([]);
   const events = useRef<{ action: string; detail: string }[]>([]);
   const scheduled = useRef(false);
   const [busy, setBusy] = useState(false);
@@ -36,11 +37,16 @@ export default function AdminDataProvider({ children, onSignOut }: { children: R
     queueMicrotask(async () => {
       const base = current.current;
       if (!base) { scheduled.current = false; setBusy(false); return; }
-      const state = pending.current ?? Object.fromEntries(Object.keys(emptyAdminState()).map(key => [key, base[key as keyof AdminState]])) as AdminState;
+      const changes = pending.current;
       const activity = events.current;
-      pending.current = null; events.current = [];
+      pending.current = []; events.current = [];
+      // The same changes are applied to whichever copy of the records is the latest.
+      const stateFrom = (from: AdminSnapshot) => changes.reduce(
+        (state, change) => change(state),
+        Object.fromEntries(Object.keys(emptyAdminState()).map(key => [key, from[key as keyof AdminState]])) as AdminState,
+      );
       try {
-        accept(await api<AdminSnapshot>("/api/admin/state", "PUT", { state, revision: base.revision, events: activity }));
+        accept(await saveRebased(base, () => api<AdminSnapshot>("/api/admin/state"), from => api<AdminSnapshot>("/api/admin/state", "PUT", { state: stateFrom(from), revision: from.revision, events: activity })));
         notify(message.current || "Changes saved.");
       } catch (err) {
         setError(`Changes were not saved. ${(err as Error).message}`);
@@ -52,8 +58,7 @@ export default function AdminDataProvider({ children, onSignOut }: { children: R
   }
   function update<K extends keyof AdminState>(key: K, change: (value: AdminState[K]) => AdminState[K]) {
     if (!current.current) return;
-    if (!pending.current) pending.current = Object.fromEntries(Object.keys(emptyAdminState()).map(field => [field, current.current![field as keyof AdminState]])) as AdminState;
-    pending.current[key] = change(pending.current[key]);
+    pending.current.push(state => ({ ...state, [key]: change(state[key]) }));
     scheduleSave();
   }
   if (!snapshot) return <LoadingStatus title="Super Admin" message="Loading…" error={error} onRetry={() => void refresh()} onSignOut={onSignOut} />;
