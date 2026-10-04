@@ -30,7 +30,11 @@ export function siteOrigin(request: Request) {
 
 export async function body(request: Request) {
   if (!request.headers.get("content-type")?.includes("application/json")) throw new ApiError(415, "JSON request required.");
-  const origin = request.headers.get("origin");
+  // The student app calls /api/mobile with a bearer token and no cookie, so there is no
+  // ambient login for another site to ride on. That lets the web build of the app, hosted
+  // on its own address, call it; next.config.ts says which address may read the replies.
+  const bearerOnly = new URL(request.url).pathname.startsWith("/api/mobile/");
+  const origin = bearerOnly ? null : request.headers.get("origin");
   const allowed = allowedOrigins(request);
   if (origin && allowed.length && !allowed.includes(origin)) {
     // Naming both sides turns a dead end into something the developer can act on.
@@ -38,7 +42,7 @@ export async function body(request: Request) {
       ? "Request origin is not allowed."
       : `Request origin is not allowed: the browser sent "${origin}" but this server expects ${allowed.map(value => `"${value}"`).join(" or ")}. Set APP_ORIGIN in backend/.env to the address you open the app on, then restart.`);
   }
-  if (request.headers.get("sec-fetch-site") === "cross-site") throw new ApiError(403, "Cross-site request blocked.");
+  if (!bearerOnly && request.headers.get("sec-fetch-site") === "cross-site") throw new ApiError(403, "Cross-site request blocked.");
   const reader = request.body?.getReader();
   if (!reader) throw new ApiError(400, "Request body is missing.");
   let total = 0; const chunks: Uint8Array[] = [];

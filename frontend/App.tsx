@@ -16,6 +16,17 @@ const NAV = [["#home", "Home"], ["#about", "About"], ["#features", "Features"], 
 const TOPICS = [["01", "Earthquake", "coral"], ["02", "Fire safety", "orange"], ["03", "Flood safety", "blue"], ["04", "First aid", "yellow"], ["05", "Online safety", "lilac"], ["06", "Storm ready", "mint"]];
 // Built from mobile/ and attached to the latest GitHub release; too big to ship with the site.
 const APK_URL = "https://github.com/reycadealba07192303-ai/safetyquest/releases/latest/download/SafetyQuest.apk";
+// The student app built for the web by .github/workflows/web-app.yml and hosted on GitHub Pages.
+// An iPhone cannot install an APK, so this is how iOS students get the app.
+const WEB_APP_URL = "https://reycadealba07192303-ai.github.io/safetyquest/";
+// Advanced: an unsigned iOS build from .github/workflows/ios-ipa.yml, for AltStore or Sideloadly.
+const IPA_URL = "https://github.com/reycadealba07192303-ai/safetyquest/releases/latest/download/SafetyQuest.ipa";
+const IOS_STEPS = [
+  ["Open it in Safari", "On your iPhone or iPad, tap Open on iPhone. It must be Safari, not Chrome or the Facebook browser. If the link opens somewhere else, copy it and paste it into Safari."],
+  ["Tap Share", "Tap the Share button, the square with an arrow pointing up, at the bottom of the screen (at the top on iPad)."],
+  ["Add to Home Screen", "Scroll down, tap Add to Home Screen, then tap Add. The SafetyQuest icon appears on your home screen."],
+  ["Open and sign in", "Open SafetyQuest from your home screen like any other app. Sign in with the student ID your teacher gave you."],
+];
 const INSTALL_STEPS = [
   ["Download the app", "On your Android phone, tap Download for Android. The file is large, so use Wi-Fi if you can."],
   ["Open the file", "When the download finishes, tap the notification, or open Files and look in Downloads for SafetyQuest.apk."],
@@ -44,6 +55,9 @@ function DashboardPreview() {
 }
 
 function DownloadGuide({ onClose }: { onClose: () => void }) {
+  // Open on the tab for the phone that is looking at the page.
+  const [platform, setPlatform] = useState<"android" | "ios">(() => /iPhone|iPad|iPod/i.test(navigator.userAgent) ? "ios" : "android");
+  const ios = platform === "ios";
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };
     window.addEventListener("keydown", onKey);
@@ -52,11 +66,16 @@ function DownloadGuide({ onClose }: { onClose: () => void }) {
   return <div className="download-guide-backdrop" onMouseDown={event => { if (event.target === event.currentTarget) onClose(); }}>
     <div className="download-guide" role="dialog" aria-modal="true" aria-labelledby="download-guide-title">
       <button type="button" className="download-guide-close" onClick={onClose} aria-label="Close"><CloseIcon /></button>
-      <div className="eyebrow"><span /> Android install</div>
+      <div className="download-guide-tabs" role="tablist" aria-label="Phone type">
+        <button type="button" role="tab" aria-selected={!ios} className={!ios ? "is-active" : ""} onClick={() => setPlatform("android")}>Android</button>
+        <button type="button" role="tab" aria-selected={ios} className={ios ? "is-active" : ""} onClick={() => setPlatform("ios")}>iPhone / iPad</button>
+      </div>
       <h3 id="download-guide-title">How to download <em>SafetyQuest.</em></h3>
-      <ol>{INSTALL_STEPS.map(([title, text], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol>
-      <p className="download-guide-note">Updating? Download and install again. Your progress is saved to your account, so nothing is lost.</p>
-      <a href={APK_URL} className="download-button" download="SafetyQuest.apk">Download for Android <Arrow /></a>
+      <ol>{(ios ? IOS_STEPS : INSTALL_STEPS).map(([title, text], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol>
+      <p className="download-guide-note">{ios ? "Updating is automatic: the app refreshes itself when you open it. Your progress is saved to your account." : "Updating? Download and install again. Your progress is saved to your account, so nothing is lost."}</p>
+      {ios
+        ? <><a href={WEB_APP_URL} className="download-button">Open on iPhone <Arrow /></a><a href={IPA_URL} className="text-link download-guide-alt" download="SafetyQuest.ipa">Advanced: download the .ipa for AltStore or Sideloadly</a></>
+        : <a href={APK_URL} className="download-button" download="SafetyQuest.apk">Download for Android <Arrow /></a>}
     </div>
   </div>;
 }
@@ -125,7 +144,7 @@ export default function App() {
 
       <section className="topics section-pad"><div className="section-top"><div><div className="eyebrow"><span /> Explore the curriculum</div><h2>Find your <em>next quest.</em></h2></div><p>One platform, many ways to be ready.</p></div><div className="topic-grid">{TOPICS.map(([number, name, color]) => <a className={`topic-card ${color}`} href="#download" key={number}><span>{number}</span><strong>{name}</strong><i><Arrow /></i></a>)}</div></section>
 
-      <section id="download" className="download section-pad"><div className="download-copy"><div className="eyebrow"><span /> For students &amp; families</div><h2>Get the app.<em>Learn safety on the go.</em></h2><p>Short lessons, quick drills and your quest progress, right on your phone. Teachers and admins stay on the web; this install is for learners.</p><div className="download-actions"><a href={APK_URL} className="download-button" download="SafetyQuest.apk">Download for Android <Arrow /></a><button type="button" className="text-link" onClick={() => setGuide(true)}>How to download <Arrow /></button></div></div><AppPreview /></section>
+      <section id="download" className="download section-pad"><div className="download-copy"><div className="eyebrow"><span /> For students &amp; families</div><h2>Get the app.<em>Learn safety on the go.</em></h2><p>Short lessons, quick drills and your quest progress, right on your phone. Teachers and admins stay on the web; this install is for learners.</p><div className="download-actions"><a href={APK_URL} className="download-button" download="SafetyQuest.apk">Download for Android <Arrow /></a><a href={WEB_APP_URL} className="download-button">Open on iPhone <Arrow /></a><button type="button" className="text-link" onClick={() => setGuide(true)}>How to download <Arrow /></button></div></div><AppPreview /></section>
     </main>
 
     <footer><div className="footer-top"><a href="#home" className="brand"><BrandLogo /><span>SafetyQuest</span></a><div className="footer-links">{NAV.map(([href, label]) => <a key={href} href={href}>{label}</a>)}</div><a href="#download" className="button button-coral">Get the app <Arrow /></a></div><div className="footer-bottom"><span>Learn today. Be ready when it matters.</span><span>© 2026 SafetyQuest</span></div><div className="footer-word">SafetyQuest</div></footer></>}

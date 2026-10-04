@@ -14,5 +14,24 @@ if (existsSync(envFile)) {
   }
 }
 
-const config: NextConfig = { poweredByHeader: false, devIndicators: false };
+/* The student app's web build (installed on iPhones from Safari) is hosted on GitHub
+   Pages, so the browser treats its calls to /api/mobile as cross-site. Only that one
+   address may read the replies. Set WEB_APP_ORIGIN to change it. */
+const webAppOrigin = (process.env.WEB_APP_ORIGIN ?? "https://reycadealba07192303-ai.github.io").replace(/\/$/, "");
+
+const config: NextConfig = {
+  poweredByHeader: false,
+  devIndicators: false,
+  async headers() {
+    return [{
+      source: "/api/mobile/:path*",
+      headers: [
+        { key: "Access-Control-Allow-Origin", value: webAppOrigin },
+        { key: "Access-Control-Allow-Methods", value: "GET, POST, OPTIONS" },
+        { key: "Access-Control-Allow-Headers", value: "Content-Type, Authorization" },
+        { key: "Vary", value: "Origin" },
+      ],
+    }];
+  },
+};
 export default config;

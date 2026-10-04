@@ -56,8 +56,16 @@ class QuestApi {
 
   Future<void> clearToken() async {
     await _storage.delete(key: 'student_session');
+    await _storage.delete(key: 'student_password');
     token = null;
   }
+
+  /// The password the learner chose, kept in the device's secure storage (Keystore /
+  /// Keychain) so they can look it up on their profile. It is removed on sign-out.
+  Future<void> savePassword(String value) =>
+      _storage.write(key: 'student_password', value: value);
+
+  Future<String?> readPassword() => _storage.read(key: 'student_password');
 
   Future<Map<String, dynamic>> request(
     String route, {

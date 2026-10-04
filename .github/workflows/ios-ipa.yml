@@ -1,0 +1,66 @@
+# Builds SafetyQuest.ipa on a macOS runner and attaches it to the latest GitHub
+# release, which is where the landing page's "Download for iPhone" button points
+# (https://github.com/<repo>/releases/latest/download/SafetyQuest.ipa).
+#
+# The .ipa is NOT signed: signing needs an Apple Developer account. Students
+# install it by signing it with their own Apple ID using AltStore or Sideloadly
+# (see the guide on the landing page). To ship a signed build instead, add your
+# certificate and provisioning profile as secrets and replace the --no-codesign step.
+#
+# One-time setup: in the repo go to Settings > Secrets and variables > Actions >
+# Variables and add API_BASE_URL (the https:// address of the school server).
+name: Build iOS app
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  ipa:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.41.7
+          channel: stable
+          cache: true
+
+      - name: Check the server address is set
+        run: |
+          if [ -z "${{ vars.API_BASE_URL }}" ]; then
+            echo "::error::Add an API_BASE_URL variable (Settings > Secrets and variables > Actions > Variables)."
+            exit 1
+          fi
+
+      - run: flutter pub get
+
+      - name: Build (unsigned)
+        run: flutter build ios --release --no-codesign --dart-define=API_BASE_URL=${{ vars.API_BASE_URL }}
+
+      - name: Package SafetyQuest.ipa
+        run: |
+          rm -rf Payload SafetyQuest.ipa
+          mkdir Payload
+          cp -R build/ios/iphoneos/Runner.app Payload/Runner.app
+          zip -qry SafetyQuest.ipa Payload
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SafetyQuest-ipa
+          path: mobile/SafetyQuest.ipa
+
+      - name: Attach to the latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName -q .tagName)"
+          gh release upload "$tag" SafetyQuest.ipa --repo "$GITHUB_REPOSITORY" --clobber

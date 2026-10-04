@@ -346,3 +346,8 @@ footer { position: relative; padding: 44px max(24px, calc((100vw - 1100px) / 2))
 .idle-notice span { flex: 1; min-width: 0; }
 .idle-notice button { padding: 7px 14px; border: 0; border-radius: 20px; color: white; background: var(--coral); font: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer; }
 .idle-notice .idle-dismiss { padding: 0; width: 26px; height: 26px; color: var(--muted); background: rgba(66, 21, 27, .06); font-size: 15px; line-height: 1; }
+
+.download-guide-tabs { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); }
+.download-guide-tabs button { padding: 8px 16px; border: 0; border-radius: 999px; color: var(--muted); background: transparent; cursor: pointer; font: inherit; font-size: 13px; font-weight: 700; }
+.download-guide-tabs button.is-active { color: var(--paper); background: var(--ink); }
+.download-guide-alt { display: block; margin-top: 14px; text-align: center; font-size: 12px; }
