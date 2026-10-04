@@ -170,7 +170,7 @@ export function mobileSnapshot(
     const results = officialResults(state.assessments, user.id).filter(row => row.sectionId === student.section);
     if (!results.length) return [];
     const score = Math.round(results.reduce((sum, row) => sum + attemptScore(row), 0) / results.length);
-    return [{ label: user.id === student.id ? "You" : `Explorer ${String(index + 1).padStart(2, "0")}`, isYou: user.id === student.id, completed: results.length, stars: totalStars(results), score }];
+    return [{ label: user.id === student.id ? "You" : user.studentName?.trim() || `Explorer ${String(index + 1).padStart(2, "0")}`, isYou: user.id === student.id, completed: results.length, stars: totalStars(results), score }];
   }).sort((a, b) => b.stars - a.stars || b.score - a.score);
   // Ranked by simulation stars collected. Equal stars are split by the average
   // score; only learners equal on both share a place.
@@ -189,7 +189,8 @@ export function mobileSnapshot(
     student: { studentId: student.name, name: student.studentName || "Safety explorer", section: section?.name ?? "", completed: totals.completed, score: totals.score, passMark },
     lessons,
     earnedKeys,
-    // No names, student IDs, contacts or unpublished scores of classmates leave here.
+    // Classmates appear by name so the board feels like their class. Student IDs,
+    // contacts and unpublished scores of classmates never leave here.
     leaderboard: { scope: "Your classroom", entries: standings.map(row => ({ ...row, rank: standings.filter(other => ahead(row, other)).length + 1 })) },
   };
 }

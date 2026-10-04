@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import Icon from "../shared/Icon";
 import BrandLogo from "../shared/BrandLogo";
 import Notifications, { type NotificationItem } from "../shared/Notifications";
@@ -13,6 +13,7 @@ import { ParentAnnouncements } from "./ParentGov";
 import { linkedChildren } from "./progress";
 import { attemptScore, officialResults } from "../../shared/scoring";
 import { PARENT_NAV } from "./nav";
+import { reaches, scopesFor } from "../../shared/announcements";
 import "./parent.css";
 
 const NAV = PARENT_NAV;
@@ -31,9 +32,34 @@ type ParentScope = {
   /** The name the parent typed for the child they are viewing. */
   label: string;
   confirmChild: (studentId: string, label: string) => void;
+  /** Sign out of one child's progress without signing out of the account. */
+  closeChild: (studentId: string) => void;
   go: (page: string) => void;
   signOut: () => void;
 };
+
+/** Children a parent has checked in survive a page refresh (same tab only, gone when the
+    tab closes or the parent signs out), so refreshing to look for new notifications does not
+    mean typing the student ID again. */
+const storageKey = (parentId: string) => `sq-parent-checkin:${parentId}`;
+
+function loadCheckIns(parentId: string): { confirmed: ConfirmedChild[]; childId: string } {
+  try {
+    const raw = JSON.parse(window.sessionStorage.getItem(storageKey(parentId)) ?? "null");
+    const confirmed = Array.isArray(raw?.confirmed)
+      ? raw.confirmed.filter((item: ConfirmedChild) => typeof item?.studentId === "string" && typeof item?.label === "string")
+      : [];
+    return { confirmed, childId: typeof raw?.childId === "string" ? raw.childId : "" };
+  } catch { return { confirmed: [], childId: "" }; }
+}
+
+function saveCheckIns(parentId: string, confirmed: ConfirmedChild[], childId: string) {
+  try {
+    if (!parentId) return;
+    if (confirmed.length) window.sessionStorage.setItem(storageKey(parentId), JSON.stringify({ confirmed, childId }));
+    else window.sessionStorage.removeItem(storageKey(parentId));
+  } catch { /* Storage can be blocked; the check-in just will not survive a refresh. */ }
+}
 
 const ScopeContext = createContext<ParentScope | null>(null);
 export function useParent() {
@@ -46,17 +72,34 @@ export default function ParentApp({ onSignOut }: { onSignOut: () => void }) {
   return <ParentDataProvider onSignOut={onSignOut}><ParentShell onSignOut={onSignOut} /></ParentDataProvider>;
 }
 
-function ParentShell({ onSignOut }: { onSignOut: () => void }) {
+function ParentShell({ onSignOut: signOutAccount }: { onSignOut: () => void }) {
   const { users, links, sections, announcements, assessments, modules, toast, say, accountId } = useData();
   const [page, setPage] = useState("Overview");
   const [open, setOpen] = useState(false);
-  const [confirmed, setConfirmed] = useState<ConfirmedChild[]>([]);
-  const [childId, setChildId] = useState("");
 
   const parent = users.find(user => user.id === accountId) ?? users.find(user => user.role === "Parent");
   const parentId = parent?.id ?? "";
   const parentName = parent?.name ?? "Parent";
   const children = useMemo(() => linkedChildren(users, links, parentId), [users, links, parentId]);
+
+  const [saved] = useState(() => loadCheckIns(parentId));
+  // Only children whose link is still active count, so a link revoked while the tab was
+  // closed cannot be reopened from storage.
+  const [confirmed, setConfirmed] = useState<ConfirmedChild[]>(() => saved.confirmed.filter(item => children.some(child => child.id === item.studentId)));
+  const [childId, setChildId] = useState(saved.childId);
+  useEffect(() => { saveCheckIns(parentId, confirmed, childId); }, [parentId, confirmed, childId]);
+
+  // Signing out of the account forgets every checked-in child.
+  const onSignOut = () => { saveCheckIns(parentId, [], ""); signOutAccount(); };
+
+  const closeChild = (studentId: string) => {
+    const left = confirmed.filter(item => item.studentId !== studentId);
+    const name = confirmed.find(item => item.studentId === studentId)?.label ?? "this child";
+    setConfirmed(left);
+    if (childId === studentId) setChildId(left[0]?.studentId ?? "");
+    setPage("Overview");
+    say(left.length ? `Signed out of ${name}'s progress.` : `Signed out of ${name}'s progress. Enter a student ID to open a record again.`);
+  };
 
   const confirmChild = (studentId: string, label: string) => {
     setConfirmed(current => (current.some(item => item.studentId === studentId)
@@ -89,13 +132,15 @@ function ParentShell({ onSignOut }: { onSignOut: () => void }) {
       <div className="sa-onboard">
         <h2>This record is no longer available</h2>
         <p>Access to the child you were viewing has ended during this session. Your other children are unaffected, and none of your child's progress has been deleted.</p>
-        <button type="button" className="sa-primary" onClick={() => { setConfirmed([]); setChildId(""); }}><Icon name="arrow" />Check in again</button>
+        <button type="button" className="sa-primary" onClick={() => { closeChild(active.studentId); }}><Icon name="arrow" />Check in again</button>
       </div>
     </div>;
   }
 
   const section = sections.find(item => item.id === child.section);
-  const mine = announcements.filter(item => item.audience === section?.name || item.audience === "All adults" || item.audience === "All parents");
+  // The server already limited these to posts that reach this parent (whole school,
+  // "Everyone", "All parents", "All adults", or their children's grade or section).
+  const mine = announcements;
 
   // What a guardian is actually waiting to hear: a new published result for their
   // child, a message from the school, and any link still awaiting verification.
@@ -133,6 +178,7 @@ function ParentShell({ onSignOut }: { onSignOut: () => void }) {
     child,
     label: active.label,
     confirmChild,
+    closeChild,
     go,
     signOut: onSignOut,
   };
@@ -166,6 +212,9 @@ function ParentShell({ onSignOut }: { onSignOut: () => void }) {
               </select>
               <Icon name="down" />
             </label>}
+            <button type="button" className="sa-ghost parent-close-child" onClick={() => closeChild(child.id)} title={`Sign out of ${active.label}'s progress`}>
+              <Icon name="logout" />Close {active.label.split(/\s+/)[0]}
+            </button>
             <Notifications items={notifications} accountId={parentId} go={go} />
             <div className="sa-account"><span>{initials}</span><div><strong>{parentName}</strong><small>Parent / Guardian</small></div></div>
           </div>

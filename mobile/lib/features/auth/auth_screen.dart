@@ -76,6 +76,7 @@ class _AuthScreenState extends State<AuthScreen> {
             },
           );
           await widget.api.saveToken(result['token'] as String);
+          await widget.api.savePassword(password.text);
           password.clear();
           if (mounted) widget.onSignedIn();
         case 'contact':
@@ -91,6 +92,7 @@ class _AuthScreenState extends State<AuthScreen> {
             },
           );
           await widget.api.saveToken(result['token'] as String);
+          await widget.api.savePassword(password.text);
           password.clear();
           confirm.clear();
           if (!mounted) return;
@@ -118,6 +120,11 @@ class _AuthScreenState extends State<AuthScreen> {
     if (utf8.encode(value).length > 72) {
       return 'Please use a shorter password (at most 72 bytes).';
     }
+    final hasLetter = RegExp(r'[A-Za-z]').hasMatch(value);
+    final hasNumber = RegExp(r'[0-9]').hasMatch(value);
+    if (!hasLetter && !hasNumber) return 'Add some letters and numbers.';
+    if (!hasNumber) return 'Add at least one number, like 7 or 2025.';
+    if (!hasLetter) return 'Add at least one letter, like a or B.';
     return null;
   }
 
@@ -321,7 +328,8 @@ class _AuthScreenState extends State<AuthScreen> {
                             ),
                             const SizedBox(height: 12),
                             const Text(
-                              'At least 8 characters. A few memorable words work well.',
+                              'Your password needs 8 or more characters, with letters AND numbers. '
+                              'For example: bluesky2025',
                               style: TextStyle(fontSize: 13),
                             ),
                           ],

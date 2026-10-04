@@ -27,6 +27,11 @@ class QuestApi {
   /// Reads the address the Android build baked in, once at startup.
   static Future<void> loadConfig() async {
     if (baseUrl.isNotEmpty) return;
+    // The web build is served by the school server itself, so it calls the same address.
+    if (kIsWeb) {
+      baseUrl = Uri.base.origin;
+      return;
+    }
     try {
       baseUrl =
           await const MethodChannel(

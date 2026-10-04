@@ -14,7 +14,7 @@ test("mobile setup normalizes contacts and rejects missing contact, mismatch, ov
   }
 });
 
-test("mobile snapshot scopes lessons and published class standings without leaking identities", () => {
+test("mobile snapshot scopes lessons and published class standings without leaking IDs or contacts", () => {
   const state = emptyAdminState();
   const learner = { id: "s1", name: "SQ-001", studentName: "Ana Cruz", email: "", role: "Student" as const, status: "Active" as const, section: "a", completed: 0, score: 0, consent: false, assent: false };
   state.users = [learner, { ...learner, id: "s2", name: "SQ-002", studentName: "Private classmate" }, { ...learner, id: "s3", name: "SQ-003", section: "b" }, { ...learner, id: "s4", name: "SQ-004", status: "Suspended" }];
@@ -45,7 +45,9 @@ test("mobile snapshot scopes lessons and published class standings without leaki
   assert.equal(snapshot.leaderboard.entries[1].rank, 2);
   assert.equal(snapshot.leaderboard.entries[0].stars, 3);
   assert.equal(snapshot.leaderboard.entries[1].stars, 2);
-  for (const privateValue of ["Private classmate", "SQ-002", "SQ-003", "secret", "Awaiting review"]) assert.equal(JSON.stringify(snapshot).includes(privateValue), false);
+  // Classmates appear on the board by name; their IDs and other classes never do.
+  assert.equal(snapshot.leaderboard.entries[0].label, "Private classmate");
+  for (const privateValue of ["SQ-002", "SQ-003", "secret", "Awaiting review"]) assert.equal(JSON.stringify(snapshot).includes(privateValue), false);
   state.sections[0].lessonsOpen = false;
   const closed = mobileSnapshot(state, "s1");
   assert.equal(closed.lessons.length, 0);

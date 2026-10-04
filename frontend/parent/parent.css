@@ -264,3 +264,6 @@
   .parent-result-banner { padding: 17px; border-radius: 15px; }
   .parent-child-head { padding: 17px; border-radius: 15px; }
 }
+
+.parent-close-child { height: 38px; white-space: nowrap; }
+@media (max-width: 720px) { .parent-close-child { padding: 0 10px; } }

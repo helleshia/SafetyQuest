@@ -331,7 +331,7 @@ extension on _HomeShellState {
   }
 
   /// A round avatar for the board. You wear the app's student art; classmates
-  /// get a colour and their explorer number, never a name or a photo.
+  /// get a colour and their initials (or their explorer number when no name is on file).
   Widget _boardAvatar(
     Map<String, dynamic>? entry, {
     double size = 40,
@@ -346,7 +346,11 @@ extension on _HomeShellState {
     ];
     final isYou = entry?['isYou'] == true;
     final label = entry?['label'] as String? ?? '';
-    final digits = RegExp(r'\d+').firstMatch(label)?.group(0) ?? '?';
+    final named = !RegExp(r'^Explorer \d+$').hasMatch(label);
+    final words = label.trim().split(RegExp(r'\s+')).where((w) => w.isNotEmpty);
+    final digits = named
+        ? words.take(2).map((w) => w.substring(0, 1).toUpperCase()).join()
+        : RegExp(r'\d+').firstMatch(label)?.group(0) ?? '?';
     final tint = tints[label.codeUnits.fold<int>(0, (a, b) => a + b) % tints.length];
     return Container(
       width: size,

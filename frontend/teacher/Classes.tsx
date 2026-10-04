@@ -14,6 +14,9 @@ import ClassCard, { gradeTint } from "./ClassCard";
 import { TOTAL_LESSONS, addDays, allLessons, fromInputDate, isOverdue, standingFor, statsFor, toInputDate, type ClassLesson } from "./classData";
 import { downloadScorecardsPdf } from "./scorecardsPdf";
 import TeacherAddStudent from "./TeacherAddStudent";
+import { TeacherEditStudent, TeacherRemoveStudent, removeBlocker } from "./TeacherEditStudent";
+import AcademicActionMenu from "../admin/AcademicActionMenu";
+import { podium, rosterEntries, sortRoster, type RosterSort } from "../../shared/roster";
 import ExcelStudentUpload from "../admin/ExcelStudentUpload";
 import { useScope } from "./TeacherApp";
 
@@ -86,20 +89,42 @@ function ClassDetail({ section }: { section: Section }) {
 
 function Students({ section }: { section: Section }) {
   const store = useData();
-  const { users, assessments, assignments, modules, settings, progress, say } = store;
+  const { users, assessments, assignments, modules, settings, progress, links, say } = store;
   const scope = useScope();
   const [open, setOpen] = useState<User | null>(null);
   const [adding, setAdding] = useState(false);
   const [excel, setExcel] = useState(false);
+  const [editing, setEditing] = useState<User | null>(null);
+  const [removing, setRemoving] = useState<User | null>(null);
+  const [sort, setSort] = useState<RosterSort>("name");
   const roster = users.filter(user => user.role === "Student" && user.section === section.id);
+  const entries = rosterEntries(roster, assessments);
+  const ordered = sortRoster(entries, sort);
+  const topThree = podium(entries);
   const passMark = section.passingScore ?? settings.practicalPass;
   const lessons = allLessons(assignments, modules, section.id);
 
   if (open) return <StudentRecord student={open} section={section} onBack={() => setOpen(null)} />;
 
   return <>
+    {topThree.length > 0 && <Panel title="Top learners" icon="graduation" note="Ranked by simulation stars, then average score. Equal learners share a place." wide>
+      <ol className="tc-podium">
+        {topThree.map(entry => <li key={entry.student.id} className={`tc-podium-place is-${entry.rank}`}>
+          <b className="tc-podium-rank">{entry.rank}</b>
+          <span><strong>{nameOf(entry.student)}</strong><small>{entry.stars} ★ · {entry.average}% average</small></span>
+        </li>)}
+      </ol>
+    </Panel>}
     <Panel title="Student roster" icon="users" note="Open a learner to see their lesson and practical record." wide
       action={<div className="tc-roster-actions">
+        <label className="tc-sort">
+          <span>Sort by</span>
+          <select value={sort} onChange={event => setSort(event.target.value as RosterSort)} aria-label="Sort students">
+            <option value="name">Name (A–Z)</option>
+            <option value="high">Grade (highest first)</option>
+            <option value="low">Grade (lowest first)</option>
+          </select>
+        </label>
         <button type="button" className="sa-ghost" onClick={() => setExcel(true)}><Icon name="download" />Excel upload</button>
         <button type="button" className="sa-primary" onClick={() => setAdding(true)}><Icon name="plus" />Add student</button>
         {roster.length > 0 && <button type="button" className="sa-ghost" onClick={() => {
@@ -120,23 +145,31 @@ function Students({ section }: { section: Section }) {
         }}><Icon name="download" />Download scorecards PDF</button>}
       </div>}>
       {roster.length === 0 ? <Empty text="No learners are enrolled in this class yet. Add a student or upload an Excel CSV." /> : <div className="tc-table-scroll"><table className="sa-table sa-table-click tc-table-mid">
-        <thead><tr><th>Student</th><th>Student ID</th><th>Lessons</th><th>Practicals</th><th>Average score</th><th>Standing</th><th>Last active</th><th /></tr></thead>
-        <tbody>{roster.map(student => {
+        <thead><tr><th>Rank</th><th>Student</th><th>Student ID</th><th>Lessons</th><th>Practicals</th><th>Average score</th><th>Standing</th><th>Last active</th><th /></tr></thead>
+        <tbody>{ordered.map(({ student, average, rank }) => {
           const rows = assessments.filter(row => row.studentId === student.id);
-          const average = averageScore(officialResults(rows, student.id));
           return <tr key={student.id} onClick={() => setOpen(student)} tabIndex={0} onKeyDown={event => { if (event.key === "Enter") setOpen(student); }}>
-            <td><strong>{nameOf(student)}</strong></td>
+            <td>{rank === null ? <span className="sa-dim">—</span> : <span className={`tc-rank ${rank <= 3 ? `is-${rank}` : ""}`}>{rank}</span>}</td>
+            <td><strong>{nameOf(student)}</strong>{student.status === "Suspended" && <small className="sa-cell-sub">Suspended</small>}</td>
             <td className="sa-mono sa-dim">{student.name}</td>
             <td>{Math.min(student.completed, TOTAL_LESSONS)}<span className="sa-dim"> / {TOTAL_LESSONS}</span></td>
             <td>{rows.length}</td>
             <td className={average !== null && average < passMark ? "sa-below" : ""}>{average === null ? <span className="sa-dim">No attempts</span> : `${average}%`}</td>
             <td>{average === null ? <Pill>Pending</Pill> : <Pill>{average >= passMark ? "Active" : "Pending"}</Pill>}</td>
             <td className="sa-dim">{student.lastActive}</td>
-            <td className="sa-row-arrow"><Icon name="chevron" /></td>
+            <td className="sa-row-arrow" onClick={event => event.stopPropagation()} onKeyDown={event => event.stopPropagation()}>
+              <AcademicActionMenu label={nameOf(student)} actions={[
+                { label: "View record", icon: "person", onSelect: () => setOpen(student) },
+                { label: "Edit student", icon: "edit", onSelect: () => setEditing(student) },
+                { label: removeBlocker(student, assessments, links, assignments) ? (student.status === "Suspended" ? "Restore student" : "Suspend student") : "Remove student", icon: "trash", danger: true, onSelect: () => setRemoving(student) },
+              ]} />
+            </td>
           </tr>;
         })}</tbody>
       </table></div>}
     </Panel>
+    {editing && <TeacherEditStudent student={editing} sectionName={section.name} onClose={() => setEditing(null)} />}
+    {removing && <TeacherRemoveStudent student={removing} sectionName={section.name} blocker={removeBlocker(removing, assessments, links, assignments)} onClose={() => setRemoving(null)} />}
     {adding && <TeacherAddStudent sectionId={section.id} sectionName={section.name} onClose={() => setAdding(false)} />}
     {excel && <ExcelStudentUpload sectionId={section.id} sectionName={section.name} viaTeacherApi onClose={() => setExcel(false)} />}
   </>;

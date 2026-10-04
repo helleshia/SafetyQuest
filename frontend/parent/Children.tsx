@@ -149,7 +149,10 @@ export default function MyChildren({ allChildren }: { allChildren: User[] }) {
               <td>{sections.find(item => item.id === record?.section)?.name ?? "—"}</td>
               <td><Pill>Active</Pill></td>
               <td><Pill>Verified</Pill></td>
-              <td className="sa-cell-actions">{entry.studentId !== child.id && <button type="button" className="sa-ghost" onClick={() => scope.setChildId(entry.studentId)}>View</button>}</td>
+              <td className="sa-cell-actions">
+                {entry.studentId !== child.id && <button type="button" className="sa-ghost" onClick={() => scope.setChildId(entry.studentId)}>View</button>}
+                <button type="button" className="sa-ghost sa-danger" onClick={() => scope.closeChild(entry.studentId)}>Sign out</button>
+              </td>
             </tr>;
           })}
           {otherActive.map(item => {

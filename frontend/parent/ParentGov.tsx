@@ -4,6 +4,7 @@ import { useData } from "../shared/store";
 import { Empty, Field, Modal, Note, Panel, Pill, Stat, Toolbar } from "../shared/ui";
 import { useParent } from "./ParentApp";
 import { guardianLinks, previewNameFor } from "./progress";
+import { reaches, scopesFor } from "../../shared/announcements";
 
 export function ParentAnnouncements() {
   const { announcements, sections, users } = useData();
@@ -11,14 +12,17 @@ export function ParentAnnouncements() {
   const section = sections.find(item => item.id === scope.child.section);
   const teacher = users.find(user => user.id === section?.teacherId);
 
-  const fromSection = announcements.filter(item => item.audience === section?.name);
-  const fromSchool = announcements.filter(item => item.audience === "All adults" || item.audience === "All parents");
+  // The server only sends posts that reach this parent. Split them into the class's own
+  // posts and everything else the school sent (Everyone, All parents, All adults, a grade).
+  const classScopes = scopesFor(section ? [section] : []);
+  const fromSection = announcements.filter(item => section && item.audience.trim().toLowerCase() === section.name.trim().toLowerCase());
+  const fromSchool = announcements.filter(item => !fromSection.includes(item) && reaches(item.audience, "parents", classScopes));
 
   return <>
     <Toolbar>
       <div>
         <h2 className="sa-toolbar-title">Announcements</h2>
-        <p className="sa-toolbar-note">Messages published to {section?.name ?? "your child's section"} and to all adults. Announcements never contain student IDs, names, or results.</p>
+        <p className="sa-toolbar-note">Messages published to {section?.name ?? "your child's section"} and to the whole school. Announcements never contain student IDs, names, or results.</p>
       </div>
     </Toolbar>
 
@@ -31,7 +35,7 @@ export function ParentAnnouncements() {
         </li>)}</ul>}
     </Panel>
 
-    <Panel title="From the school" note="Published to every adult account on the platform." wide>
+    <Panel title="From the school" note="Sent to everyone, all parents, or all adults — and to your child's grade." wide>
       {fromSchool.length === 0
         ? <Empty text="No school-wide announcements right now." />
         : <ul className="sa-notice-list">{fromSchool.map(item => <li key={item.id}>

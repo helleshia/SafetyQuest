@@ -1,18 +1,24 @@
 import { useState } from "react";
 import Icon from "../shared/Icon";
-import type { Section } from "../shared/demo";
+import type { Section, User } from "../shared/demo";
 import { useData } from "../shared/store";
 import { Empty, Field, Modal, Note, Panel, Pill, Toolbar } from "../shared/ui";
+import UserEditor from "./UserEditor";
+import { studentDeleteReason } from "./academicValidation";
 
 const newCode = (grade: string, name: string) => `SQ-${grade}${name.trim().slice(0, 1).toUpperCase() || "X"}-${Math.floor(100 + Math.random() * 900)}`;
 
 export default function Sections() {
   const store = useData();
-  const { users, sections, academicYears, academicTerms, setSections, setUsers, log, say, settings } = store;
+  const { users, sections, academicYears, academicTerms, assessments, links, assignments, setSections, setUsers, log, say, settings } = store;
   const [roster, setRoster] = useState<Section | null>(null);
   const [editing, setEditing] = useState<Section | null>(null);
   const [creating, setCreating] = useState(false);
   const [transfer, setTransfer] = useState<{ studentId: string; from: string } | null>(null);
+  const [editStudent, setEditStudent] = useState<User | null>(null);
+  const [removeStudent, setRemoveStudent] = useState<User | null>(null);
+  // A learner with attempts, guardian links or individual assignments is suspended, never deleted.
+  const removeReason = removeStudent ? studentDeleteReason(removeStudent.id, assessments, links, assignments, removeStudent.name) : "";
   const teachers = users.filter(user => user.role === "Teacher" && user.status === "Active");
   const countOf = (id: string) => users.filter(user => user.role === "Student" && user.section === id && user.status === "Active").length;
 
@@ -68,10 +74,37 @@ export default function Sections() {
           <td>{student.consent ? "Verified" : "Not verified"}</td>
           <td>{student.assent ? "Given" : "Not given"}</td>
           <td>{student.completed}/15</td>
-          <td><button type="button" className="sa-ghost" onClick={() => setTransfer({ studentId: student.id, from: roster.id })}>Transfer</button></td>
+          <td className="sa-cell-actions">
+            <button type="button" className="sa-ghost" onClick={() => setEditStudent(student)}><Icon name="edit" />Edit</button>
+            <button type="button" className="sa-ghost" onClick={() => setTransfer({ studentId: student.id, from: roster.id })}>Transfer</button>
+            <button type="button" className="sa-ghost sa-danger" onClick={() => setRemoveStudent(student)}><Icon name="trash" />{studentDeleteReason(student.id, assessments, links, assignments, student.name) ? (student.status === "Suspended" ? "Restore" : "Suspend") : "Remove"}</button>
+          </td>
         </tr>)}</tbody>
       </table>}
       <Note>A class code is an enrollment locator, never permission to view or select every child in the class. The token-to-name list stays in the section teacher physical custody.</Note>
+    </Modal>}
+
+    {editStudent && <UserEditor role="Student" user={editStudent} onClose={() => setEditStudent(null)} />}
+
+    {removeStudent && <Modal title={removeReason ? (removeStudent.status === "Suspended" ? "Restore student?" : "Suspend student?") : "Remove student?"} note={removeStudent.studentName || removeStudent.name} onClose={() => setRemoveStudent(null)}>
+      <Note>{removeReason ? `${removeReason} Suspending locks them out of the app and keeps every record.` : "This permanently removes the student and their app account. This cannot be undone. Audit history is retained."}</Note>
+      <div className="sa-action-row">
+        <button type="button" className="sa-ghost" onClick={() => setRemoveStudent(null)}>Cancel</button>
+        <button type="button" className="sa-danger-button" onClick={() => {
+          const target = removeStudent;
+          if (removeReason) {
+            const next = target.status === "Suspended" ? "Active" : "Suspended";
+            setUsers(rows => rows.map(row => (row.id === target.id ? { ...row, status: next } : row)));
+            log(next === "Suspended" ? "Student suspended" : "Student restored", `${target.studentName || target.name} (${target.name})`);
+            say(`${target.studentName || target.name} ${next === "Suspended" ? "suspended" : "restored"}.`);
+          } else {
+            setUsers(rows => rows.filter(row => row.id !== target.id));
+            log("Account deleted", `Student: ${target.name}`);
+            say("Student removed.");
+          }
+          setRemoveStudent(null);
+        }}>{removeReason ? (removeStudent.status === "Suspended" ? "Restore student" : "Suspend student") : "Remove student"}</button>
+      </div>
     </Modal>}
 
     {transfer && <Modal title="Coordinate a transfer" note={`${store.nameOf(transfer.studentId)} · currently in ${store.sectionOf(transfer.from)}`} onClose={() => setTransfer(null)}>

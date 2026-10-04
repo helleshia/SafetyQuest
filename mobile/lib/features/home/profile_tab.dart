@@ -71,6 +71,8 @@ extension on _HomeShellState {
               Icons.badge_outlined,
             ),
             const Divider(height: 30),
+            _PasswordRow(api: widget.api),
+            const Divider(height: 30),
             detail(
               context,
               contact['kind'] == 'email' ? 'Parent’s email' : 'Parent’s mobile',
@@ -189,4 +191,80 @@ extension on _HomeShellState {
 
   /// A module's 3D art, the same everywhere a lesson is shown. Until a
   /// module has its art, its clay icon stands in.
+}
+
+
+/// The learner's own password, hidden until they tap the eye. It is only available on
+/// the device that signed in; after a sign-out the app no longer holds it.
+class _PasswordRow extends StatefulWidget {
+  const _PasswordRow({required this.api});
+  final QuestApi api;
+  @override
+  State<_PasswordRow> createState() => _PasswordRowState();
+}
+
+class _PasswordRowState extends State<_PasswordRow> {
+  String? saved;
+  bool loaded = false;
+  bool shown = false;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.api.readPassword().then((value) {
+      if (mounted) {
+        setState(() {
+          saved = value;
+          loaded = true;
+        });
+      }
+    }).catchError((_) {
+      if (mounted) {
+        setState(() {
+          loaded = true;
+        });
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final known = saved != null && saved!.isNotEmpty;
+    final text = !loaded
+        ? '…'
+        : !known
+            ? 'Sign out and sign in again to see it here'
+            : shown
+                ? saved!
+                : '•' * saved!.length.clamp(6, 16);
+    return Row(
+      children: [
+        const Icon(Icons.lock_outline_rounded, color: QuestColors.muted),
+        const SizedBox(width: 14),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Your password', style: TextStyle(fontSize: 12)),
+              const SizedBox(height: 4),
+              Text(text, style: Theme.of(context).textTheme.titleMedium),
+            ],
+          ),
+        ),
+        if (known)
+          IconButton(
+            tooltip: shown ? 'Hide password' : 'Show password',
+            onPressed: () => setState(() {
+              shown = !shown;
+            }),
+            icon: Icon(
+              shown
+                  ? Icons.visibility_outlined
+                  : Icons.visibility_off_outlined,
+              color: QuestColors.muted,
+            ),
+          ),
+      ],
+    );
+  }
 }

@@ -5,7 +5,7 @@ Thesis learning system for personal safety and disaster preparedness (Grade 4–
 | Part | Stack | Who uses it |
 | --- | --- | --- |
 | Web dashboard + API | React, Next.js, MongoDB Atlas, Tailwind CSS | Teachers & admins |
-| Mobile app | Flutter (Android only) | Students & parents |
+| Mobile app | Flutter (Android APK; web build on GitHub Pages for iPhone) | Students & parents |
 
 Students and parents are **PII-free**: login uses randomized tokens and codes — no names, photos, emails, or phone numbers stored for them.
 
